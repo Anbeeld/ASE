@@ -1,0 +1,223 @@
+﻿
+ase_stockpile_price_target_saving_default = {
+    default = ase_stockpile_price_target_saving_default_minus_15
+    ase_stockpile_price_target_saving_default_minus_70 = {}
+    ase_stockpile_price_target_saving_default_minus_65 = {}
+    ase_stockpile_price_target_saving_default_minus_60 = {}
+    ase_stockpile_price_target_saving_default_minus_55 = {}
+    ase_stockpile_price_target_saving_default_minus_50 = {}
+    ase_stockpile_price_target_saving_default_minus_45 = {}
+    ase_stockpile_price_target_saving_default_minus_40 = {}
+    ase_stockpile_price_target_saving_default_minus_35 = {}
+    ase_stockpile_price_target_saving_default_minus_30 = {}
+    ase_stockpile_price_target_saving_default_minus_25 = {}
+    ase_stockpile_price_target_saving_default_minus_20 = {}
+    ase_stockpile_price_target_saving_default_minus_15 = {}
+    ase_stockpile_price_target_saving_default_minus_10 = {}
+    ase_stockpile_price_target_saving_default_minus_5 = {}
+    ase_stockpile_price_target_saving_default_0 = {}
+    ase_stockpile_price_target_saving_default_plus_5 = {}
+    ase_stockpile_price_target_saving_default_plus_10 = {}
+    ase_stockpile_price_target_saving_default_plus_15 = {}
+    ase_stockpile_price_target_saving_default_plus_20 = {}
+    ase_stockpile_price_target_saving_default_plus_25 = {}
+    ase_stockpile_price_target_saving_default_plus_30 = {}
+    ase_stockpile_price_target_saving_default_plus_35 = {}
+    ase_stockpile_price_target_saving_default_plus_40 = {}
+    ase_stockpile_price_target_saving_default_plus_45 = {}
+    ase_stockpile_price_target_saving_default_plus_50 = {}
+    ase_stockpile_price_target_saving_default_plus_55 = {}
+    ase_stockpile_price_target_saving_default_plus_60 = {}
+    ase_stockpile_price_target_saving_default_plus_65 = {}
+    ase_stockpile_price_target_saving_default_plus_70 = {}
+}
+
+ase_stockpile_price_target_spending_default = {
+    default = ase_stockpile_price_target_spending_default_plus_10
+    # ase_stockpile_price_target_spending_default_minus_70 = {} # Need room to reduce saving target by 5%
+    ase_stockpile_price_target_spending_default_minus_65 = {}
+    ase_stockpile_price_target_spending_default_minus_60 = {}
+    ase_stockpile_price_target_spending_default_minus_55 = {}
+    ase_stockpile_price_target_spending_default_minus_50 = {}
+    ase_stockpile_price_target_spending_default_minus_45 = {}
+    ase_stockpile_price_target_spending_default_minus_40 = {}
+    ase_stockpile_price_target_spending_default_minus_35 = {}
+    ase_stockpile_price_target_spending_default_minus_30 = {}
+    ase_stockpile_price_target_spending_default_minus_25 = {}
+    ase_stockpile_price_target_spending_default_minus_20 = {}
+    ase_stockpile_price_target_spending_default_minus_15 = {}
+    ase_stockpile_price_target_spending_default_minus_10 = {}
+    ase_stockpile_price_target_spending_default_minus_5 = {}
+    ase_stockpile_price_target_spending_default_0 = {}
+    ase_stockpile_price_target_spending_default_plus_5 = {}
+    ase_stockpile_price_target_spending_default_plus_10 = {}
+    ase_stockpile_price_target_spending_default_plus_15 = {}
+    ase_stockpile_price_target_spending_default_plus_20 = {}
+    ase_stockpile_price_target_spending_default_plus_25 = {}
+    ase_stockpile_price_target_spending_default_plus_30 = {}
+    ase_stockpile_price_target_spending_default_plus_35 = {}
+    ase_stockpile_price_target_spending_default_plus_40 = {}
+    ase_stockpile_price_target_spending_default_plus_45 = {}
+    ase_stockpile_price_target_spending_default_plus_50 = {}
+    ase_stockpile_price_target_spending_default_plus_55 = {}
+    ase_stockpile_price_target_spending_default_plus_60 = {}
+    ase_stockpile_price_target_spending_default_plus_65 = {}
+    ase_stockpile_price_target_spending_default_plus_70 = {}
+}
+
+ase_goods_to_stockpile_by_default = {
+    default = ase_goods_to_stockpile_by_default_all_military_and_all_industrial
+    ase_goods_to_stockpile_by_default_none = {}
+    ase_goods_to_stockpile_by_default_important_consumer = {}
+    ase_goods_to_stockpile_by_default_all_consumer = {}
+    ase_goods_to_stockpile_by_default_important_industrial = {}
+    ase_goods_to_stockpile_by_default_most_industrial = {}
+    ase_goods_to_stockpile_by_default_all_industrial = {}
+    ase_goods_to_stockpile_by_default_all_industrial_and_important_consumer = {}
+    ase_goods_to_stockpile_by_default_all_industrial_and_all_consumer = {}
+    ase_goods_to_stockpile_by_default_all_military = {}
+    ase_goods_to_stockpile_by_default_all_military_and_important_industrial = {}
+    ase_goods_to_stockpile_by_default_all_military_and_most_industrial = {}
+    ase_goods_to_stockpile_by_default_all_military_and_all_industrial = {}
+    ase_goods_to_stockpile_by_default_all_military_and_all_industrial_and_important_consumer = {}
+    ase_goods_to_stockpile_by_default_all = {}
+}
+
+ase_ai_countries_that_are_allowed_to_stockpile = {
+    default = ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power
+    ase_ai_countries_that_are_allowed_to_stockpile_all_except_decentralized = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_at_least_major_power = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_at_least_great_power = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_none = {}
+}
+
+ase_percentage_of_stockpiling_states_player = {
+    default = ase_percentage_of_stockpiling_states_player_085
+    ase_percentage_of_stockpiling_states_player_0 = {}
+    ase_percentage_of_stockpiling_states_player_005 = {}
+    ase_percentage_of_stockpiling_states_player_010 = {}
+    ase_percentage_of_stockpiling_states_player_015 = {}
+    ase_percentage_of_stockpiling_states_player_020 = {}
+    ase_percentage_of_stockpiling_states_player_025 = {}
+    ase_percentage_of_stockpiling_states_player_030 = {}
+    ase_percentage_of_stockpiling_states_player_035 = {}
+    ase_percentage_of_stockpiling_states_player_040 = {}
+    ase_percentage_of_stockpiling_states_player_045 = {}
+    ase_percentage_of_stockpiling_states_player_050 = {}
+    ase_percentage_of_stockpiling_states_player_055 = {}
+    ase_percentage_of_stockpiling_states_player_060 = {}
+    ase_percentage_of_stockpiling_states_player_065 = {}
+    ase_percentage_of_stockpiling_states_player_070 = {}
+    ase_percentage_of_stockpiling_states_player_075 = {}
+    ase_percentage_of_stockpiling_states_player_080 = {}
+    ase_percentage_of_stockpiling_states_player_085 = {}
+    ase_percentage_of_stockpiling_states_player_090 = {}
+    ase_percentage_of_stockpiling_states_player_095 = {}
+    ase_percentage_of_stockpiling_states_player_100 = {}
+}
+
+ase_percentage_of_stockpiling_states_ai = {
+    default = ase_percentage_of_stockpiling_states_ai_030
+    ase_percentage_of_stockpiling_states_ai_0 = {}
+    ase_percentage_of_stockpiling_states_ai_005 = {}
+    ase_percentage_of_stockpiling_states_ai_010 = {}
+    ase_percentage_of_stockpiling_states_ai_015 = {}
+    ase_percentage_of_stockpiling_states_ai_020 = {}
+    ase_percentage_of_stockpiling_states_ai_025 = {}
+    ase_percentage_of_stockpiling_states_ai_030 = {}
+    ase_percentage_of_stockpiling_states_ai_035 = {}
+    ase_percentage_of_stockpiling_states_ai_040 = {}
+    ase_percentage_of_stockpiling_states_ai_045 = {}
+    ase_percentage_of_stockpiling_states_ai_050 = {}
+    ase_percentage_of_stockpiling_states_ai_055 = {}
+    ase_percentage_of_stockpiling_states_ai_060 = {}
+    ase_percentage_of_stockpiling_states_ai_065 = {}
+    ase_percentage_of_stockpiling_states_ai_070 = {}
+    ase_percentage_of_stockpiling_states_ai_075 = {}
+    ase_percentage_of_stockpiling_states_ai_080 = {}
+    ase_percentage_of_stockpiling_states_ai_085 = {}
+    ase_percentage_of_stockpiling_states_ai_090 = {}
+    ase_percentage_of_stockpiling_states_ai_095 = {}
+    ase_percentage_of_stockpiling_states_ai_100 = {}
+}
+
+ase_stockpile_reserve_weeks_target_factor = {
+    default = ase_stockpile_reserve_weeks_target_factor_100
+    ase_stockpile_reserve_weeks_target_factor_025 = {}
+    ase_stockpile_reserve_weeks_target_factor_050 = {}
+    ase_stockpile_reserve_weeks_target_factor_075 = {}
+    ase_stockpile_reserve_weeks_target_factor_100 = {}
+    ase_stockpile_reserve_weeks_target_factor_125 = {}
+    ase_stockpile_reserve_weeks_target_factor_150 = {}
+    ase_stockpile_reserve_weeks_target_factor_175 = {}
+    ase_stockpile_reserve_weeks_target_factor_200 = {}
+}
+
+ase_stockpile_reserve_weeks_max_factor = {
+    default = ase_stockpile_reserve_weeks_max_factor_100
+    ase_stockpile_reserve_weeks_max_factor_025 = {}
+    ase_stockpile_reserve_weeks_max_factor_050 = {}
+    ase_stockpile_reserve_weeks_max_factor_075 = {}
+    ase_stockpile_reserve_weeks_max_factor_100 = {}
+    ase_stockpile_reserve_weeks_max_factor_125 = {}
+    ase_stockpile_reserve_weeks_max_factor_150 = {}
+    ase_stockpile_reserve_weeks_max_factor_175 = {}
+    ase_stockpile_reserve_weeks_max_factor_200 = {}
+}
+
+ase_stockpile_market_owner_fixed_share = {
+    default = ase_stockpile_market_owner_fixed_share_025
+    ase_stockpile_market_owner_fixed_share_0 = {}
+    ase_stockpile_market_owner_fixed_share_005 = {}
+    ase_stockpile_market_owner_fixed_share_010 = {}
+    ase_stockpile_market_owner_fixed_share_015 = {}
+    ase_stockpile_market_owner_fixed_share_020 = {}
+    ase_stockpile_market_owner_fixed_share_025 = {}
+    ase_stockpile_market_owner_fixed_share_030 = {}
+    ase_stockpile_market_owner_fixed_share_035 = {}
+    ase_stockpile_market_owner_fixed_share_040 = {}
+    ase_stockpile_market_owner_fixed_share_045 = {}
+    ase_stockpile_market_owner_fixed_share_050 = {}
+    ase_stockpile_market_owner_fixed_share_055 = {}
+    ase_stockpile_market_owner_fixed_share_060 = {}
+    ase_stockpile_market_owner_fixed_share_065 = {}
+    ase_stockpile_market_owner_fixed_share_070 = {}
+    ase_stockpile_market_owner_fixed_share_075 = {}
+    ase_stockpile_market_owner_fixed_share_080 = {}
+    ase_stockpile_market_owner_fixed_share_085 = {}
+    ase_stockpile_market_owner_fixed_share_090 = {}
+    ase_stockpile_market_owner_fixed_share_095 = {}
+    ase_stockpile_market_owner_fixed_share_100 = {}
+}
+
+ase_stockpile_country_capital_fixed_share = {
+    default = ase_stockpile_country_capital_fixed_share_010
+    ase_stockpile_country_capital_fixed_share_0 = {}
+    ase_stockpile_country_capital_fixed_share_005 = {}
+    ase_stockpile_country_capital_fixed_share_010 = {}
+    ase_stockpile_country_capital_fixed_share_015 = {}
+    ase_stockpile_country_capital_fixed_share_020 = {}
+    ase_stockpile_country_capital_fixed_share_025 = {}
+    ase_stockpile_country_capital_fixed_share_030 = {}
+    ase_stockpile_country_capital_fixed_share_035 = {}
+    ase_stockpile_country_capital_fixed_share_040 = {}
+    ase_stockpile_country_capital_fixed_share_045 = {}
+    ase_stockpile_country_capital_fixed_share_050 = {}
+    ase_stockpile_country_capital_fixed_share_055 = {}
+    ase_stockpile_country_capital_fixed_share_060 = {}
+    ase_stockpile_country_capital_fixed_share_065 = {}
+    ase_stockpile_country_capital_fixed_share_070 = {}
+    ase_stockpile_country_capital_fixed_share_075 = {}
+    ase_stockpile_country_capital_fixed_share_080 = {}
+    ase_stockpile_country_capital_fixed_share_085 = {}
+    ase_stockpile_country_capital_fixed_share_090 = {}
+    ase_stockpile_country_capital_fixed_share_095 = {}
+    ase_stockpile_country_capital_fixed_share_100 = {}
+}
+
+ase_restrictions_on_setting_price_targets = {
+    default = ase_restrictions_on_setting_price_targets_negative_saving_positive_spending
+    ase_restrictions_on_setting_price_targets_negative_saving_positive_spending = {}
+    ase_restrictions_on_setting_price_targets_none = {}
+}

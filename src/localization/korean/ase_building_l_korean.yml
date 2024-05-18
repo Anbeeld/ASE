@@ -1,0 +1,11 @@
+﻿l_korean:
+ building_ase_stockpile_saving:0 "$ASE_STOCKPILE_WORD$"
+ building_ase_stockpile_spending:0 "$ASE_STOCKPILE_WORD$"
+ pmg_ase_stockpile_saving_base:0 "$ASE_STOCKPILE_WORD$ $ASE_SAVING_WORD$"
+ pmg_ase_stockpile_saving_input:0 "$ASE_STOCKPILE_WORD$ $ASE_SAVING_WORD$ $ASE_INPUT_WORD$"
+ pmg_ase_stockpile_spending_base:0 "$ASE_STOCKPILE_WORD$ $ASE_SPENDING_WORD$"
+ pmg_ase_stockpile_spending_output:0 "$ASE_STOCKPILE_WORD$ $ASE_SPENDING_WORD$ $ASE_OUTPUT_WORD$"
+ pm_ase_stockpile_saving_base:0 "$ASE_STOCKPILE_WORD$ $ASE_SAVING_WORD$"
+ pm_ase_stockpile_saving_input:0 "$ASE_STOCKPILE_WORD$ $ASE_SAVING_WORD$ $ASE_INPUT_WORD$"
+ pm_ase_stockpile_spending_base:0 "$ASE_STOCKPILE_WORD$ $ASE_SPENDING_WORD$"
+ pm_ase_stockpile_spending_output:0 "$ASE_STOCKPILE_WORD$ $ASE_SPENDING_WORD$ $ASE_OUTPUT_WORD$"

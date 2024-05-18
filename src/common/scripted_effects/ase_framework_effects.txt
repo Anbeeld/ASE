@@ -1,0 +1,174 @@
+﻿
+ase_set_up_all_goods_as_available_globally = {
+    ase_perform_effect_for_every_market_goods = {
+        effect = ase_set_up_the_goods_as_available_globally
+    }
+}
+
+ase_set_up_the_goods_as_available_globally = {
+    if = {
+        limit = {
+            NOT = {
+                has_global_variable = ase_goods_can_be_stockpiled_$goods$
+            }
+        }
+        set_global_variable = ase_goods_can_be_stockpiled_$goods$
+    }
+}
+
+ase_check_what_goods_are_available_globally = {
+    ase_perform_effect_for_every_market_goods = {
+        effect = ase_reset_goods_available_global_variable
+    }
+
+    every_market = {
+        limit = {
+            exists = owner
+            owner = {
+                ase_is_country_allowed_to_stockpile = yes
+            }
+        }
+        ase_perform_effect_for_every_market_goods = {
+            effect = ase_check_if_goods_are_available_in_market
+        }
+    }
+}
+
+ase_reset_goods_available_global_variable = {
+    if = {
+        limit = {
+            has_global_variable = ase_goods_can_be_stockpiled_$goods$
+        }
+        remove_global_variable = ase_goods_can_be_stockpiled_$goods$
+    }
+}
+
+ase_check_if_goods_are_available_in_market = {
+    if = {
+        limit = {
+            NOT = {
+                has_global_variable = ase_goods_can_be_stockpiled_$goods$
+            }
+            ase_can_market_stockpile_goods = {
+                goods = $goods$
+            }
+        }
+        set_global_variable = ase_goods_can_be_stockpiled_$goods$
+    }
+}
+
+ase_call_main_event_from_random_countries = {
+    random_country = {
+        trigger_event = {
+            id = ase_framework_events.2
+            days = 1
+        }
+        trigger_event = {
+            id = ase_framework_events.2
+            days = 2
+        }
+    }
+    random_country = {
+        trigger_event = {
+            id = ase_framework_events.2
+            days = 1
+        }
+        trigger_event = {
+            id = ase_framework_events.2
+            days = 2
+        }
+    }
+}
+
+ase_initialize_stockpile_loop_distribution = {
+
+    # Required for ase_should_country_stockpile_goods_in_direction, don't wanna create a separate effect
+    if = {
+        limit = {
+            NOT = {
+                has_global_variable = ase_country_stockpile_direction_saving
+            }
+        }
+        set_global_variable = {
+            name = ase_country_stockpile_direction_saving
+            value = 1
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                has_global_variable = ase_country_stockpile_direction_spending
+            }
+        }
+        set_global_variable = {
+            name = ase_country_stockpile_direction_spending
+            value = 2
+        }
+    }
+
+    if = {
+        limit = {
+            NOT = {
+                has_global_variable = ase_stockpile_loop_distribution
+            }
+        }
+        set_global_variable = {
+            name = ase_stockpile_loop_distribution
+            value = 1
+        }
+
+        set_local_variable = {
+            name = ase_stockpile_loop_distribution
+            value = 1
+        }
+        ordered_country = {
+            limit = {
+                NOT = {
+                    has_variable = ase_stockpile_loop_distribution
+                }
+                ase_is_country_allowed_to_stockpile = yes
+            }
+            order_by = gdp
+            min = 0
+
+            set_variable = {
+                name = ase_stockpile_loop_distribution
+                value = local_var:ase_stockpile_loop_distribution
+            }
+
+            change_local_variable = {
+                name = ase_stockpile_loop_distribution
+                add = 1
+            }
+            if = {
+                limit = {
+                    local_var:ase_stockpile_loop_distribution > 7
+                }
+                change_local_variable = {
+                    name = ase_stockpile_loop_distribution
+                    subtract = 7
+                }
+            }
+        }
+        remove_local_variable = ase_stockpile_loop_distribution
+    }
+    else = {
+        every_country = {
+            limit = {
+                NOT = {
+                    has_variable = ase_stockpile_loop_distribution
+                }
+                ase_is_country_allowed_to_stockpile = yes
+            }
+            set_variable = {
+                name = ase_stockpile_loop_distribution
+                value = {
+                    integer_range = {
+                        min = 1
+                        max = 7
+                    }
+                }
+            }
+        }
+    }
+}

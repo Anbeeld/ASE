@@ -1,0 +1,584 @@
+﻿
+ase_stockpile_input_mult_all_goods = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_aeroplanes_mult = -1
+    goods_input_ammunition_mult = -1
+    goods_input_artillery_mult = -1
+    goods_input_automobiles_mult = -1
+    goods_input_clippers_mult = -1
+    goods_input_clothes_mult = -1
+    goods_input_coal_mult = -1
+    goods_input_coffee_mult = -1
+    goods_input_dye_mult = -1
+    goods_input_engines_mult = -1
+    goods_input_explosives_mult = -1
+    goods_input_fabric_mult = -1
+    goods_input_fertilizer_mult = -1
+    goods_input_fine_art_mult = -1
+    goods_input_fish_mult = -1
+    goods_input_fruit_mult = -1
+    goods_input_furniture_mult = -1
+    goods_input_glass_mult = -1
+    goods_input_grain_mult = -1
+    goods_input_groceries_mult = -1
+    goods_input_hardwood_mult = -1
+    goods_input_iron_mult = -1
+    goods_input_ironclads_mult = -1
+    goods_input_lead_mult = -1
+    goods_input_liquor_mult = -1
+    goods_input_luxury_clothes_mult = -1
+    goods_input_luxury_furniture_mult = -1
+    goods_input_manowars_mult = -1
+    goods_input_meat_mult = -1
+    goods_input_oil_mult = -1
+    goods_input_opium_mult = -1
+    goods_input_paper_mult = -1
+    goods_input_porcelain_mult = -1
+    goods_input_radios_mult = -1
+    goods_input_rubber_mult = -1
+    goods_input_silk_mult = -1
+    goods_input_small_arms_mult = -1
+    goods_input_steamers_mult = -1
+    goods_input_steel_mult = -1
+    goods_input_sugar_mult = -1
+    goods_input_sulfur_mult = -1
+    goods_input_tanks_mult = -1
+    goods_input_tea_mult = -1
+    goods_input_telephones_mult = -1
+    goods_input_tobacco_mult = -1
+    goods_input_tools_mult = -1
+    goods_input_wine_mult = -1
+    goods_input_wood_mult = -1
+}
+
+ase_stockpile_input_mult_aeroplanes = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_aeroplanes_mult = 1
+}
+
+ase_stockpile_input_mult_ammunition = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_ammunition_mult = 1
+}
+
+ase_stockpile_input_mult_artillery = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_artillery_mult = 1
+}
+
+ase_stockpile_input_mult_automobiles = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_automobiles_mult = 1
+}
+
+ase_stockpile_input_mult_clippers = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_clippers_mult = 1
+}
+
+ase_stockpile_input_mult_clothes = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_clothes_mult = 1
+}
+
+ase_stockpile_input_mult_coal = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_coal_mult = 1
+}
+
+ase_stockpile_input_mult_coffee = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_coffee_mult = 1
+}
+
+ase_stockpile_input_mult_dye = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_dye_mult = 1
+}
+
+ase_stockpile_input_mult_engines = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_engines_mult = 1
+}
+
+ase_stockpile_input_mult_explosives = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_explosives_mult = 1
+}
+
+ase_stockpile_input_mult_fabric = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_fabric_mult = 1
+}
+
+ase_stockpile_input_mult_fertilizer = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_fertilizer_mult = 1
+}
+
+ase_stockpile_input_mult_fine_art = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_fine_art_mult = 1
+}
+
+ase_stockpile_input_mult_fish = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_fish_mult = 1
+}
+
+ase_stockpile_input_mult_fruit = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_fruit_mult = 1
+}
+
+ase_stockpile_input_mult_furniture = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_furniture_mult = 1
+}
+
+ase_stockpile_input_mult_glass = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_glass_mult = 1
+}
+
+ase_stockpile_input_mult_grain = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_grain_mult = 1
+}
+
+ase_stockpile_input_mult_groceries = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_groceries_mult = 1
+}
+
+ase_stockpile_input_mult_hardwood = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_hardwood_mult = 1
+}
+
+ase_stockpile_input_mult_iron = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_iron_mult = 1
+}
+
+ase_stockpile_input_mult_ironclads = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_ironclads_mult = 1
+}
+
+ase_stockpile_input_mult_lead = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_lead_mult = 1
+}
+
+ase_stockpile_input_mult_liquor = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_liquor_mult = 1
+}
+
+ase_stockpile_input_mult_luxury_clothes = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_luxury_clothes_mult = 1
+}
+
+ase_stockpile_input_mult_luxury_furniture = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_luxury_furniture_mult = 1
+}
+
+ase_stockpile_input_mult_manowars = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_manowars_mult = 1
+}
+
+ase_stockpile_input_mult_meat = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_meat_mult = 1
+}
+
+ase_stockpile_input_mult_oil = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_oil_mult = 1
+}
+
+ase_stockpile_input_mult_opium = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_opium_mult = 1
+}
+
+ase_stockpile_input_mult_paper = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_paper_mult = 1
+}
+
+ase_stockpile_input_mult_porcelain = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_porcelain_mult = 1
+}
+
+ase_stockpile_input_mult_radios = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_radios_mult = 1
+}
+
+ase_stockpile_input_mult_rubber = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_rubber_mult = 1
+}
+
+ase_stockpile_input_mult_silk = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_silk_mult = 1
+}
+
+ase_stockpile_input_mult_small_arms = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_small_arms_mult = 1
+}
+
+ase_stockpile_input_mult_steamers = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_steamers_mult = 1
+}
+
+ase_stockpile_input_mult_steel = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_steel_mult = 1
+}
+
+ase_stockpile_input_mult_sugar = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_sugar_mult = 1
+}
+
+ase_stockpile_input_mult_sulfur = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_sulfur_mult = 1
+}
+
+ase_stockpile_input_mult_tanks = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_tanks_mult = 1
+}
+
+ase_stockpile_input_mult_tea = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_tea_mult = 1
+}
+
+ase_stockpile_input_mult_telephones = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_telephones_mult = 1
+}
+
+ase_stockpile_input_mult_tobacco = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_tobacco_mult = 1
+}
+
+ase_stockpile_input_mult_tools = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_tools_mult = 1
+}
+
+ase_stockpile_input_mult_wine = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_wine_mult = 1
+}
+
+ase_stockpile_input_mult_wood = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_wood_mult = 1
+}
+
+ase_stockpile_output_mult_all_goods = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_aeroplanes_mult = -1
+    goods_output_ammunition_mult = -1
+    goods_output_artillery_mult = -1
+    goods_output_automobiles_mult = -1
+    goods_output_clippers_mult = -1
+    goods_output_clothes_mult = -1
+    goods_output_coal_mult = -1
+    goods_output_coffee_mult = -1
+    goods_output_dye_mult = -1
+    goods_output_engines_mult = -1
+    goods_output_explosives_mult = -1
+    goods_output_fabric_mult = -1
+    goods_output_fertilizer_mult = -1
+    goods_output_fine_art_mult = -1
+    goods_output_fish_mult = -1
+    goods_output_fruit_mult = -1
+    goods_output_furniture_mult = -1
+    goods_output_glass_mult = -1
+    goods_output_grain_mult = -1
+    goods_output_groceries_mult = -1
+    goods_output_hardwood_mult = -1
+    goods_output_iron_mult = -1
+    goods_output_ironclads_mult = -1
+    goods_output_lead_mult = -1
+    goods_output_liquor_mult = -1
+    goods_output_luxury_clothes_mult = -1
+    goods_output_luxury_furniture_mult = -1
+    goods_output_manowars_mult = -1
+    goods_output_meat_mult = -1
+    goods_output_oil_mult = -1
+    goods_output_opium_mult = -1
+    goods_output_paper_mult = -1
+    goods_output_porcelain_mult = -1
+    goods_output_radios_mult = -1
+    goods_output_rubber_mult = -1
+    goods_output_silk_mult = -1
+    goods_output_small_arms_mult = -1
+    goods_output_steamers_mult = -1
+    goods_output_steel_mult = -1
+    goods_output_sugar_mult = -1
+    goods_output_sulfur_mult = -1
+    goods_output_tanks_mult = -1
+    goods_output_tea_mult = -1
+    goods_output_telephones_mult = -1
+    goods_output_tobacco_mult = -1
+    goods_output_tools_mult = -1
+    goods_output_wine_mult = -1
+    goods_output_wood_mult = -1
+}
+
+ase_stockpile_output_mult_aeroplanes = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_aeroplanes_mult = 1
+}
+
+ase_stockpile_output_mult_ammunition = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_ammunition_mult = 1
+}
+
+ase_stockpile_output_mult_artillery = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_artillery_mult = 1
+}
+
+ase_stockpile_output_mult_automobiles = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_automobiles_mult = 1
+}
+
+ase_stockpile_output_mult_clippers = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_clippers_mult = 1
+}
+
+ase_stockpile_output_mult_clothes = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_clothes_mult = 1
+}
+
+ase_stockpile_output_mult_coal = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_coal_mult = 1
+}
+
+ase_stockpile_output_mult_coffee = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_coffee_mult = 1
+}
+
+ase_stockpile_output_mult_dye = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_dye_mult = 1
+}
+
+ase_stockpile_output_mult_engines = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_engines_mult = 1
+}
+
+ase_stockpile_output_mult_explosives = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_explosives_mult = 1
+}
+
+ase_stockpile_output_mult_fabric = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_fabric_mult = 1
+}
+
+ase_stockpile_output_mult_fertilizer = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_fertilizer_mult = 1
+}
+
+ase_stockpile_output_mult_fine_art = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_fine_art_mult = 1
+}
+
+ase_stockpile_output_mult_fish = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_fish_mult = 1
+}
+
+ase_stockpile_output_mult_fruit = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_fruit_mult = 1
+}
+
+ase_stockpile_output_mult_furniture = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_furniture_mult = 1
+}
+
+ase_stockpile_output_mult_glass = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_glass_mult = 1
+}
+
+ase_stockpile_output_mult_grain = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_grain_mult = 1
+}
+
+ase_stockpile_output_mult_groceries = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_groceries_mult = 1
+}
+
+ase_stockpile_output_mult_hardwood = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_hardwood_mult = 1
+}
+
+ase_stockpile_output_mult_iron = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_iron_mult = 1
+}
+
+ase_stockpile_output_mult_ironclads = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_ironclads_mult = 1
+}
+
+ase_stockpile_output_mult_lead = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_lead_mult = 1
+}
+
+ase_stockpile_output_mult_liquor = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_liquor_mult = 1
+}
+
+ase_stockpile_output_mult_luxury_clothes = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_luxury_clothes_mult = 1
+}
+
+ase_stockpile_output_mult_luxury_furniture = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_luxury_furniture_mult = 1
+}
+
+ase_stockpile_output_mult_manowars = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_manowars_mult = 1
+}
+
+ase_stockpile_output_mult_meat = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_meat_mult = 1
+}
+
+ase_stockpile_output_mult_oil = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_oil_mult = 1
+}
+
+ase_stockpile_output_mult_opium = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_opium_mult = 1
+}
+
+ase_stockpile_output_mult_paper = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_paper_mult = 1
+}
+
+ase_stockpile_output_mult_porcelain = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_porcelain_mult = 1
+}
+
+ase_stockpile_output_mult_radios = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_radios_mult = 1
+}
+
+ase_stockpile_output_mult_rubber = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_rubber_mult = 1
+}
+
+ase_stockpile_output_mult_silk = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_silk_mult = 1
+}
+
+ase_stockpile_output_mult_small_arms = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_small_arms_mult = 1
+}
+
+ase_stockpile_output_mult_steamers = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_steamers_mult = 1
+}
+
+ase_stockpile_output_mult_steel = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_steel_mult = 1
+}
+
+ase_stockpile_output_mult_sugar = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_sugar_mult = 1
+}
+
+ase_stockpile_output_mult_sulfur = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_sulfur_mult = 1
+}
+
+ase_stockpile_output_mult_tanks = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_tanks_mult = 1
+}
+
+ase_stockpile_output_mult_tea = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_tea_mult = 1
+}
+
+ase_stockpile_output_mult_telephones = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_telephones_mult = 1
+}
+
+ase_stockpile_output_mult_tobacco = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_tobacco_mult = 1
+}
+
+ase_stockpile_output_mult_tools = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_tools_mult = 1
+}
+
+ase_stockpile_output_mult_wine = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_wine_mult = 1
+}
+
+ase_stockpile_output_mult_wood = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_output_wood_mult = 1
+}

@@ -1,0 +1,147 @@
+﻿
+ase_perform_effect_for_every_market_goods = {
+    $effect$ = {
+        goods = aeroplanes
+    }
+    $effect$ = {
+        goods = ammunition
+    }
+    $effect$ = {
+        goods = artillery
+    }
+    $effect$ = {
+        goods = automobiles
+    }
+    $effect$ = {
+        goods = clippers
+    }
+    $effect$ = {
+        goods = clothes
+    }
+    $effect$ = {
+        goods = coal
+    }
+    $effect$ = {
+        goods = coffee
+    }
+    $effect$ = {
+        goods = dye
+    }
+    $effect$ = {
+        goods = engines
+    }
+    $effect$ = {
+        goods = explosives
+    }
+    $effect$ = {
+        goods = fabric
+    }
+    $effect$ = {
+        goods = fertilizer
+    }
+    $effect$ = {
+        goods = fine_art
+    }
+    $effect$ = {
+        goods = fish
+    }
+    $effect$ = {
+        goods = fruit
+    }
+    $effect$ = {
+        goods = furniture
+    }
+    $effect$ = {
+        goods = glass
+    }
+    $effect$ = {
+        goods = grain
+    }
+    $effect$ = {
+        goods = groceries
+    }
+    $effect$ = {
+        goods = hardwood
+    }
+    $effect$ = {
+        goods = iron
+    }
+    $effect$ = {
+        goods = ironclads
+    }
+    $effect$ = {
+        goods = lead
+    }
+    $effect$ = {
+        goods = liquor
+    }
+    $effect$ = {
+        goods = luxury_clothes
+    }
+    $effect$ = {
+        goods = luxury_furniture
+    }
+    $effect$ = {
+        goods = manowars
+    }
+    $effect$ = {
+        goods = meat
+    }
+    $effect$ = {
+        goods = oil
+    }
+    $effect$ = {
+        goods = opium
+    }
+    $effect$ = {
+        goods = paper
+    }
+    $effect$ = {
+        goods = porcelain
+    }
+    $effect$ = {
+        goods = radios
+    }
+    $effect$ = {
+        goods = rubber
+    }
+    $effect$ = {
+        goods = silk
+    }
+    $effect$ = {
+        goods = small_arms
+    }
+    $effect$ = {
+        goods = steamers
+    }
+    $effect$ = {
+        goods = steel
+    }
+    $effect$ = {
+        goods = sugar
+    }
+    $effect$ = {
+        goods = sulfur
+    }
+    $effect$ = {
+        goods = tanks
+    }
+    $effect$ = {
+        goods = tea
+    }
+    $effect$ = {
+        goods = telephones
+    }
+    $effect$ = {
+        goods = tobacco
+    }
+    $effect$ = {
+        goods = tools
+    }
+    $effect$ = {
+        goods = wine
+    }
+    $effect$ = {
+        goods = wood
+    }
+}

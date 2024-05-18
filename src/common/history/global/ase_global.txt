@@ -1,0 +1,8 @@
+﻿
+GLOBAL = {
+    # To make stockpile interface work right away
+    ase_set_up_all_goods_as_available_globally = yes
+
+    # An alternative to on_yearly_pulse_country
+    ase_call_main_event_from_random_countries = yes
+}

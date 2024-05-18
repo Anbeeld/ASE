@@ -1,0 +1,418 @@
+﻿
+ase_stockpile_toggle_direction_permission = {
+    set_variable = {
+        name = ase_stockpile_$direction$_allowed_$goods$
+        value = {
+            if = {
+                limit = {
+                    ase_should_country_stockpile_goods_in_direction = {
+                        goods = $goods$
+                        direction = $direction$
+                    }
+                }
+                value = 0
+            }
+            else = {
+                value = 1
+            }
+        }
+    }
+}
+
+ase_stockpile_toggle_direction_permission_both = {
+    if = {
+        limit = {
+            NOT = {
+                ase_should_country_stockpile_goods_in_direction = {
+                    goods = $goods$
+                    direction = saving
+                }
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                ase_should_country_stockpile_goods_in_direction = {
+                    goods = $goods$
+                    direction = spending
+                }
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_toggle_direction_permission_saving = {
+    if = {
+        limit = {
+            NOT = {
+                ase_should_country_stockpile_goods_in_direction = {
+                    goods = $goods$
+                    direction = saving
+                }
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    if = {
+        limit = {
+            ase_should_country_stockpile_goods_in_direction = {
+                goods = $goods$
+                direction = spending
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_toggle_direction_permission_spending = {
+    if = {
+        limit = {
+            ase_should_country_stockpile_goods_in_direction = {
+                goods = $goods$
+                direction = saving
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                ase_should_country_stockpile_goods_in_direction = {
+                    goods = $goods$
+                    direction = spending
+                }
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_toggle_direction_permission_none = {
+    if = {
+        limit = {
+            ase_should_country_stockpile_goods_in_direction = {
+                goods = $goods$
+                direction = saving
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    if = {
+        limit = {
+            ase_should_country_stockpile_goods_in_direction = {
+                goods = $goods$
+                direction = spending
+            }
+        }
+        ase_stockpile_toggle_direction_permission = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_country_price_target_saving_decrease = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_stockpile_country_price_target_saving_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_stockpile_country_price_target_saving_$goods$
+            value = ase_stockpile_country_price_target_saving_$goods$
+        }
+    }
+    change_variable = {
+        name = ase_stockpile_country_price_target_saving_$goods$
+        subtract = ase_stockpile_country_price_target_margin
+    }
+}
+
+ase_stockpile_country_price_target_saving_increase = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_stockpile_country_price_target_saving_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_stockpile_country_price_target_saving_$goods$
+            value = ase_stockpile_country_price_target_saving_$goods$
+        }
+    }
+    change_variable = {
+        name = ase_stockpile_country_price_target_saving_$goods$
+        add = ase_stockpile_country_price_target_margin
+    }
+
+    while = {
+        limit = {
+            ase_stockpile_country_price_target_spending_$goods$ <= ase_stockpile_country_price_target_saving_$goods$
+        }
+        ase_stockpile_country_price_target_spending_increase = {
+            goods = $goods$
+        }
+    }
+}
+
+ase_stockpile_country_price_target_spending_decrease = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_stockpile_country_price_target_spending_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_stockpile_country_price_target_spending_$goods$
+            value = ase_stockpile_country_price_target_spending_$goods$
+        }
+    }
+    change_variable = {
+        name = ase_stockpile_country_price_target_spending_$goods$
+        subtract = ase_stockpile_country_price_target_margin
+    }
+
+    while = {
+        limit = {
+            ase_stockpile_country_price_target_saving_$goods$ >= ase_stockpile_country_price_target_spending_$goods$
+        }
+        ase_stockpile_country_price_target_saving_decrease = {
+            goods = $goods$
+        }
+    }
+}
+
+ase_stockpile_country_price_target_spending_increase = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_stockpile_country_price_target_spending_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_stockpile_country_price_target_spending_$goods$
+            value = ase_stockpile_country_price_target_spending_$goods$
+        }
+    }
+    change_variable = {
+        name = ase_stockpile_country_price_target_spending_$goods$
+        add = ase_stockpile_country_price_target_margin
+    }
+}
+
+ase_stockpile_country_reserve_weeks_target_decrease = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+            value = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+        }
+    }
+    change_variable = {
+        name = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+        subtract = ase_stockpile_country_reserve_weeks_factor_margin
+    }
+}
+
+ase_stockpile_country_reserve_weeks_target_increase = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+            value = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+        }
+    }
+    change_variable = {
+        name = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+        add = ase_stockpile_country_reserve_weeks_factor_margin
+    }
+}
+
+ase_stockpile_create_list_of_states_in_market = {
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_states_in_market_unordered_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_states_in_market_unordered_$goods$
+    }
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_states_in_market_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_states_in_market_$goods$
+    }
+
+    save_scope_as = ase_sgui_marker_owner
+
+    market = {
+        every_scope_country = {
+            limit = {
+                OR = {
+                    ase_is_country_allowed_to_stockpile = yes
+                    market.owner = {
+                        ase_is_country_allowed_to_stockpile = no
+                    }
+                }
+            }
+            every_scope_state = {
+                limit = {
+                    OR = {
+                        ase_stockpile_state_reserve_$goods$ > 0
+                        ase_stockpile_state_transfer_$goods$ > 0
+                    }
+                }
+                scope:ase_sgui_marker_owner = {
+                    add_to_variable_list = {
+                        name = ase_stockpile_sgui_states_in_market_unordered_$goods$
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+
+    ordered_in_list = {
+        variable = ase_stockpile_sgui_states_in_market_unordered_$goods$
+        order_by = ase_stockpile_state_reserve_$goods$
+        min = 0
+        scope:ase_sgui_marker_owner = {
+            add_to_variable_list = {
+                name = ase_stockpile_sgui_states_in_market_$goods$
+                target = prev
+            }
+        }
+    }
+
+    clear_saved_scope = ase_sgui_marker_owner
+
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_states_in_market_unordered_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_states_in_market_unordered_$goods$
+    }
+}
+
+ase_stockpile_clear_list_of_states_in_market = {
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_states_in_market_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_states_in_market_$goods$
+    }
+}
+
+ase_stockpile_create_list_of_states_in_country = {
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_states_in_country_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_states_in_country_$goods$
+    }
+
+    ordered_scope_state = {
+        limit = {
+            OR = {
+                ase_stockpile_state_reserve_$goods$ > 0
+                ase_stockpile_state_transfer_$goods$ > 0
+            }
+        }
+        order_by = ase_stockpile_state_reserve_$goods$
+        min = 0
+        owner = {
+            add_to_variable_list = {
+                name = ase_stockpile_sgui_states_in_country_$goods$
+                target = prev
+            }
+        }
+    }
+}
+
+ase_stockpile_clear_list_of_states_in_country = {
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_states_in_country_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_states_in_country_$goods$
+    }
+}
+
+ase_stockpile_create_list_of_countries_in_market = {
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_countries_in_market_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_countries_in_market_$goods$
+    }
+
+    save_scope_as = ase_sgui_marker_owner
+
+    market = {
+        ordered_scope_country = {
+            limit = {
+                OR = {
+                    ase_is_country_allowed_to_stockpile = yes
+                    market.owner = {
+                        ase_is_country_allowed_to_stockpile = no
+                    }
+                }
+                OR = {
+                    ase_stockpile_country_reserve_$goods$ > 0
+                    ase_stockpile_country_transfer_$goods$ > 0
+                }
+            }
+            order_by = ase_stockpile_country_reserve_$goods$
+            min = 0
+            scope:ase_sgui_marker_owner = {
+                add_to_variable_list = {
+                    name = ase_stockpile_sgui_countries_in_market_$goods$
+                    target = prev
+                }
+            }
+        }
+    }
+
+    clear_saved_scope = ase_sgui_marker_owner
+}
+
+ase_stockpile_clear_list_of_countries_in_market = {
+    if = {
+        limit = {
+            has_variable_list = ase_stockpile_sgui_countries_in_market_$goods$
+        }
+        clear_variable_list = ase_stockpile_sgui_countries_in_market_$goods$
+    }
+}

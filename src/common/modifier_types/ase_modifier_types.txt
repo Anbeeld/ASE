@@ -1,0 +1,432 @@
+﻿
+goods_input_coffee_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_fine_art_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_furniture_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_luxury_clothes_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_luxury_furniture_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_porcelain_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_tea_add = {
+    good = yes
+    percent = no
+}
+
+goods_input_aeroplanes_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_automobiles_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_clippers_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_clothes_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_coal_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_coffee_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_dye_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_engines_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_explosives_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_fabric_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_fertilizer_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_fine_art_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_fish_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_fruit_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_furniture_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_glass_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_grain_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_groceries_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_hardwood_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_iron_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_ironclads_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_lead_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_liquor_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_luxury_clothes_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_luxury_furniture_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_manowars_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_meat_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_opium_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_paper_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_porcelain_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_rubber_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_silk_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_steamers_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_steel_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_sugar_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_sulfur_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_tea_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_telephones_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_tobacco_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_tools_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_wine_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_input_wood_mult = {
+    good = no
+    percent = yes
+    num_decimals = 0
+}
+
+goods_output_ammunition_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_clothes_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_coal_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_coffee_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_dye_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_explosives_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_fertilizer_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_fine_art_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_fish_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_furniture_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_glass_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_grain_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_groceries_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_iron_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_lead_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_luxury_clothes_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_luxury_furniture_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_meat_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_opium_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_paper_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_porcelain_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_radios_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_rubber_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_steel_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_sulfur_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_tea_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_telephones_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_tobacco_mult = {
+    good = yes
+    percent = yes
+}
+
+goods_output_wood_mult = {
+    good = yes
+    percent = yes
+}

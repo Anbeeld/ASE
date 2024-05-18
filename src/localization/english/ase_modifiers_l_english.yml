@@ -1,0 +1,3 @@
+﻿l_english:
+ ase_stockpile_input_mult_all_goods:0 "$ASE_STOCKPILE_WORD$ $ASE_INPUT_WORD$"
+ ase_stockpile_output_mult_all_goods:0 "$ASE_STOCKPILE_WORD$ $ASE_OUTPUT_WORD$"

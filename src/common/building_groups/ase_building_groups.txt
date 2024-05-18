@@ -1,0 +1,35 @@
+﻿
+bg_ase_stockpile = {
+    # category = development
+
+    is_shown_in_outliner = no
+
+    always_possible = yes
+    
+    is_government_funded = yes
+    
+    min_hiring_rate = 1.0
+    max_hiring_rate = 1.0
+    
+    # ignores_productivity_when_hiring = yes
+    
+    proportionality_limit = 1.0
+    
+    economy_of_scale = no
+    
+    can_use_slaves = yes
+    
+    default_building = building_ase_stockpile_saving
+    
+    # cash_reserves_max = 0
+    
+    urbanization = 0
+    
+    infrastructure_usage_per_level = 0
+    
+    fired_pops_become_radical = no
+    
+    should_auto_expand = {
+        always = no
+    }
+}

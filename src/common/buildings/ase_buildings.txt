@@ -1,0 +1,30 @@
+﻿
+building_ase_stockpile_saving = {
+    texture = "gfx/interface/icons/building_icons/building_trade_center.dds"
+    building_group = bg_ase_stockpile
+    production_method_groups = {
+        pmg_ase_stockpile_saving_base
+        pmg_ase_stockpile_saving_input
+    }
+    buildable = no
+    expandable = no
+    downsizeable = no
+    min_raise_to_hire = -1.0
+    residence_points_per_level = 0
+    levels_per_mesh = 2
+}
+
+building_ase_stockpile_spending = {
+    texture = "gfx/interface/icons/building_icons/building_trade_center.dds"
+    building_group = bg_ase_stockpile
+    production_method_groups = {
+        pmg_ase_stockpile_spending_base
+        pmg_ase_stockpile_spending_output
+    }
+    buildable = no
+    expandable = no
+    downsizeable = no
+    min_raise_to_hire = -1.0
+    residence_points_per_level = 0
+    levels_per_mesh = 2
+}

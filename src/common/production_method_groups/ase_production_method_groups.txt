@@ -1,0 +1,28 @@
+﻿
+pmg_ase_stockpile_saving_base = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    production_methods = {
+        pm_ase_stockpile_saving_base
+    }
+}
+
+pmg_ase_stockpile_saving_input = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    production_methods = {
+        pm_ase_stockpile_saving_input
+    }
+}
+
+pmg_ase_stockpile_spending_base = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    production_methods = {
+        pm_ase_stockpile_spending_base
+    }
+}
+
+pmg_ase_stockpile_spending_output = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    production_methods = {
+        pm_ase_stockpile_spending_output
+    }
+}

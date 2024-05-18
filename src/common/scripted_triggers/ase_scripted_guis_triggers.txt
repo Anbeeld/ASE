@@ -1,0 +1,80 @@
+﻿
+ase_stockpile_toggle_direction_permission_both_is_shown = {
+    ase_should_country_stockpile_goods_in_direction = {
+        goods = $goods$
+        direction = saving
+    }
+    ase_should_country_stockpile_goods_in_direction = {
+        goods = $goods$
+        direction = spending
+    }
+}
+
+ase_stockpile_toggle_direction_permission_saving_is_shown = {
+    ase_should_country_stockpile_goods_in_direction = {
+        goods = $goods$
+        direction = saving
+    }
+    NOT = {
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_toggle_direction_permission_spending_is_shown = {
+    NOT = {
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    ase_should_country_stockpile_goods_in_direction = {
+        goods = $goods$
+        direction = spending
+    }
+}
+
+ase_stockpile_toggle_direction_permission_none_is_shown = {
+    NOR = {
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = saving
+        }
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_country_price_target_saving_decrease_is_valid = {
+    this = market.owner
+    ase_stockpile_country_price_target_saving_$goods$ > ase_stockpile_country_price_target_saving_min
+}
+
+ase_stockpile_country_price_target_saving_increase_is_valid = {
+    this = market.owner
+    ase_stockpile_country_price_target_saving_$goods$ < ase_stockpile_country_price_target_saving_max
+}
+
+ase_stockpile_country_price_target_spending_decrease_is_valid = {
+    this = market.owner
+    ase_stockpile_country_price_target_spending_$goods$ > ase_stockpile_country_price_target_spending_min
+}
+
+ase_stockpile_country_price_target_spending_increase_is_valid = {
+    this = market.owner
+    ase_stockpile_country_price_target_spending_$goods$ < ase_stockpile_country_price_target_spending_max
+}
+
+ase_stockpile_country_reserve_weeks_target_decrease_is_valid = {
+    this = market.owner
+    ase_stockpile_country_reserve_weeks_target_factor_$goods$ > ase_stockpile_goods_reserve_weeks_factor_lower_limit
+}
+
+ase_stockpile_country_reserve_weeks_target_increase_is_valid = {
+    this = market.owner
+    ase_stockpile_country_reserve_weeks_target_factor_$goods$ < ase_stockpile_country_reserve_weeks_max_factor_$goods$
+}

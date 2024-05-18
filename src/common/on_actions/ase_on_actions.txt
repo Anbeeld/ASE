@@ -1,0 +1,253 @@
+﻿
+on_yearly_pulse_country = {
+    events = {
+        ase_framework_events.1
+    }
+}
+
+on_half_yearly_pulse_country = {
+    events = {
+        ase_framework_events.3
+    }
+}
+
+# Root = From Market
+# scope:market = Market merging into
+# scope:trade_center = Trade Center state of root
+on_merge_markets = {
+    on_actions = {
+        ase_on_merge_markets
+    }
+}
+
+ase_on_merge_markets = {
+    effect = {
+        if = {
+            limit = {
+                exists = owner
+            }
+            owner = {
+                trigger_event = {
+                    id = ase_framework_events.3
+                }
+            }
+        }
+        scope:market = {
+            if = {
+                limit = {
+                    exists = owner
+                }
+            }
+            owner = {
+                trigger_event = {
+                    id = ase_framework_events.3
+                }
+            }
+        }
+    }
+}
+
+# Root = The newly created market
+on_create_market = {
+    on_actions = {
+        ase_on_create_market
+    }
+}
+
+ase_on_create_market = {
+    effect = {
+        if = {
+            limit = {
+                exists = owner
+            }
+            owner = {
+                trigger_event = {
+                    id = ase_framework_events.3
+                }
+            }
+        }
+    }
+}
+
+# Root = Releasing Country
+# scope:target = Released Country
+on_country_released_as_independent = {
+    on_actions = {
+        ase_on_country_released_as_independent
+    }
+}
+
+ase_on_country_released_as_independent = {
+    effect = {
+        trigger_event = {
+            id = ase_framework_events.3
+        }
+        scope:target = {
+            trigger_event = {   
+                id = ase_framework_events.3
+            }
+        }
+    }
+}
+
+# Root = Releasing Country
+# scope:target = Released Country
+on_country_released_as_own_subject = {
+    on_actions = {
+        ase_on_country_released_as_own_subject
+    }
+}
+
+ase_on_country_released_as_own_subject = {
+    effect = {
+        trigger_event = {
+            id = ase_framework_events.3
+        }
+        scope:target = {
+            trigger_event = {   
+                id = ase_framework_events.3
+            }
+        }
+    }
+}
+
+# Root = Releasing Country
+# scope:target = Released Country
+on_country_released_as_overlord_subject = {
+    on_actions = {
+        ase_on_country_released_as_overlord_subject
+    }
+}
+
+ase_on_country_released_as_overlord_subject = {
+    effect = {
+        trigger_event = {
+            id = ase_framework_events.3
+        }
+        scope:target = {
+            trigger_event = {   
+                id = ase_framework_events.3
+            }
+        }
+    }
+}
+
+# Root = Country
+on_country_formed = {
+    events = {
+        ase_framework_events.3
+    }
+}
+
+# Root = Country
+on_capitulation = {
+    events = {
+        ase_framework_events.3
+    }
+}
+
+# Root = Country
+# scope:target = Uprising country
+on_revolution_start = {
+    on_actions = {
+        ase_on_revolution_start
+    }
+}
+
+ase_on_revolution_start = {
+    effect = {
+        trigger_event = {
+            id = ase_framework_events.3
+        }
+        scope:target = {
+            trigger_event = {   
+                id = ase_framework_events.3
+            }
+        }
+    }
+}
+
+# Root = Country
+# scope:target = Uprising country
+on_secession_start = {
+    on_actions = {
+        ase_on_secession_start
+    }
+}
+
+ase_on_secession_start = {
+    effect = {
+        trigger_event = {
+            id = ase_framework_events.3
+        }
+        scope:target = {
+            trigger_event = {   
+                id = ase_framework_events.3
+            }
+        }
+    }
+}
+
+# Root = Country
+# This action is triggered after `on_revolution_end`
+on_civil_war_won = {
+    events = {
+        ase_framework_events.3
+    }
+}
+
+# Root = Country
+on_wargoal_enforced = {
+    events = {
+        ase_framework_events.3
+    }
+}
+
+# Root = Country
+on_rank_changed = {
+	on_actions = {
+        ase_on_rank_changed
+    }
+}
+
+ase_on_rank_changed = {
+    effect = {
+        if = {
+            limit = {
+                NOT = {
+                    is_country_type = decentralized
+                }
+                NOT = {
+                    this = market.owner
+                }
+            }
+            market.owner = {
+                ase_recalculate_market_and_country_reserve = yes
+            }
+        }
+    }
+}
+
+# Root = Diplomatic Play
+# scope:actor = Initiator country
+# scope:target = Target country
+on_war_end = {
+	on_actions = {
+        ase_on_war_end
+    }
+}
+
+ase_on_war_end = {
+    effect = {
+        scope:actor = {
+            trigger_event = {
+                id = ase_framework_events.3
+            }
+        }
+        scope:target = {
+            trigger_event = {   
+                id = ase_framework_events.3
+            }
+        }
+    }
+}

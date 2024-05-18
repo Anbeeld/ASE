@@ -1,0 +1,165 @@
+﻿
+ase_is_country_allowed_to_stockpile = {
+    trigger_if = {
+        limit = {
+            is_player = yes
+        }
+        always = yes
+    }
+    trigger_else = {
+        NOT = {
+            is_country_type = decentralized
+        }
+        OR = {
+
+            # Either rank is allowed by game rules...
+            AND = {
+                trigger_if = {
+                    limit = {
+                        has_game_rule = ase_ai_countries_that_are_allowed_to_stockpile_all_except_decentralized
+                    }
+                    always = yes
+                }
+                trigger_else_if = {
+                    limit = {
+                        has_game_rule = ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power
+                    }
+                    country_rank >= 3
+                }
+                trigger_else_if = {
+                    limit = {
+                        has_game_rule = ase_ai_countries_that_are_allowed_to_stockpile_at_least_major_power
+                    }
+                    country_rank >= 5
+                }
+                trigger_else_if = {
+                    limit = {
+                        has_game_rule = ase_ai_countries_that_are_allowed_to_stockpile_at_least_great_power
+                    }
+                    country_rank >= 7
+                }
+                trigger_else_if = {
+                    limit = {
+                        has_game_rule = ase_ai_countries_that_are_allowed_to_stockpile_none
+                    }
+                    always = no
+                }
+                trigger_else = {
+                    always = yes
+                }
+            }
+
+            # ...or there's player junior in the market and we don't wanna block him from stockpiling
+            AND = {
+                exists = market
+                market = {
+                    exists = owner
+                    owner = prev
+                    any_scope_country = {
+                        is_player = yes
+                    }
+                }
+            }
+        }
+    }
+}
+
+ase_can_market_stockpile_goods = {
+    mg:$goods$ = {
+        OR = {
+            market_goods_buy_orders > 0
+            market_goods_sell_orders > 0
+        }
+    }
+}
+
+ase_should_country_stockpile_goods = {
+    OR = {
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = saving
+        }
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_should_country_stockpile_goods_in_direction = {
+
+    # For players we just check if it's allowed by default or custom settings
+    trigger_if = {
+        limit = {
+            is_player = yes
+        }
+        trigger_if = {
+            limit = {
+                has_variable = ase_stockpile_$direction$_allowed_$goods$
+            }
+            var:ase_stockpile_$direction$_allowed_$goods$ = 1
+        }
+        trigger_else = {
+            NOT = {
+                has_game_rule = ase_goods_to_stockpile_by_default_none
+            }
+            ase_stockpile_goods_priority_$goods$ <= ase_stockpile_priority_required_default_max
+            ase_stockpile_goods_priority_$goods$ >= ase_stockpile_priority_required_default_min
+        }
+    }
+
+    # For AI we check if their priority level allows it, and if it's market owner or it's fine with owner's targets
+    trigger_else = {
+        ase_stockpile_goods_priority_$goods$ >= ase_country_ai_good_priority_required
+
+        # Saving
+        trigger_if = { 
+            limit = {
+                global_var:ase_country_stockpile_direction_$direction$ = 1
+            }
+            OR = {
+                this = market.owner
+                # AI shouldn't buy stuff it thinks is too expensive
+                ase_stockpile_country_price_target_saving_$goods$ >= market.owner.ase_stockpile_country_price_target_saving_$goods$
+            }
+        }
+        
+        # Spending
+        trigger_else = {
+            OR = {
+                this = market.owner
+                # Juniors not spending their stockpiles cause you have slightly wrong spending target feels bad
+                market.owner.ase_stockpile_country_price_target_spending_$goods$ >= 0
+            }
+        }
+    }
+}
+
+ase_should_country_stockpile_goods_in_current_direction = {
+    trigger_if = {
+        limit = {
+            local_var:ase_meets_stockpile_saving_price_target = 1
+        }
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            local_var:ase_meets_stockpile_spending_price_target = 1
+        }
+        ase_should_country_stockpile_goods_in_direction = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+ase_is_state_allowed_to_stockpile = {
+    is_incorporated = yes
+    market_access >= 0.50
+}

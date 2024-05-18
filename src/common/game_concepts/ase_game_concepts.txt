@@ -1,0 +1,16 @@
+﻿
+concept_ase_mod_description = {}
+
+concept_ase_market_stockpile = {}
+
+concept_ase_country_stockpile = {}
+
+concept_ase_stockpile_transfer = {}
+
+concept_ase_stockpile_reserve = {}
+
+concept_ase_stockpile_policy = {}
+
+concept_ase_stockpile_capacity = {}
+
+concept_ase_stockpile_price_target = {}

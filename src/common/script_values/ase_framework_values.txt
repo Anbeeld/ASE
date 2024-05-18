@@ -1,0 +1,26 @@
+﻿
+ase_days_since_last_event_execution = {
+    if = {
+        limit = {
+            NOT = {
+                has_global_variable = ase_date_of_last_event_execution
+            }
+        }
+        value = 1
+    }
+    else = {
+        value = game_date
+        subtract = global_var:ase_date_of_last_event_execution
+        min = 0
+    }
+}
+
+ase_num_main_event_executions_modulo_14 = {
+    value = global_var:ase_num_main_event_executions
+    modulo = 14
+}
+
+ase_num_main_event_executions_modulo_28 = {
+    value = global_var:ase_num_main_event_executions
+    modulo = 28
+}
