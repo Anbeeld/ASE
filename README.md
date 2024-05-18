@@ -6,9 +6,9 @@ The mod allows you to set **Price Targets** for all goods individually, and then
 
 **Stockpile** is stored on a **state basis**. It may be all states in the country or just a few of them, depending on game rules you set. The ability for players to manually control which states can stockpile which goods is not implemented yet, but you may expect it in the future updates.
 
-**[Steam Workshop]()**
-**[Paradox Mods]()**
-**[Paradox Forum]()**
+**[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3249228964)**  
+**[Paradox Mods](https://mods.paradoxplaza.com/mods/81091/Any)**  
+**[Paradox Forum](https://forum.paradoxplaza.com/forum/threads/mod-anbeelds-stockpile-economy.1679214/)**
 
 [![Support my work!](https://i.imgur.com/Xp3sMoF.jpeg)](https://buymeacoffee.com/anbeeld)
 
