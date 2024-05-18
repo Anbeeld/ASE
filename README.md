@@ -26,4 +26,4 @@ Doesn't work with non-vanilla goods, but in theory it's possible to create compa
 4) Place your "Anbeeld's Stockpile Economy" folder here.
 5) Open launcher and add the mod to your playset or create a new playset with it if you don't have one.
 
-![Anbeeld's Stockpile Economy]()
+![Anbeeld's Stockpile Economy](https://forumcontent.paradoxplaza.com/public/1125490/1.jpg)
