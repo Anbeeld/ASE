@@ -2,7 +2,7 @@
 
 **Anbeeld's Stockpile Economy** aka **ASE** is a mod that aims to implement a general stockpile system in Victoria 3. The goal is to make it feel like a natural, useful and important part of the game that fits well into its market design. It has a friendly UI and helpful tooltips, can be used by both players and AI countries and is optimized to impact performance as little as possible.
 
-The mod allows you to set **Price Targets** for all goods individually, and then the **Stockpile** of your country will buy them when the price falls below **Saving** target and sell when it's below **Spending** target. Naturally, **Saving** costs money for the government, while **Spending** means you'll get the money back, as in both cases you buy and sell goods directly in the market.
+The mod allows you to set **Price Targets** for all goods individually, and then the **Stockpile** of your country will buy them when the price falls below **Saving** target and sell when it's above **Spending** target. Naturally, **Saving** costs money for the government, while **Spending** means you'll get the money back, as in both cases you buy and sell goods directly in the market.
 
 **Stockpile** is stored on a **state basis**. It may be all states in the country or just a few of them, depending on game rules you set. The ability for players to manually control which states can stockpile which goods is not implemented yet, but you may expect it in the future updates.
 
