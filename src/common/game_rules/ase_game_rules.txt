@@ -83,13 +83,14 @@ ase_goods_to_stockpile_by_default = {
     ase_goods_to_stockpile_by_default_all = {}
 }
 
-ase_ai_countries_that_are_allowed_to_stockpile = {
-    default = ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power
-    ase_ai_countries_that_are_allowed_to_stockpile_all_except_decentralized = {}
-    ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power = {}
-    ase_ai_countries_that_are_allowed_to_stockpile_at_least_major_power = {}
-    ase_ai_countries_that_are_allowed_to_stockpile_at_least_great_power = {}
-    ase_ai_countries_that_are_allowed_to_stockpile_none = {}
+ase_goods_that_can_be_stockpiled_by_ai = {
+    default = ase_goods_that_can_be_stockpiled_by_ai_all_military_and_most_industrial
+    ase_goods_that_can_be_stockpiled_by_ai_all_military = {}
+    ase_goods_that_can_be_stockpiled_by_ai_all_military_and_important_industrial = {}
+    ase_goods_that_can_be_stockpiled_by_ai_all_military_and_most_industrial = {}
+    ase_goods_that_can_be_stockpiled_by_ai_all_military_and_all_industrial = {}
+    ase_goods_that_can_be_stockpiled_by_ai_all_military_and_all_industrial_and_important_consumer = {}
+    ase_goods_that_can_be_stockpiled_by_ai_all = {}
 }
 
 ase_percentage_of_stockpiling_states_player = {
@@ -166,31 +167,6 @@ ase_stockpile_reserve_weeks_max_factor = {
     ase_stockpile_reserve_weeks_max_factor_200 = {}
 }
 
-ase_stockpile_market_owner_fixed_share = {
-    default = ase_stockpile_market_owner_fixed_share_025
-    ase_stockpile_market_owner_fixed_share_0 = {}
-    ase_stockpile_market_owner_fixed_share_005 = {}
-    ase_stockpile_market_owner_fixed_share_010 = {}
-    ase_stockpile_market_owner_fixed_share_015 = {}
-    ase_stockpile_market_owner_fixed_share_020 = {}
-    ase_stockpile_market_owner_fixed_share_025 = {}
-    ase_stockpile_market_owner_fixed_share_030 = {}
-    ase_stockpile_market_owner_fixed_share_035 = {}
-    ase_stockpile_market_owner_fixed_share_040 = {}
-    ase_stockpile_market_owner_fixed_share_045 = {}
-    ase_stockpile_market_owner_fixed_share_050 = {}
-    ase_stockpile_market_owner_fixed_share_055 = {}
-    ase_stockpile_market_owner_fixed_share_060 = {}
-    ase_stockpile_market_owner_fixed_share_065 = {}
-    ase_stockpile_market_owner_fixed_share_070 = {}
-    ase_stockpile_market_owner_fixed_share_075 = {}
-    ase_stockpile_market_owner_fixed_share_080 = {}
-    ase_stockpile_market_owner_fixed_share_085 = {}
-    ase_stockpile_market_owner_fixed_share_090 = {}
-    ase_stockpile_market_owner_fixed_share_095 = {}
-    ase_stockpile_market_owner_fixed_share_100 = {}
-}
-
 ase_stockpile_country_capital_fixed_share = {
     default = ase_stockpile_country_capital_fixed_share_010
     ase_stockpile_country_capital_fixed_share_0 = {}
@@ -214,6 +190,15 @@ ase_stockpile_country_capital_fixed_share = {
     ase_stockpile_country_capital_fixed_share_090 = {}
     ase_stockpile_country_capital_fixed_share_095 = {}
     ase_stockpile_country_capital_fixed_share_100 = {}
+}
+
+ase_ai_countries_that_are_allowed_to_stockpile = {
+    default = ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power
+    ase_ai_countries_that_are_allowed_to_stockpile_all_except_decentralized = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_at_least_minor_power = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_at_least_major_power = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_at_least_great_power = {}
+    ase_ai_countries_that_are_allowed_to_stockpile_none = {}
 }
 
 ase_restrictions_on_setting_price_targets = {

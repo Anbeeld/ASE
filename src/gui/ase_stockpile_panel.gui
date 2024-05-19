@@ -136,7 +136,42 @@ types stockpile
         # Visible if it's market of player country, if there are some reserves on market level, and reserves on country
         # level do not equal 100% of reserves on market level.
         flowcontainer = {
-            visible = "[And(ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)1'))))]"
+
+            # Is the market of the player, the market has more than one country in it, there is some reserve in the
+            # market, the player is either a junior market partner or market owner that doesn't have 100% of reserve.
+            # visible = "[
+            #     And(
+            #         ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket),
+            #         And(
+            #             GreaterThan_CFixedPoint(
+            #                 GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'),
+            #                 '(CFixedPoint)1'
+            #             ),
+            #             And(
+            #                 Not(
+            #                     EqualTo_CFixedPoint(
+            #                         GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)),
+            #                         '(CFixedPoint)0'
+            #                     )
+            #                 ),
+            #                 Or(
+            #                     Not(
+            #                         ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)
+            #                     ),
+            #                     Not(
+            #                         EqualTo_CFixedPoint(
+            #                             GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)),
+            #                             '(CFixedPoint)1'
+            #                         )
+            #                     )
+            #                 )
+            #             )
+            #         )
+            #     )
+            # ]"
+
+            visible = "[And(ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket), And(GreaterThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'), '(CFixedPoint)1'), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Or(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)1'))))))]"
+
             margin = { 2 10 }
 
             default_progressbar_horizontal = {
@@ -422,24 +457,12 @@ types stockpile
                 layoutpolicy_horizontal = expanding
             }
 
-            # TODO Show NONE when observing AI country that's not allowed to stockpile ~ visible = "[Or(And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0')), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue('ase_is_country_allowed_to_stockpile_value'), '(CFixedPoint)0'))]"
             textbox = {
-                visible = "[And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0'))]"
-                autoresize = yes
-                align = left|nobaseline
-                margin_right = 7
-                text = "ASE_STOCKPILE_NONE"
-                tooltip = "ASE_STOCKPILE_NONE_TOOLTIP"
-            }
-
-            textbox = {
-                visible = "[Not(And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0')))]"
                 autoresize = yes
                 align = nobaseline
                 raw_text = "[FixedPointToInt(Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_weeks_target_', Goods.GetKey)), '(CFixedPoint)0.24'))|v]"
             }
             textbox = {
-                visible = "[Not(And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0')))]"
                 autoresize = yes
                 margin_right = 7
                 align = nobaseline
@@ -510,7 +533,7 @@ types stockpile
             textbox = {
                 autoresize = yes
                 align = left|nobaseline
-                text = "ase_stockpile_country_price_target_SAVING"
+                text = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING"
             }
 
             textbox = {
@@ -518,15 +541,6 @@ types stockpile
             }
 
             textbox = {
-                visible = "[And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0'))]"
-                autoresize = yes
-                align = left|nobaseline
-                margin_right = 7
-                text = "ASE_STOCKPILE_NONE"
-                tooltip = "ASE_STOCKPILE_NONE_TOOLTIP"
-            }
-            textbox = {
-                visible = "[Not(And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0')))]"
                 autoresize = yes
                 align = left|nobaseline
                 margin_right = 6
@@ -540,11 +554,11 @@ types stockpile
                 }
                 stockpile_panel_saving_target_decrease = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
-                    tooltip = "ase_stockpile_country_price_target_SAVING_LOWEST"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWEST"
                 }
                 stockpile_panel_saving_target_decrease = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-                    tooltip = "ase_stockpile_country_price_target_SAVING_LOWER"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWER"
                 }
 
                 stockpile_panel_saving_target_increase = {
@@ -553,11 +567,11 @@ types stockpile
                 }
                 stockpile_panel_saving_target_increase = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
-                    tooltip = "ase_stockpile_country_price_target_SAVING_HIGHEST"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHEST"
                 }
                 stockpile_panel_saving_target_increase = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-                    tooltip = "ase_stockpile_country_price_target_SAVING_HIGHER"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHER"
                 }
             }
         }
@@ -597,7 +611,7 @@ types stockpile
             textbox = {
                 autoresize = yes
                 align = left|nobaseline
-                text = "ase_stockpile_country_price_target_SPENDING"
+                text = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING"
             }
 
             textbox = {
@@ -605,15 +619,6 @@ types stockpile
             }
 
             textbox = {
-                visible = "[And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0'))]"
-                autoresize = yes
-                align = left|nobaseline
-                margin_right = 7
-                text = "ASE_STOCKPILE_NONE"
-                tooltip = "ASE_STOCKPILE_NONE_TOOLTIP"
-            }
-            textbox = {
-                visible = "[Not(And(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_will_country_stockpile_', Goods.GetKey)), '(CFixedPoint)0')))]"
                 autoresize = yes
                 align = left|nobaseline
                 margin_right = 6
@@ -627,11 +632,11 @@ types stockpile
                 }
                 stockpile_panel_spending_target_decrease = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
-                    tooltip = "ase_stockpile_country_price_target_SPENDING_LOWEST"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWEST"
                 }
                 stockpile_panel_spending_target_decrease = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-                    tooltip = "ase_stockpile_country_price_target_SPENDING_LOWER"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWER"
                 }
 
                 stockpile_panel_spending_target_increase = {
@@ -640,11 +645,11 @@ types stockpile
                 }
                 stockpile_panel_spending_target_increase = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
-                    tooltip = "ase_stockpile_country_price_target_SPENDING_HIGHEST"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHEST"
                 }
                 stockpile_panel_spending_target_increase = {
                     visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-                    tooltip = "ase_stockpile_country_price_target_SPENDING_HIGHER"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHER"
                 }
             }
         }
@@ -752,7 +757,50 @@ types stockpile
                 }
 
                 flowcontainer = {
-                    visible = "[And(ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)1')))))]"
+
+                    # Is the market of the player, the market has more than one country in it, there is some reserve in
+                    # the market, the player has some reserve and thus states with the reserve, the player is either
+                    # junior market partner or market owner that doesn't have 100% of reserve.
+                    # visible = "[
+                    #     And(
+                    #         ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket),
+                    #         And(
+                    #             GreaterThan_CFixedPoint(
+                    #                 GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'),
+                    #                 '(CFixedPoint)1'
+                    #             ),
+                    #             And(
+                    #                 Not(
+                    #                     EqualTo_CFixedPoint(
+                    #                         GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)),
+                    #                         '(CFixedPoint)0'
+                    #                     )
+                    #                 ),
+                    #                 And(
+                    #                     Not(
+                    #                         EqualTo_CFixedPoint(
+                    #                             GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)),
+                    #                             '(CFixedPoint)0'
+                    #                         )
+                    #                     ),
+                    #                     Or(
+                    #                         Not(
+                    #                             ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)
+                    #                         ),
+                    #                         Not(
+                    #                             EqualTo_CFixedPoint(
+                    #                                 GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)),
+                    #                                 '(CFixedPoint)1'
+                    #                             )
+                    #                         )
+                    #                     )
+                    #                 )
+                    #             )
+                    #         )
+                    #     )
+                    # ]"
+
+                    visible = "[And(ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket), And(GreaterThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'), '(CFixedPoint)1'), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Or(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)1')))))))]"
                     
                     textbox = {
                         autoresize = yes

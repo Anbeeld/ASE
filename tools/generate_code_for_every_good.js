@@ -337,6 +337,10 @@ if (goods[i][2] <= 5)
 {
     ase_stockpile_country_price_target_saving_ai_value -= 0.05;
 }
+if (goods[i][2] <= 4)
+{
+    ase_stockpile_country_price_target_saving_ai_value -= 0.05;
+}
 ase_stockpile_country_price_target_saving_ai_value = Math.round((ase_stockpile_country_price_target_saving_ai_value + Number.EPSILON) * 100) / 100;
 
 let ase_stockpile_country_price_target_spending_ai_value = 0.10;
@@ -399,19 +403,6 @@ ase_stockpile_country_price_target_saving_` + goods[i][0] + ` = {
                 }
             }
         }` : ase_stockpile_country_price_target_saving_ai_value) + `
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_` + goods[i][0] + ` < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_` + goods[i][0] + `
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min

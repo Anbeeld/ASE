@@ -57,6 +57,16 @@ ase_thousands_of_gdp = {
     min = 0.01
 }
 
+ase_thousands_of_gdp_with_owner_factor = {
+    value = ase_thousands_of_gdp
+    if = {
+        limit = {
+            this = market.owner
+        }
+        multiply = define:NEconomy|MARKET_SHARE_MARKET_CONTROLLER_FACTOR
+    }
+}
+
 ase_stockpile_goods_reserve_weeks_default = 52
 ase_stockpile_goods_reserve_weeks_limit = 104
 
@@ -70,8 +80,12 @@ ase_stockpile_country_reserve_weeks_max = {
     multiply = ase_stockpile_goods_reserve_weeks_max_factor
 }
 
+ase_num_countries_in_market = {
+    value = participants
+}
+
 # ----------------------------------------------------------------------------------------------------------------------
-# Values below depend on game rules, ifs should be in order of "popularity" for performance, with default being first
+# Values below depend on game rules, place ifs in order of popularity for performance, default is first + fallback else
 # ----------------------------------------------------------------------------------------------------------------------
 
 ase_stockpile_player_reserve_weeks_target_factor = {
@@ -887,132 +901,6 @@ ase_percentage_of_stockpiling_states_ai = {
     }
 }
 
-ase_stockpile_market_owner_fixed_share = {
-    if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_025
-        }
-        value = 0.25
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_0
-        }
-        value = 0
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_005
-        }
-        value = 0.05
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_010
-        }
-        value = 0.10
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_015
-        }
-        value = 0.15
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_030
-        }
-        value = 0.30
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_035
-        }
-        value = 0.35
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_040
-        }
-        value = 0.40
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_045
-        }
-        value = 0.45
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_050
-        }
-        value = 0.50
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_055
-        }
-        value = 0.55
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_060
-        }
-        value = 0.60
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_065
-        }
-        value = 0.65
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_070
-        }
-        value = 0.70
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_075
-        }
-        value = 0.75
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_080
-        }
-        value = 0.80
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_085
-        }
-        value = 0.85
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_090
-        }
-        value = 0.90
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_095
-        }
-        value = 0.95
-    }
-    else_if = {
-        limit = {
-            has_game_rule = ase_stockpile_market_owner_fixed_share_100
-        }
-        value = 1.00
-    }
-    else = {
-        value = 0.25
-    }
-}
-
 ase_stockpile_country_capital_fixed_share = {
     if = {
         limit = {
@@ -1145,38 +1033,128 @@ ase_stockpile_country_capital_fixed_share = {
     }
 }
 
-# ----------------------------------------------------------------------------------------------------------------------
-# Values below control what goods AI countries will stockpile, at what prices and with what capacity
-# ----------------------------------------------------------------------------------------------------------------------
-
 ase_country_ai_good_priority_required = {
-    value = 11
     if = {
         limit = {
-            country_rank >= 3
+            has_game_rule = ase_goods_that_can_be_stockpiled_by_ai_all_military_and_most_industrial
         }
-        subtract = 2
+        value = 11
         if = {
             limit = {
-                country_rank >= 5
+                country_rank >= 3
+            }
+            subtract = 2
+            if = {
+                limit = {
+                    country_rank >= 5
+                }
+                subtract = 2
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            has_game_rule = ase_goods_that_can_be_stockpiled_by_ai_all_military
+        }
+        value = 11
+    }
+    else_if = {
+        limit = {
+            has_game_rule = ase_goods_that_can_be_stockpiled_by_ai_all_military_and_important_industrial
+        }
+        value = 11
+        if = {
+            limit = {
+                country_rank >= 3
             }
             subtract = 2
         }
     }
-}
-
-ase_country_ai_good_priority_important = {
-    value = 11
-    if = {
+    else_if = {
         limit = {
-            country_rank >= 5
+            has_game_rule = ase_goods_that_can_be_stockpiled_by_ai_all_military_and_all_industrial
         }
-        subtract = 2
+        value = 11
         if = {
             limit = {
-                country_rank >= 7
+                country_rank >= 3
             }
             subtract = 2
+            if = {
+                limit = {
+                    country_rank >= 5
+                }
+                subtract = 2
+                if = {
+                    limit = {
+                        country_rank >= 7
+                    }
+                    subtract = 2
+                }
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            has_game_rule = ase_goods_that_can_be_stockpiled_by_ai_all_military_and_all_industrial_and_important_consumer
+        }
+        value = 11
+        if = {
+            limit = {
+                country_rank >= 3
+            }
+            subtract = 2
+            if = {
+                limit = {
+                    country_rank >= 5
+                }
+                subtract = 2
+                if = {
+                    limit = {
+                        country_rank >= 7
+                    }
+                    subtract = 4
+                }
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            has_game_rule = ase_goods_that_can_be_stockpiled_by_ai_all
+        }
+        value = 11
+        if = {
+            limit = {
+                country_rank >= 3
+            }
+            subtract = 2
+            if = {
+                limit = {
+                    country_rank >= 5
+                }
+                subtract = 4
+                if = {
+                    limit = {
+                        country_rank >= 7
+                    }
+                    subtract = 4
+                }
+            }
+        }
+    }
+    else = {
+        value = 11
+        if = {
+            limit = {
+                country_rank >= 3
+            }
+            subtract = 2
+            if = {
+                limit = {
+                    country_rank >= 5
+                }
+                subtract = 2
+            }
         }
     }
 }
@@ -1338,6 +1316,68 @@ ase_non_stockpile_market_goods_price_ratio_relative = {
     }
 }
 
+ase_non_stockpile_market_goods_buy_orders_required = {
+    value = local_var:ase_non_stockpile_market_goods_sell_orders
+
+    if = {
+        limit = {
+            local_var:ase_market_stockpile_price_target_saving < 0
+        }
+        divide = {
+            value = local_var:ase_market_stockpile_price_target_saving
+            multiply = -1
+            multiply = 10
+            add = 0.02 # It's slightly off otherwise for some reason
+
+            if = {
+                limit = {
+                    define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR != 2
+                }
+                multiply = {
+                    value = define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR
+                    subtract = 1
+                }
+            }
+
+            divide = define:NEconomy|PRICE_RANGE
+
+            add = {
+                value = 1
+                multiply = 10
+            }
+        }
+        multiply = 10
+    }
+    else_if = {
+        limit = {
+            local_var:ase_market_stockpile_price_target_saving > 0
+        }
+        multiply = {
+            value = local_var:ase_market_stockpile_price_target_saving
+            multiply = 10
+            add = 0.02 # It's slightly off otherwise for some reason
+
+            if = {
+                limit = {
+                    define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR != 2
+                }
+                multiply = {
+                    value = define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR
+                    subtract = 1
+                }
+            }
+
+            divide = define:NEconomy|PRICE_RANGE
+
+            add = {
+                value = 1
+                multiply = 10
+            }
+        }
+        divide = 10
+    }
+}
+
 ase_non_stockpile_market_goods_sell_orders_required = {
     value = local_var:ase_non_stockpile_market_goods_buy_orders
 
@@ -1398,66 +1438,6 @@ ase_non_stockpile_market_goods_sell_orders_required = {
     }
 }
 
-ase_non_stockpile_market_goods_buy_orders_required = {
-    value = local_var:ase_non_stockpile_market_goods_sell_orders
-
-    if = {
-        limit = {
-            local_var:ase_market_stockpile_price_target_saving < 0
-        }
-        divide = {
-            value = local_var:ase_market_stockpile_price_target_saving
-            multiply = -1
-            multiply = 10
-
-            if = {
-                limit = {
-                    define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR != 2
-                }
-                multiply = {
-                    value = define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR
-                    subtract = 1
-                }
-            }
-
-            divide = define:NEconomy|PRICE_RANGE
-
-            add = {
-                value = 1
-                multiply = 10
-            }
-        }
-        multiply = 10
-    }
-    else_if = {
-        limit = {
-            local_var:ase_market_stockpile_price_target_saving > 0
-        }
-        multiply = {
-            value = local_var:ase_market_stockpile_price_target_saving
-            multiply = 10
-
-            if = {
-                limit = {
-                    define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR != 2
-                }
-                multiply = {
-                    value = define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR
-                    subtract = 1
-                }
-            }
-
-            divide = define:NEconomy|PRICE_RANGE
-
-            add = {
-                value = 1
-                multiply = 10
-            }
-        }
-        divide = 10
-    }
-}
-
 ase_non_stockpile_market_goods_buy_orders_to_add = {
     value = ase_non_stockpile_market_goods_buy_orders_required
     subtract = local_var:ase_non_stockpile_market_goods_buy_orders
@@ -1479,9 +1459,9 @@ ase_stockpile_market_reserve_headroom = {
     min = 0
 }
 
-ase_stockpile_market_3_percent_of_reserve_target = {
+ase_stockpile_market_1_percent_of_reserve_target = {
     value = local_var:ase_stockpile_market_reserve_target
-    multiply = 0.03
+    multiply = 0.01
 }
 
 ase_stockpile_market_15_percent_of_reserve_target = {
@@ -1520,10 +1500,9 @@ ase_stockpile_market_transfer_relative = {
                 # Can't be more than difference between current reserve and target reserve
                 max = {
                     value = ase_stockpile_market_reserve_headroom
-                    multiply = 10
-
                     # Slight overhead is allowed to make reaching target easier when buys are growing
-                    add = ase_stockpile_market_3_percent_of_reserve_target
+                    add = ase_stockpile_market_1_percent_of_reserve_target
+                    multiply = 10
                 }
             }
             else = {
@@ -1573,19 +1552,79 @@ ase_stockpile_market_transfer_relative = {
 # Values below are related to calculating transfers on country level
 # ----------------------------------------------------------------------------------------------------------------------
 
+ase_stockpile_country_reserve_share_max = {
+    if = {
+        limit = {
+            has_variable = ase_stockpile_country_reserve_share_max
+        }
+        value = var:ase_stockpile_country_reserve_share_max
+    }
+    else_if = {
+        limit = {
+            this = scope:ase_current_market.owner
+        }
+        value = 1.00
+    }
+    else_if = {
+        limit = {
+            local_var:ase_market_countries_combined_gdp = 0
+        }
+        value = 1.00
+    }
+    else = {
+        value = ase_thousands_of_gdp_with_owner_factor
+        divide = local_var:ase_market_countries_combined_gdp
+    }
+}
+
+ase_stockpile_country_reserve_share_current = {
+    if = {
+        limit = {
+            local_var:ase_stockpile_country_reserve = 0
+        }
+        value = 0
+    }
+    else_if = {
+        limit = {
+            local_var:ase_stockpile_market_reserve_target = 0
+        }
+        value = 1.00
+    }
+    else = {
+        value = local_var:ase_stockpile_country_reserve 
+        divide = local_var:ase_stockpile_market_reserve_target
+    }
+}
+
+ase_stockpile_country_reserve_target = {
+    value = local_var:ase_stockpile_market_reserve_target
+    if = {
+        limit = {
+            ase_stockpile_country_reserve_share_max < 1.00
+        }
+        multiply = ase_stockpile_country_reserve_share_max
+    }
+}
+
+ase_stockpile_country_1_percent_of_reserve_target = {
+    value = ase_stockpile_country_reserve_target
+    multiply = 0.01
+}
+
+ase_stockpile_country_reserve_headroom = {
+    value = ase_stockpile_country_reserve_target
+    subtract = local_var:ase_stockpile_country_reserve
+    # Protection from reserve target being lower than current reserve
+    min = 0
+}
+
 ase_stockpile_country_transfer_share = {
     if = {
         limit = {
             local_var:ase_meets_stockpile_saving_requirements = 1
         }
-        value = {
-            value = 1.00
-            subtract = ase_stockpile_market_owner_fixed_share
-            multiply = {
-                value = owner.ase_thousands_of_gdp
-                divide = local_var:ase_stockpiling_countries_combined_gdp
-            }
-        }
+        value = ase_thousands_of_gdp_with_owner_factor
+        divide = local_var:ase_stockpiling_countries_combined_gdp
     }
     else_if = {
         limit = {
@@ -1623,6 +1662,22 @@ ase_stockpile_country_transfer_relative = {
         }
 
         if = {
+            limit = {
+                local_var:ase_meets_stockpile_saving_requirements = 1
+            }
+            if = {
+                limit = {
+                    local_var:ase_stockpile_country_reserve > 0
+                }
+                max = {
+                    value = ase_stockpile_country_reserve_headroom
+                    # Slight overhead is allowed to make reaching target easier when buys are growing
+                    add = ase_stockpile_country_1_percent_of_reserve_target
+                    multiply = 10
+                }
+            }
+        }
+        else_if = {
             limit = {
                 local_var:ase_meets_stockpile_spending_requirements = 1
             }

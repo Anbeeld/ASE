@@ -16,23 +16,33 @@ ase_stockpile_algorithm_initialize_markets = {
         }
         save_scope_as = ase_current_market
 
-        if = {
-            limit = {
-                scope:ase_current_market.owner = {
-                    is_player = yes
-                }
-            }
-            ase_perform_effect_for_every_market_goods = {
-                effect = ase_check_if_goods_are_available_in_market
-            }
+        # TODO Consider moving this round of data gathering further into the script to save performance
+
+        # Set up variable for combined GDP of market countries, required for ase_stockpile_country_reserve_share_max
+        set_local_variable = {
+            name = ase_market_countries_combined_gdp
+            value = 0
         }
 
-        # Create list of allowed countries and mark capital states so we can easily notice when they stop being capital
+        # Initialize the list of countries that are allowed to stockpile so we don't every_scope_country every time
+        # TODO We never check if owner should actually be there
         add_to_local_variable_list = {
             name = ase_market_countries_allowed_to_stockpile
             target = owner
         }
+
+        # Initialize the list of market player countries, used to allow players to stockpile if AI market owner doesn't
+        add_to_local_variable_list = {
+            name = ase_market_countries_controlled_by_players
+            target = owner
+        }
+
         every_scope_country = {
+            change_local_variable = {
+                name = ase_market_countries_combined_gdp
+                add = ase_thousands_of_gdp_with_owner_factor
+            }
+
             if = {
                 limit = {
                     ase_is_country_allowed_to_stockpile = yes
@@ -49,6 +59,16 @@ ase_stockpile_algorithm_initialize_markets = {
                         name = ase_has_stockpile_market_variables
                         value = 1
                     }
+                }
+            }
+
+            if = {
+                limit = {
+                    is_player = yes
+                }
+                add_to_local_variable_list = {
+                    name = ase_market_countries_controlled_by_players
+                    target = this
                 }
             }
 
@@ -80,6 +100,52 @@ ase_stockpile_algorithm_initialize_markets = {
             }
         }
 
+        # Reserve share is same for all goods, calculate it beforehand
+        every_in_local_list = {
+            variable = ase_market_countries_allowed_to_stockpile
+            limit = {
+                NOT = {
+                    this = scope:ase_current_market.owner
+                }
+            }
+            set_variable = {
+                name = ase_stockpile_country_reserve_share_max
+                value = ase_stockpile_country_reserve_share_max
+            }
+        }
+
+        # Garbage collection
+        remove_local_variable = ase_market_countries_combined_gdp
+
+        # Owner is used to initialize the list, remove if it isn't actually a player
+        if = {
+            limit = {
+                NOT = {
+                    owner = {
+                        is_player = yes
+                    }
+                }
+            }
+            remove_list_local_variable = {
+                name = ase_market_countries_controlled_by_players
+                target = owner
+            }
+        }
+
+        # If there are players in the market, perform a local version of ase_check_what_goods_are_available_globally 
+        if = {
+            limit = {
+                has_local_variable_list = ase_market_countries_controlled_by_players
+                local_variable_list_size = {
+                    name = ase_market_countries_controlled_by_players
+                    value > 0
+                }
+            }
+            ase_perform_effect_for_every_market_goods = {
+                effect = ase_check_if_goods_are_available_in_market
+            }
+        }
+
         # Start the main algorithm, first step is old transfers, then it'll proceed to setting up new ones if needed
         ase_perform_effect_for_every_market_goods = {
             effect = ase_stockpile_algorithm_process_old_transfers
@@ -94,8 +160,17 @@ ase_stockpile_algorithm_initialize_markets = {
 
         ase_remove_saving_states_list_and_variables = yes
 
+        every_in_local_list = {
+            variable = ase_market_countries_allowed_to_stockpile
+            limit = {
+                has_variable = ase_stockpile_country_reserve_share_max
+            }
+            remove_variable = ase_stockpile_country_reserve_share_max
+        }
+
         # Garbage collection
         clear_local_variable_list = ase_market_countries_allowed_to_stockpile
+        clear_local_variable_list = ase_market_countries_controlled_by_players
         clear_saved_scope = ase_current_market
     }
 }
@@ -337,10 +412,29 @@ ase_stockpile_algorithm_process_old_transfers = {
                         ase_can_market_stockpile_goods = {
                             goods = $goods$
                         }
-                        owner = {
-                            ase_is_country_allowed_to_stockpile = yes # As it can be ase_has_ongoing_stockpile_transfer
-                            ase_should_country_stockpile_goods = {
-                                goods = $goods$
+                        OR = {
+                            owner = {
+                                ase_is_country_allowed_to_stockpile = yes # As it could be ase_has_*_stockpile_transfers
+                                ase_should_country_stockpile_goods = {
+                                    goods = $goods$
+                                }
+                            }
+                            AND = {
+                                has_local_variable_list = ase_market_countries_controlled_by_players
+                                local_variable_list_size = {
+                                    name = ase_market_countries_controlled_by_players
+                                    value > 0
+                                }
+                                any_in_local_list = {
+                                    variable = ase_market_countries_controlled_by_players
+                                    NOT = {
+                                        this = scope:ase_current_market.owner # Already checked
+                                    }
+                                    ase_is_country_allowed_to_stockpile = yes 
+                                    ase_should_country_stockpile_goods = {
+                                        goods = $goods$
+                                    }
+                                }
                             }
                         }
                     }
@@ -759,9 +853,27 @@ ase_stockpile_algorithm_collect_market_data = {
         # Proceed to setting up new transfer only if direction available based on prices matching is allowed
         if = {
             limit = {
-                scope:ase_current_market.owner = {
-                    ase_should_country_stockpile_goods_in_current_direction = {
-                        goods = $goods$
+                OR = {
+                    scope:ase_current_market.owner = {
+                        ase_should_country_stockpile_goods_in_current_direction = {
+                            goods = $goods$
+                        }
+                    }
+                    AND = {
+                        has_local_variable_list = ase_market_countries_controlled_by_players
+                        local_variable_list_size = {
+                            name = ase_market_countries_controlled_by_players
+                            value > 0
+                        }
+                        any_in_local_list = {
+                            variable = ase_market_countries_controlled_by_players
+                            NOT = {
+                                this = scope:ase_current_market.owner # Already checked
+                            }
+                            ase_should_country_stockpile_goods_in_current_direction = {
+                                goods = $goods$
+                            }
+                        }
                     }
                 }
             }
@@ -886,16 +998,15 @@ ase_update_market_volume_records_of_goods = {
 }
 
 ase_stockpile_algorithm_collect_country_data = {
+    set_local_variable = {
+        name = ase_stockpile_market_reserve_target
+        value = scope:ase_current_market.owner.ase_stockpile_market_reserve_target_$goods$
+    }
+
     # Set up variable to count number of countries in the market that will participate in transfer
     set_local_variable = {
         name = ase_num_stockpiling_countries_in_market
         value = 0
-    }
-
-    # Create list of countries in the market that will participate in transfer 
-    add_to_local_variable_list = {
-        name = ase_stockpiling_countries_in_market
-        target = scope:ase_current_market.owner
     }
 
     # Set up variable to store combined GDP of countries in the market that will participate in transfer
@@ -910,21 +1021,10 @@ ase_stockpile_algorithm_collect_country_data = {
         value = 0
     }
 
-    set_local_variable = {
-        name = ase_stockpile_market_reserve
-        value = {
-            if = {
-                limit = {
-                    scope:ase_current_market.owner = {
-                        has_variable = ase_stockpile_market_reserve_$goods$
-                    }
-                }
-                value = scope:ase_current_market.owner.var:ase_stockpile_market_reserve_$goods$
-            }
-            else = {
-                value = 0
-            }
-        }
+    # Create list of countries in the market that will participate in transfer 
+    add_to_local_variable_list = {
+        name = ase_stockpiling_countries_in_market
+        target = scope:ase_current_market.owner
     }
 
     # Fill all the variables above with required data
@@ -932,85 +1032,127 @@ ase_stockpile_algorithm_collect_country_data = {
         goods = $goods$
     }
 
-    # Save stockpile reserve target to local variable, required for ase_stockpile_market_reserve_headroom and others
-    set_local_variable = {
-        name = ase_stockpile_market_reserve_target
-        value = scope:ase_current_market.owner.ase_stockpile_market_reserve_target_$goods$
-    }
-
-    # Check if market meets saving or spending requirements
-    set_local_variable = {
-        name = ase_meets_stockpile_saving_requirements
-        value = 0
-    }
-    set_local_variable = {
-        name = ase_meets_stockpile_spending_requirements
-        value = 0
-    }
     if = {
         limit = {
-            local_var:ase_meets_stockpile_saving_price_target = 1
-            ase_stockpile_market_reserve_headroom > 0
-            # Saving is allowed only if there is ongoing saving already, or if previous saving finished at
-            # least 3 months ago, or if stockpiles are at least 15% empty. This is meant to prevent constant
-            # starting of saving, terminating and starting again every other week when buy orders and thus
-            # reserve target slowly grow, leading to 100% stockpiles becoming like 95% stockpiles without
-            # absolute value changing. But of course if you start saving at any % it'll go to 100%, not 85%.
-            OR = {
-                local_var:ase_num_countries_with_stockpile_transfer > 0
-                NOT = {
-                    owner = {
-                        has_variable = ase_stockpile_transfer_saving_$goods$
+            NOT = {
+                scope:ase_current_market.owner = {
+                    ase_should_country_stockpile_goods_in_current_direction = {
+                        goods = $goods$
                     }
                 }
-                ase_stockpile_market_reserve_headroom >= ase_stockpile_market_15_percent_of_reserve_target
             }
         }
-        change_local_variable = {
-            name = ase_meets_stockpile_saving_requirements
-            add = 1
-        }
-    }
-    else_if = {
-        limit = {
-            local_var:ase_meets_stockpile_spending_price_target = 1
-            local_var:ase_stockpiling_countries_combined_reserve > 0
-        }
-        change_local_variable = {
-            name = ase_meets_stockpile_spending_requirements
-            add = 1
+        remove_list_local_variable = {
+            name = ase_stockpiling_countries_in_market
+            target = scope:ase_current_market.owner
         }
     }
 
-    set_local_variable = {
-        name = ase_stockpile_market_transfer_relative
-        value = ase_stockpile_market_transfer_relative
-    }
-
-    # If either target is reached and there's something to transfer, set up new transfer
     if = {
         limit = {
-            OR = {
-                local_var:ase_meets_stockpile_saving_requirements = 1
-                local_var:ase_meets_stockpile_spending_requirements = 1
-            }
-            ase_stockpile_market_transfer_relative != 0
-        }
-        scope:ase_current_market = {
-            ase_perform_stockpiling_of_goods_in_market = {
-                goods = $goods$
+            has_local_variable_list = ase_stockpiling_countries_in_market
+            local_variable_list_size = {
+                name = ase_stockpiling_countries_in_market
+                value > 0
             }
         }
+
+        # Save market stockpile reserve data to local variables, required for ase_stockpile_market_reserve_headroom etc.
+        set_local_variable = {
+            name = ase_stockpile_market_reserve
+            value = {
+                if = {
+                    limit = {
+                        scope:ase_current_market.owner = {
+                            has_variable = ase_stockpile_market_reserve_$goods$
+                        }
+                    }
+                    value = scope:ase_current_market.owner.var:ase_stockpile_market_reserve_$goods$
+                }
+                else = {
+                    value = 0
+                }
+            }
+        }
+
+        # Check if market meets saving or spending requirements
+        set_local_variable = {
+            name = ase_meets_stockpile_saving_requirements
+            value = 0
+        }
+        set_local_variable = {
+            name = ase_meets_stockpile_spending_requirements
+            value = 0
+        }
+        if = {
+            limit = {
+                local_var:ase_meets_stockpile_saving_price_target = 1
+                ase_stockpile_market_reserve_headroom > 0
+                # Saving is allowed only if there is ongoing saving already, or if previous saving finished at
+                # least 3 months ago, or if stockpiles are at least 15% empty. This is meant to prevent constant
+                # starting of saving, terminating and starting again every other week when buy orders and thus
+                # reserve target slowly grow, leading to 100% stockpiles becoming like 95% stockpiles without
+                # absolute value changing. But of course if you start saving at any % it'll go to 100%, not 85%.
+                OR = {
+                    local_var:ase_num_countries_with_stockpile_transfer > 0
+                    NOT = {
+                        scope:ase_current_market.owner = {
+                            has_variable = ase_stockpile_transfer_saving_$goods$
+                        }
+                    }
+                    ase_stockpile_market_reserve_headroom >= ase_stockpile_market_15_percent_of_reserve_target
+                }
+            }
+            change_local_variable = {
+                name = ase_meets_stockpile_saving_requirements
+                add = 1
+            }
+        }
+        else_if = {
+            limit = {
+                local_var:ase_meets_stockpile_spending_price_target = 1
+                local_var:ase_stockpiling_countries_combined_reserve > 0
+            }
+            change_local_variable = {
+                name = ase_meets_stockpile_spending_requirements
+                add = 1
+            }
+        }
+
+        set_local_variable = {
+            name = ase_stockpile_market_transfer_relative
+            value = ase_stockpile_market_transfer_relative
+        }
+
+        # If either target is reached and there's something to transfer, set up new transfer
+        if = {
+            limit = {
+                OR = {
+                    local_var:ase_meets_stockpile_saving_requirements = 1
+                    local_var:ase_meets_stockpile_spending_requirements = 1
+                }
+                ase_stockpile_market_transfer_relative != 0
+            }
+            scope:ase_current_market = {
+                ase_perform_stockpiling_of_goods_in_market = {
+                    goods = $goods$
+                }
+            }
+        }
+
+        # Garbage collection
+        remove_local_variable = ase_stockpile_market_reserve
+        remove_local_variable = ase_meets_stockpile_spending_requirements
+        remove_local_variable = ase_meets_stockpile_saving_requirements
+        remove_local_variable = ase_stockpile_market_transfer_relative
     }
 
     # Garbage collection
+    remove_local_variable = ase_stockpile_market_reserve_target
     remove_local_variable = ase_num_stockpiling_countries_in_market
-    clear_local_variable_list = ase_stockpiling_countries_in_market
     remove_local_variable = ase_stockpiling_countries_combined_gdp
     remove_local_variable = ase_stockpiling_countries_combined_reserve
-    remove_local_variable = ase_meets_stockpile_spending_requirements
-    remove_local_variable = ase_meets_stockpile_saving_requirements
-    remove_local_variable = ase_stockpile_market_transfer_relative
+    clear_local_variable_list = ase_stockpiling_countries_in_market
 }
 
 ase_collect_data_of_stockpiling_countries = {
@@ -1018,60 +1160,85 @@ ase_collect_data_of_stockpiling_countries = {
         every_in_local_list = {
             variable = ase_market_countries_allowed_to_stockpile
             limit = {
-                OR = {
-                    this = scope:ase_current_market.owner
-                    ase_should_country_stockpile_goods_in_current_direction = {
-                        goods = $goods$
-                    }
-                }
-            }
-            change_local_variable = {
-                name = ase_num_stockpiling_countries_in_market
-                add = 1
-            }
-
-            if = {
-                limit = {
-                    NOT = {
-                        this = scope:ase_current_market.owner
-                    }
-                }
-                add_to_local_variable_list = {
-                    name = ase_stockpiling_countries_in_market
-                    target = this
+                ase_should_country_stockpile_goods_in_current_direction = {
+                    goods = $goods$
                 }
             }
 
-            # Before adding GDP to variable check if it can fit it, GDPs may get huge if you really want it
             set_local_variable = {
-                name = ase_combined_gdp_gap_to_limit
+                name = ase_stockpile_country_reserve
                 value = {
-                    value = ase_variable_size_limit_positive
-                    subtract = local_var:ase_stockpiling_countries_combined_gdp
+                    if = {
+                        limit = {
+                            has_variable = ase_stockpile_country_reserve_$goods$
+                        }
+                        value = var:ase_stockpile_country_reserve_$goods$
+                    }
+                    else = {
+                        value = 0
+                    }
                 }
             }
+
             if = {
                 limit = {
-                    ase_thousands_of_gdp <= local_var:ase_combined_gdp_gap_to_limit
+                    OR = {
+                        NOT = {
+                            local_var:ase_meets_stockpile_saving_price_target = 1
+                        }
+                        ase_stockpile_country_reserve_share_current < ase_stockpile_country_reserve_share_max
+                    }
                 }
                 change_local_variable = {
-                    name = ase_stockpiling_countries_combined_gdp
-                    add = ase_thousands_of_gdp
+                    name = ase_num_stockpiling_countries_in_market
+                    add = 1
+                }
+
+                if = {
+                    limit = {
+                        NOT = {
+                            this = scope:ase_current_market.owner
+                        }
+                    }
+                    add_to_local_variable_list = {
+                        name = ase_stockpiling_countries_in_market
+                        target = this
+                    }
+                }
+
+                # Before adding GDP to variable check if it can fit it, GDPs may get huge if you really want it
+                set_local_variable = {
+                    name = ase_combined_gdp_gap_to_limit
+                    value = {
+                        value = ase_variable_size_limit_positive
+                        subtract = local_var:ase_stockpiling_countries_combined_gdp
+                    }
+                }
+                if = {
+                    limit = {
+                        ase_thousands_of_gdp_with_owner_factor <= local_var:ase_combined_gdp_gap_to_limit
+                    }
+                    change_local_variable = {
+                        name = ase_stockpiling_countries_combined_gdp
+                        add = ase_thousands_of_gdp_with_owner_factor
+                    }
+                }
+                remove_local_variable = ase_combined_gdp_gap_to_limit
+                    
+                if = {
+                    limit = {
+                        has_variable = ase_stockpile_country_reserve_$goods$
+                        var:ase_stockpile_country_reserve_$goods$ > 0
+                    }
+                    # Won't overflow due to var:ase_stockpile_country_reserve_$goods$ being hard limited when saved
+                    change_local_variable = {
+                        name = ase_stockpiling_countries_combined_reserve
+                        add = var:ase_stockpile_country_reserve_$goods$
+                    }
                 }
             }
-            remove_local_variable = ase_combined_gdp_gap_to_limit
-                
-            if = {
-                limit = {
-                    has_variable = ase_stockpile_country_reserve_$goods$
-                    var:ase_stockpile_country_reserve_$goods$ > 0
-                }
-                # Won't overflow due to var:ase_stockpile_country_reserve_$goods$ being hard limited when saved
-                change_local_variable = {
-                    name = ase_stockpiling_countries_combined_reserve
-                    add = var:ase_stockpile_country_reserve_$goods$
-                }
-            }
+
+            remove_local_variable = ase_stockpile_country_reserve
         }
     }
 }
@@ -1082,20 +1249,15 @@ ase_perform_stockpiling_of_goods_in_market = {
         value = 0
     }
 
-    if = {
+    every_in_local_list = {
+        variable = ase_stockpiling_countries_in_market
         limit = {
-            local_var:ase_num_stockpiling_countries_in_market > 1
+            NOT = {
+                this = scope:ase_current_market.owner
+            }
         }
-        every_in_local_list = {
-            variable = ase_stockpiling_countries_in_market
-            limit = {
-                NOT = {
-                    this = scope:ase_current_market.owner
-                }
-            }
-            ase_perform_stockpiling_of_goods_in_country = {
-                goods = $goods$
-            }
+        ase_perform_stockpiling_of_goods_in_country = {
+            goods = $goods$
         }
     }
     owner = {
@@ -1111,8 +1273,16 @@ ase_perform_stockpiling_of_goods_in_market = {
             }
         }
 
-        ase_perform_stockpiling_of_goods_in_country = {
-            goods = $goods$
+        if = {
+            limit = {
+                is_target_in_local_variable_list = {
+                    name = ase_stockpiling_countries_in_market
+                    target = this
+                }
+            }
+            ase_perform_stockpiling_of_goods_in_country = {
+                goods = $goods$
+            }
         }
     }
 
@@ -1611,7 +1781,7 @@ ase_perform_stockpiling_of_goods_in_state = {
 
 # Market owner scope, called by various on_actions to recalculate stuff in case of states switching countries etc.
 ase_recalculate_market_and_country_reserve = {
-    save_scope_as = ase_market_owner
+    save_scope_as = ase_current_market_owner
 
     ase_perform_effect_for_every_market_goods = {
         effect = ase_recalculate_stockpile_reserve_of_goods
@@ -1621,7 +1791,7 @@ ase_recalculate_market_and_country_reserve = {
         every_scope_country = {
             limit = {
                 NOT = {
-                    this = scope:ase_market_owner
+                    this = scope:ase_current_market_owner
                 }
                 has_variable = ase_has_stockpile_market_variables
             }
@@ -1632,7 +1802,7 @@ ase_recalculate_market_and_country_reserve = {
         }
     }
 
-    clear_saved_scope = ase_market_owner
+    clear_saved_scope = ase_current_market_owner
 }
 
 ase_recalculate_stockpile_reserve_of_goods = {
@@ -1667,7 +1837,7 @@ ase_recalculate_stockpile_reserve_of_goods = {
                 remove_variable = ase_stockpile_country_reserve_$goods$
             }
             else = {
-                scope:ase_market_owner = {
+                scope:ase_current_market_owner = {
                     change_variable = {
                         name = ase_stockpile_market_reserve_$goods$
                         add = prev.var:ase_stockpile_country_reserve_$goods$
@@ -1687,20 +1857,44 @@ ase_recalculate_stockpile_reserve_of_goods = {
         if = {
             limit = {
                 NOT = {
-                    scope:ase_market_owner = {
-                        has_variable = ase_has_stockpile_market_variables
+                    has_variable = ase_has_stockpile_market_variables
+                }
+            }
+            set_variable = {
+                name = ase_has_stockpile_market_variables
+                value = 1
+            }
+        }
+
+        ase_clamp_market_reserve_if_limit_is_exceeded = {
+            goods = $goods$
+        }
+
+        if = {
+            limit = {
+                ase_is_country_allowed_to_stockpile = yes
+            }
+            market = {
+                every_scope_country = {
+                    limit = {
+                        has_variable = ase_stockpile_country_reserve_$goods$
+                        ase_is_country_allowed_to_stockpile = no
+                    }
+                    scope:ase_current_market_owner = {
+                        change_variable = {
+                            name = ase_stockpile_market_reserve_$goods$
+                            subtract = prev.var:ase_stockpile_country_reserve_$goods$
+                        }
                     }
                 }
             }
-            scope:ase_market_owner = {
-                set_variable = {
-                    name = ase_has_stockpile_market_variables
-                    value = 1
+
+            if = {
+                limit = {
+                    var:ase_stockpile_market_reserve_$goods$ <= 0 # TODO Maybe some other code would benefit from <= ?
                 }
+                remove_variable = ase_stockpile_market_reserve_$goods$
             }
-        }
-        ase_clamp_market_reserve_if_limit_is_exceeded = {
-            goods = $goods$
         }
     }
 }

@@ -2716,19 +2716,6 @@ ase_stockpile_country_price_target_saving_aeroplanes = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_aeroplanes < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_aeroplanes
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -2775,19 +2762,6 @@ ase_stockpile_country_price_target_saving_ammunition = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_ammunition < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_ammunition
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -2834,19 +2808,6 @@ ase_stockpile_country_price_target_saving_artillery = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_artillery < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_artillery
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -2893,19 +2854,6 @@ ase_stockpile_country_price_target_saving_automobiles = {
     }
     else = {
         value = -0.2
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_automobiles < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_automobiles
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -2952,19 +2900,6 @@ ase_stockpile_country_price_target_saving_clippers = {
     }
     else = {
         value = -0.25
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_clippers < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_clippers
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3010,20 +2945,7 @@ ase_stockpile_country_price_target_saving_clothes = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_clothes < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_clothes
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3070,19 +2992,6 @@ ase_stockpile_country_price_target_saving_coal = {
     }
     else = {
         value = -0.15
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_coal < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_coal
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3128,20 +3037,7 @@ ase_stockpile_country_price_target_saving_coffee = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_coffee < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_coffee
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3188,19 +3084,6 @@ ase_stockpile_country_price_target_saving_dye = {
     }
     else = {
         value = -0.25
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_dye < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_dye
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3247,19 +3130,6 @@ ase_stockpile_country_price_target_saving_engines = {
     }
     else = {
         value = -0.15
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_engines < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_engines
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3306,19 +3176,6 @@ ase_stockpile_country_price_target_saving_explosives = {
     }
     else = {
         value = -0.2
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_explosives < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_explosives
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3365,19 +3222,6 @@ ase_stockpile_country_price_target_saving_fabric = {
     }
     else = {
         value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_fabric < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_fabric
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3424,19 +3268,6 @@ ase_stockpile_country_price_target_saving_fertilizer = {
     }
     else = {
         value = -0.25
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_fertilizer < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_fertilizer
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3482,20 +3313,7 @@ ase_stockpile_country_price_target_saving_fine_art = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_fine_art < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_fine_art
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3541,20 +3359,7 @@ ase_stockpile_country_price_target_saving_fish = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_fish < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_fish
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3600,20 +3405,7 @@ ase_stockpile_country_price_target_saving_fruit = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_fruit < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_fruit
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3659,20 +3451,7 @@ ase_stockpile_country_price_target_saving_furniture = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_furniture < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_furniture
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3719,19 +3498,6 @@ ase_stockpile_country_price_target_saving_glass = {
     }
     else = {
         value = -0.3
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_glass < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_glass
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3777,20 +3543,7 @@ ase_stockpile_country_price_target_saving_grain = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_grain < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_grain
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3836,20 +3589,7 @@ ase_stockpile_country_price_target_saving_groceries = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_groceries < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_groceries
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3896,19 +3636,6 @@ ase_stockpile_country_price_target_saving_hardwood = {
     }
     else = {
         value = -0.3
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_hardwood < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_hardwood
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -3955,19 +3682,6 @@ ase_stockpile_country_price_target_saving_iron = {
     }
     else = {
         value = -0.15
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_iron < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_iron
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4014,19 +3728,6 @@ ase_stockpile_country_price_target_saving_ironclads = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_ironclads < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_ironclads
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4073,19 +3774,6 @@ ase_stockpile_country_price_target_saving_lead = {
     }
     else = {
         value = -0.2
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_lead < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_lead
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4131,20 +3819,7 @@ ase_stockpile_country_price_target_saving_liquor = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_liquor < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_liquor
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4190,20 +3865,7 @@ ase_stockpile_country_price_target_saving_luxury_clothes = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_luxury_clothes < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_luxury_clothes
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4249,20 +3911,7 @@ ase_stockpile_country_price_target_saving_luxury_furniture = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_luxury_furniture < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_luxury_furniture
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4309,19 +3958,6 @@ ase_stockpile_country_price_target_saving_manowars = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_manowars < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_manowars
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4367,20 +4003,7 @@ ase_stockpile_country_price_target_saving_meat = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_meat < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_meat
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4458,19 +4081,6 @@ ase_stockpile_country_price_target_saving_oil = {
                 }
             }
         }
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_oil < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_oil
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4528,20 +4138,7 @@ ase_stockpile_country_price_target_saving_opium = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_opium < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_opium
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4588,19 +4185,6 @@ ase_stockpile_country_price_target_saving_paper = {
     }
     else = {
         value = -0.25
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_paper < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_paper
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4646,20 +4230,7 @@ ase_stockpile_country_price_target_saving_porcelain = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_porcelain < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_porcelain
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4706,19 +4277,6 @@ ase_stockpile_country_price_target_saving_radios = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_radios < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_radios
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4765,19 +4323,6 @@ ase_stockpile_country_price_target_saving_rubber = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_rubber < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_rubber
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4824,19 +4369,6 @@ ase_stockpile_country_price_target_saving_silk = {
     }
     else = {
         value = -0.3
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_silk < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_silk
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4883,19 +4415,6 @@ ase_stockpile_country_price_target_saving_small_arms = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_small_arms < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_small_arms
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -4942,19 +4461,6 @@ ase_stockpile_country_price_target_saving_steamers = {
     }
     else = {
         value = -0.25
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_steamers < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_steamers
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5001,19 +4507,6 @@ ase_stockpile_country_price_target_saving_steel = {
     }
     else = {
         value = -0.15
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_steel < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_steel
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5060,19 +4553,6 @@ ase_stockpile_country_price_target_saving_sugar = {
     }
     else = {
         value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_sugar < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_sugar
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5119,19 +4599,6 @@ ase_stockpile_country_price_target_saving_sulfur = {
     }
     else = {
         value = -0.2
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_sulfur < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_sulfur
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5178,19 +4645,6 @@ ase_stockpile_country_price_target_saving_tanks = {
     }
     else = {
         value = -0.1
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_tanks < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_tanks
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5236,20 +4690,7 @@ ase_stockpile_country_price_target_saving_tea = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_tea < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_tea
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5296,19 +4737,6 @@ ase_stockpile_country_price_target_saving_telephones = {
     }
     else = {
         value = -0.2
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_telephones < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_telephones
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5354,20 +4782,7 @@ ase_stockpile_country_price_target_saving_tobacco = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_tobacco < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_tobacco
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5414,19 +4829,6 @@ ase_stockpile_country_price_target_saving_tools = {
     }
     else = {
         value = -0.15
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_tools < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_tools
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5472,20 +4874,7 @@ ase_stockpile_country_price_target_saving_wine = {
         }
     }
     else = {
-        value = -0.35
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_wine < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_wine
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
+        value = -0.4
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -5532,19 +4921,6 @@ ase_stockpile_country_price_target_saving_wood = {
     }
     else = {
         value = -0.3
-        if = {
-            limit = {
-                ase_stockpile_goods_priority_wood < ase_country_ai_good_priority_important
-            }
-            subtract = {
-                value = 0.05
-                multiply = {
-                    value = ase_stockpile_goods_priority_wood
-                    subtract = ase_country_ai_good_priority_important
-                    multiply = -1
-                }
-            }
-        }
     }
 
     min = ase_stockpile_country_price_target_saving_min

@@ -12,10 +12,10 @@
  concept_ase_market_stockpile_desc:0 "#bold Stockpiling#! of [Concept('concept_good', 'Goods')] means creating a [Concept('concept_ase_stockpile_reserve', 'Reserve')] of them, which is done through government [Concept('concept_ase_stockpile_transfer', 'Saving')] [Concept('concept_good', 'Goods')] by automatically buying them from the [concept_market] when specified [Concept('concept_ase_stockpile_price_target', 'Saving Price Target')] is reached.\n\nLikewise, when [Concept('concept_ase_stockpile_price_target', 'Spending Price Target')] is reached, #bold Stockpile#! will automatically sell [Concept('concept_good', 'Goods')] to the [concept_market], and thus [Concept('concept_ase_stockpile_transfer', 'Spending')] won't allow [Concept('concept_market_price', 'Prices')] to raise further.\n\n#bold Stockpiles#! are stored on a [Concept('concept_state', 'State')] basis. When a [concept_country] loses a [Concept('concept_state', 'State')], it loses the entirety of its #bold Stockpile#! as well.\n\nIn [Concept('concept_market', 'Markets')] with multiple members the stockpile of each [concept_country] is shared with the others, and the process is controlled by the [concept_market_owner]. Other members can only agree to #bold Stockpile#! [Concept('concept_good', 'Goods')] on terms set by [concept_market_owner] or opt out."
  
  concept_ase_country_stockpile:0 "Country Stockpile"
- concept_ase_country_stockpile_desc:0 "The amount of [Concept('concept_good', 'Goods')] [Concept('concept_ase_market_stockpile', 'Stockpiled')] in your [concept_country] only compared to the whole [concept_market]. Leaving the [concept_market] would mean losing access to its [Concept('concept_ase_market_stockpile', 'Stockpile')], but #bold Country Stockpile#! will remain yours no matter what."
+ concept_ase_country_stockpile_desc:0 "The amount of [Concept('concept_good', 'Goods')] [Concept('concept_ase_market_stockpile', 'Stockpiled')] in your [concept_country] only compared to the whole [concept_market]. For [Concept('concept_junior_partner', 'Junior Market Partners')] it is limited to [Concept('concept_ase_stockpile_capacity', 'Stockpile Capacity')] multiplied by [concept_market_share] of the [concept_country].\n\nLeaving the [concept_market] would mean losing access to its [Concept('concept_ase_market_stockpile', 'Stockpile')], but #bold Country Stockpile#! will remain yours no matter what."
  
  concept_ase_stockpile_transfer:0 "Stockpile Transfer"
- concept_ase_stockpile_transfer_desc:0 "A change in a [concept_ase_stockpile_reserve], either #bold Saving#! which means buying [Concept('concept_good', 'Goods')] to fill the [Concept('concept_ase_market_stockpile', 'Stockpile')], or #bold Spending#! meaning selling [Concept('concept_good', 'Goods')] to control the [concept_market_price].\n\nIn [Concept('concept_market', 'Markets')] with multiple members the [concept_market_owner] always gets a fixed share of #bold Saving Transfer#! first, with the rest divided among all the [Concept('concept_country', 'Countries')] in the [concept_market], including the [Concept('concept_market_owner', 'Owner')], based on their [concept_market_share]. On the other hand, #bold Spending Transfer#! is always divided proportionally with [concept_ase_country_stockpile]."
+ concept_ase_stockpile_transfer_desc:0 "A change in a [concept_ase_stockpile_reserve], either #bold Saving#! which means buying [Concept('concept_good', 'Goods')] to fill the [Concept('concept_ase_market_stockpile', 'Stockpile')], or #bold Spending#! meaning selling [Concept('concept_good', 'Goods')] to control the [concept_market_price].\n\nIn [Concept('concept_market', 'Markets')] with multiple members #bold Saving Transfers#! are split among all the [Concept('concept_country', 'Countries')] in the [concept_market] based on their [concept_market_share], while #bold Spending Transfers#! are split proportionally with [concept_ase_country_stockpile]."
  
  concept_ase_stockpile_reserve:0 "Stockpile Reserve"
  concept_ase_stockpile_reserve_desc:0 "The amount of [Concept('concept_good', 'Goods')] stored in a [Concept('concept_ase_market_stockpile', 'Stockpile')] of a [concept_market] or a [concept_country], which can be used at any point to prevent [Concept('concept_market_price', 'Market Prices')] from rising too high when supply doesn't meet demand.\n\n#bold Reserve#! cannot be higher than #bold 200%#! of the maximum [concept_ase_stockpile_capacity] available, with all excess [Concept('concept_good', 'Goods')] being lost after some time."
@@ -61,7 +61,7 @@
  ASE_STOCKPILE_POLICY_COUNTRY_SPENDING_TOOLTIP:0 "Allow to only [Concept('concept_ase_stockpile_transfer', 'Spend')] [Goods.GetName] in the [Concept('concept_ase_market_stockpile', 'Stockpile')] of [GetPlayer.GetName]"
  ASE_STOCKPILE_POLICY_COUNTRY_NONE_TOOLTIP:0 "Prohibit to [Concept('concept_ase_stockpile_transfer', 'Save and Spend')] [Goods.GetName] in the [Concept('concept_ase_market_stockpile', 'Stockpile')] of [GetPlayer.GetName]"
 
- ASE_STOCKPILE_NOT_OWNER:0 "@red_cross! [concept_ase_market_stockpile] in the [Goods.GetMarket.GetName] is managed by [Goods.GetMarket.GetOwner.GetName].\nAs a [Concept('concept_junior_partner', 'Junior Market Partner')], you are limited to choosing if you agree to [Concept('concept_ase_stockpile_transfer', 'Transfer')] [Goods.GetName] on these terms or not by adjusting your [concept_ase_stockpile_policy]."
+ ASE_STOCKPILE_NOT_OWNER:0 "@red_cross! [concept_ase_market_stockpile] in the [Goods.GetMarket.GetName] is managed by [Goods.GetMarket.GetOwner.GetName].\n\nAs a [Concept('concept_junior_partner', 'Junior Market Partner')], you are limited to choosing if you agree to [Concept('concept_ase_stockpile_transfer', 'Transfer')] [Goods.GetName] on these terms or not by adjusting your [concept_ase_stockpile_policy]."
 
  ASE_STOCKPILE_CAPACITY:0 "[Concept('concept_ase_stockpile_capacity', 'Capacity')]"
  ASE_STOCKPILE_CAPACITY_MONTHS:0 " months"
@@ -70,17 +70,17 @@
  ASE_STOCKPILE_CAPACITY_HIGHEST:0 "@red_cross! [concept_ase_stockpile_capacity] can't be any higher"
  ASE_STOCKPILE_CAPACITY_HIGHER:0 "Increase [concept_ase_stockpile_capacity] by #variable 3 months#!"
 
- ase_stockpile_country_price_target_SAVING:0 "[Concept('concept_ase_stockpile_price_target', 'Saving Target')]"
- ase_stockpile_country_price_target_SAVING_LOWEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any lower"
- ase_stockpile_country_price_target_SAVING_LOWER:0 "Decrease [concept_ase_stockpile_price_target] by #variable 5%#!"
- ase_stockpile_country_price_target_SAVING_HIGHEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any higher"
- ase_stockpile_country_price_target_SAVING_HIGHER:0 "Increase [concept_ase_stockpile_price_target] by #variable 5%#!"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING:0 "[Concept('concept_ase_stockpile_price_target', 'Saving Target')]"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any lower"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWER:0 "Decrease [concept_ase_stockpile_price_target] by #variable 5%#!"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any higher"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHER:0 "Increase [concept_ase_stockpile_price_target] by #variable 5%#!"
 
- ase_stockpile_country_price_target_SPENDING:0 "[Concept('concept_ase_stockpile_price_target', 'Spending Target')]"
- ase_stockpile_country_price_target_SPENDING_LOWEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any lower"
- ase_stockpile_country_price_target_SPENDING_LOWER:0 "Decrease [concept_ase_stockpile_price_target] by #variable 5%#!"
- ase_stockpile_country_price_target_SPENDING_HIGHEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any higher"
- ase_stockpile_country_price_target_SPENDING_HIGHER:0 "Increase [concept_ase_stockpile_price_target] by #variable 5%#!"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING:0 "[Concept('concept_ase_stockpile_price_target', 'Spending Target')]"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any lower"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWER:0 "Decrease [concept_ase_stockpile_price_target] by #variable 5%#!"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHEST:0 "@red_cross! [concept_ase_stockpile_price_target] can't be any higher"
+ ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHER:0 "Increase [concept_ase_stockpile_price_target] by #variable 5%#!"
 
  ASE_STOCKPILE_NONE:0 "#variable None#!"
  ASE_STOCKPILE_NONE_TOOLTIP:0 "@red_cross! [Goods.GetMarket.GetOwner.GetName], owner of [Goods.GetMarket.GetName], decided against [Concept('concept_ase_market_stockpile', 'Stockpiling')] of [Goods.GetName] under any conditions"
