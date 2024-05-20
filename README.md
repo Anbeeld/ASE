@@ -14,9 +14,11 @@ The mod allows you to set **Price Targets** for all goods individually, and then
 
 ### Compatibility
 
-Works absolutely fine with existing saves without the mod. Removing it during the playthrough would lead to problems though, but I will provide a separate tool later to solve this issue.
+Works absolutely fine when added to existing saves without the mod.
 
-Doesn't work with non-vanilla goods, but in theory it's possible to create compatibility patches. You can still use it with mods that add new goods, but you won't be able to stockpile them.
+To remove the mod during the playthrough you need to open the "Decisions" tab and activate "Remove everything related to stockpiling" decision, then exit the game and disable the mod. Without doing it there will be problematic leftovers. The decision has no effect in multiplayer.
+
+Doesn't work with non-vanilla goods out of the box, but it's very much possible to create compatibility patches, see "tools" directory in the this repo. You can still use ASE with mods that add new goods even without a patch, but you won't be able to stockpile them.
 
 ### Manual installation
 
