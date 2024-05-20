@@ -18,7 +18,7 @@ Works absolutely fine when added to existing saves without the mod.
 
 To remove the mod during the playthrough you need to open the "Decisions" tab and activate "Remove everything related to stockpiling" decision, then exit the game and disable the mod. Without doing it there will be problematic leftovers. The decision has no effect in multiplayer.
 
-Doesn't work with non-vanilla goods out of the box, but it's very much possible to create compatibility patches, see "tools" directory in the this repo. You can still use ASE with mods that add new goods even without a patch, but you won't be able to stockpile them.
+Doesn't work with non-vanilla goods out of the box, but it's very much possible to create compatibility patches, see "tools" directory in this repo. You can still use ASE with mods that add new goods even without a patch, but you won't be able to stockpile them.
 
 ### Manual installation
 
