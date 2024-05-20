@@ -29,21 +29,21 @@ ase_stockpile_goods_priority_luxury_furniture = 1
 ase_stockpile_goods_priority_manowars = 11
 ase_stockpile_goods_priority_meat = 3
 ase_stockpile_goods_priority_oil = {
-    value = 11
+    value = 10
     if = {
         limit = {
             NOT = {
                 has_technology_researched = pumpjacks
             }
         }
-        subtract = 8
+        subtract = 7
     }
 }
 ase_stockpile_goods_priority_opium = 3
 ase_stockpile_goods_priority_paper = 7
 ase_stockpile_goods_priority_porcelain = 1
 ase_stockpile_goods_priority_radios = 11
-ase_stockpile_goods_priority_rubber = 11
+ase_stockpile_goods_priority_rubber = 10
 ase_stockpile_goods_priority_silk = 6
 ase_stockpile_goods_priority_small_arms = 12
 ase_stockpile_goods_priority_steamers = 7
@@ -4322,7 +4322,7 @@ ase_stockpile_country_price_target_saving_rubber = {
         }
     }
     else = {
-        value = -0.1
+        value = -0.15
     }
 
     min = ase_stockpile_country_price_target_saving_min
@@ -15564,7 +15564,7 @@ ase_stockpile_country_reserve_weeks_target_factor_rubber = {
         }
     }
     else = {
-        value = 1
+        value = 0.75
         multiply = ase_stockpile_goods_reserve_weeks_max_factor
     }
 

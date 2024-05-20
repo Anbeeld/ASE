@@ -277,6 +277,9 @@ ase_stockpile_priority_required_default_min = {
         }
         value = 1
     }
+    else = {
+        value = 7
+    }
 }
 
 ase_stockpile_price_target_saving_default = {
@@ -455,7 +458,7 @@ ase_stockpile_price_target_saving_default = {
         value = 0.70
     }
     else = {
-        value = -0.20
+        value = -0.15
     }
     max = {
         value = ase_stockpile_price_target_spending_default
@@ -765,16 +768,16 @@ ase_percentage_of_stockpiling_states_player = {
         value = 1.00
     }
     else = {
-        value = 1.00
+        value = 0.85
     }
 }
 
 ase_percentage_of_stockpiling_states_ai = {
     if = {
         limit = {
-            has_game_rule = ase_percentage_of_stockpiling_states_ai_030
+            has_game_rule = ase_percentage_of_stockpiling_states_ai_025
         }
-        value = 0.30
+        value = 0.25
     }
     else_if = {
         limit = {
@@ -808,9 +811,9 @@ ase_percentage_of_stockpiling_states_ai = {
     }
     else_if = {
         limit = {
-            has_game_rule = ase_percentage_of_stockpiling_states_ai_025
+            has_game_rule = ase_percentage_of_stockpiling_states_ai_030
         }
-        value = 0.25
+        value = 0.30
     }
     else_if = {
         limit = {
@@ -897,7 +900,7 @@ ase_percentage_of_stockpiling_states_ai = {
         value = 1.00
     }
     else = {
-        value = 1.00
+        value = 0.25
     }
 }
 
@@ -1820,6 +1823,24 @@ ase_stockpile_state_transfer_share = {
     }
 }
 
+# TODO See ase_non_stockpile_state_goods_production
+# ase_stockpile_state_transfer_saving_max = {
+#     # Max amount of goods the state can buy from other states
+#     value = local_var:ase_non_stockpile_market_goods_sell_orders
+#     subtract = {
+#         value = local_var:ase_non_stockpile_state_goods_production
+#         multiply = market_access
+#     }
+#     multiply = market_access
+#     # Max amount of goods the state can provide itself before shortage
+#     add = local_var:ase_non_stockpile_state_goods_production
+#     subtract = {
+#         value = local_var:ase_non_stockpile_state_goods_consumption
+#         divide = define:NEconomy|BUY_SELL_DIFF_AT_MAX_FACTOR
+#     }
+#     min = 0
+# }
+
 ase_stockpile_state_transfer_relative = {
     if = {
         limit = {
@@ -1844,6 +1865,18 @@ ase_stockpile_state_transfer_relative = {
             }
         }
 
+        # if = {
+        #     limit = {
+        #         local_var:ase_meets_stockpile_saving_requirements = 1
+        #     }
+        #     if = {
+        #         limit = {
+        #             market_access < 1.00
+        #         }
+        #         max = ase_stockpile_state_transfer_saving_max
+        #     }
+        # }
+        # else_
         if = {
             limit = {
                 local_var:ase_meets_stockpile_spending_requirements = 1

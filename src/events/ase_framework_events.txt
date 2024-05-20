@@ -116,3 +116,23 @@ ase_framework_events.3 = {
         }
     }
 }
+
+ase_framework_events.4 = {
+    type = country_event
+    hidden = yes
+
+    immediate = {
+        if = {
+            limit = {
+                # Prevent multiplayer trolling
+                NOT = {
+                    any_country = {
+                        is_player = yes
+                        count > 1
+                    }
+                }
+            }
+            ase_remove_everything_related_to_stockpiling = yes
+        }
+    }
+}

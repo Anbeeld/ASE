@@ -84,3 +84,6 @@
 
  ASE_STOCKPILE_NONE:0 "#variable None#!"
  ASE_STOCKPILE_NONE_TOOLTIP:0 "@red_cross! [Goods.GetMarket.GetOwner.GetName], owner of [Goods.GetMarket.GetName], decided against [Concept('concept_ase_market_stockpile', 'Stockpiling')] of [Goods.GetName] under any conditions"
+ 
+ ase_remove_everything_related_to_stockpiling:0 "[Concept('concept_ase_mod_description', 'ASE')] | Remove everything related to stockpiling"
+ ase_remove_everything_related_to_stockpiling_desc:0 "Taking this decision is required if you want to remove ASE from this playthrough, otherwise you'll encounter various problems. You'll need to exit the game and disable the mod right after that."

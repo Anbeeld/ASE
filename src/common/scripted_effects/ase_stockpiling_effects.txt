@@ -1260,6 +1260,7 @@ ase_perform_stockpiling_of_goods_in_market = {
             goods = $goods$
         }
     }
+
     owner = {
         # Starting new saving transfer is allowed once per 3 months for performance reasons
         if = {
@@ -1386,9 +1387,17 @@ ase_perform_stockpiling_of_goods_in_country = {
                 }
             }
 
-            capital = {
-                ase_perform_stockpiling_of_goods_in_state = {
-                    goods = $goods$
+            if = {
+                limit = {
+                    is_target_in_local_variable_list = {
+                        name = ase_country_states_allowed_to_stockpile
+                        target = capital
+                    }
+                }
+                capital = {
+                    ase_perform_stockpiling_of_goods_in_state = {
+                        goods = $goods$
+                    }
                 }
             }
         }
@@ -1443,18 +1452,37 @@ ase_collect_data_of_stockpiling_states = {
                 value = 1
             }
             
-            # Capital is always added first before any other states are considered
             set_variable = {
                 name = ase_stockpile_country_num_saving_states
-                value = 1
+                value = 0
             }
             set_variable = {
                 name = ase_stockpile_country_saving_states_gdp
-                value = capital.ase_thousands_of_gdp
+                value = 0
             }
-            add_to_variable_list = {
-                name = ase_stockpile_country_saving_states
-                target = capital
+
+            # Capital is always added first before any other states are considered
+            capital = {
+                if = {
+                    limit = {
+                        ase_is_state_allowed_to_stockpile = yes # Basic requirements like reasonable market access
+                    }
+                    scope:ase_current_country = {
+                        add_to_variable_list = {
+                            name = ase_stockpile_country_saving_states
+                            target = prev
+                        }
+
+                        change_variable = {
+                            name = ase_stockpile_country_num_saving_states
+                            add = 1
+                        }
+                        change_variable = {
+                            name = ase_stockpile_country_saving_states_gdp
+                            add = prev.ase_thousands_of_gdp
+                        }
+                    }
+                }
             }
 
             # Cache value as it can be used many many times while adding states
@@ -1466,12 +1494,15 @@ ase_collect_data_of_stockpiling_states = {
             # If capital doesn't have enough GDP, add states from largest to smallest until the threshold is reached
             if = {
                 limit = {
-                    var:ase_stockpile_country_saving_states_gdp < ase_country_saving_states_min_combined_gdp
+                    OR = {
+                        var:ase_stockpile_country_saving_states_gdp = 0 # Capital wasn't added
+                        var:ase_stockpile_country_saving_states_gdp < ase_country_saving_states_min_combined_gdp
+                    }
                 }
                 ordered_scope_state = {
                     limit = {
                         is_capital = no
-                        ase_is_state_allowed_to_stockpile = yes # Basic requirements like reasonable market access
+                        ase_is_state_allowed_to_stockpile = yes
                     }
                     order_by = ase_thousands_of_gdp
                     min = 0
@@ -1503,7 +1534,7 @@ ase_collect_data_of_stockpiling_states = {
             remove_local_variable = ase_country_saving_states_min_combined_gdp
         }
 
-        # Fill local variables for this goods with data from country scope variables
+        # Fill local variables with data from country scope variables
         change_local_variable = {
             name = ase_num_stockpiling_states_in_country
             add = var:ase_stockpile_country_num_saving_states
@@ -1512,8 +1543,10 @@ ase_collect_data_of_stockpiling_states = {
             name = ase_stockpiling_states_combined_gdp
             add = var:ase_stockpile_country_saving_states_gdp
         }
+
         every_in_list = {
             variable = ase_stockpile_country_saving_states
+
             # Cache saving transfer share in country scope as it's used many times
             if = {
                 limit = {
@@ -1526,6 +1559,7 @@ ase_collect_data_of_stockpiling_states = {
                     value = ase_stockpile_state_transfer_share
                 }
             }
+
             if = {
                 limit = {
                     has_variable = ase_stockpile_state_reserve_$goods$
@@ -1535,11 +1569,32 @@ ase_collect_data_of_stockpiling_states = {
                     add = var:ase_stockpile_state_reserve_$goods$
                 }
             }
+
             if = {
                 limit = {
                     is_capital = no # Added to list when initilizing
                 }
                 add_to_local_variable_list = {
+                    name = ase_country_states_allowed_to_stockpile
+                    target = this
+                }
+            }
+        }
+
+        # If capital is not in the variable list remove it from the local list, as it is initialized using capital
+        capital = {
+            if = {
+                limit = {
+                    NOT = {
+                        scope:ase_current_country = {
+                            is_target_in_variable_list = {
+                                name = ase_stockpile_country_saving_states
+                                target = prev
+                            }
+                        }
+                    }
+                }
+                remove_list_local_variable = {
                     name = ase_country_states_allowed_to_stockpile
                     target = this
                 }
@@ -1579,7 +1634,7 @@ ase_collect_data_of_stockpiling_states = {
             }
         }
 
-        # If capital has no reserve remove it from list, as the list is initialized with it
+        # If capital has no reserve remove it from the local list, as it is initialized using capital
         capital = {
             if = {
                 limit = {
@@ -1614,6 +1669,20 @@ ase_perform_stockpiling_of_goods_in_state = {
             }
         }
     }
+    # TODO Must be calculated before clearing transfer variables, which sounds like a noticeable performance tax
+    # set_local_variable = {
+    #     name = ase_non_stockpile_state_goods_production
+    #     value = {
+    #         value = sg:$goods$.state_goods_production
+    #         subtract = {
+
+    #         }
+    #     }
+    # }
+    # set_local_variable = {
+    #     name = ase_non_stockpile_state_goods_consumption
+    #     value = sg:$goods$.state_goods_consumption
+    # }
 
     # Used multiple times in different values and scopes while containing calculations itself, so just save as local
     set_local_variable = {
@@ -1623,6 +1692,8 @@ ase_perform_stockpiling_of_goods_in_state = {
 
     # Garbage collection
     remove_local_variable = ase_stockpile_state_reserve
+    # remove_local_variable = ase_non_stockpile_state_goods_production
+    # remove_local_variable = ase_non_stockpile_state_goods_consumption
 
     # If there is stockpile to operate, set new stuff
     if = {
@@ -1980,4 +2051,147 @@ ase_clamp_market_reserve_if_limit_is_exceeded = {
 
     # Garbage collection
     remove_local_variable = ase_stockpile_market_reserve_limit
+}
+
+ase_remove_everything_related_to_stockpiling = {
+    every_country = {
+        if = {
+            limit = {
+                has_variable = ase_stockpile_loop_distribution
+            }
+            remove_variable = ase_stockpile_loop_distribution
+        }
+        if = {
+            limit = {
+                has_variable = ase_has_stockpile_market_variables
+            }
+            remove_variable = ase_has_stockpile_market_variables
+        }
+        if = {
+            limit = {
+                has_variable = ase_has_saving_stockpile_transfers
+            }
+            remove_variable = ase_has_saving_stockpile_transfers
+        }
+        if = {
+            limit = {
+                has_variable = ase_has_spending_stockpile_transfers
+            }
+            remove_variable = ase_has_spending_stockpile_transfers
+        }
+    }
+
+    ase_perform_effect_for_every_market_goods = {
+        effect = ase_remove_stockpile_buildings_and_variables
+    }
+}
+
+ase_remove_stockpile_buildings_and_variables = {
+    every_country = {
+        if = {
+            limit = {
+                has_variable = ase_stockpile_saving_allowed_$goods$
+            }
+            remove_variable = ase_stockpile_saving_allowed_$goods$
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_spending_allowed_$goods$
+            }
+            remove_variable = ase_stockpile_spending_allowed_$goods$
+        }
+        
+        if = {
+            limit = {
+                has_variable = ase_stockpile_country_price_target_saving_$goods$
+            }
+            remove_variable = ase_stockpile_country_price_target_saving_$goods$
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_country_price_target_spending_$goods$
+            }
+            remove_variable = ase_stockpile_country_price_target_spending_$goods$
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+            }
+            remove_variable = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+        }
+
+        if = {
+            limit = {
+                has_variable = ase_stockpile_market_volume_$goods$
+            }
+            remove_variable = ase_stockpile_market_volume_$goods$
+        }
+
+        if = {
+            limit = {
+                has_variable = ase_stockpile_market_reserve_$goods$
+            }
+            remove_variable = ase_stockpile_market_reserve_$goods$
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_market_transfer_$goods$
+            }
+            remove_variable = ase_stockpile_market_transfer_$goods$
+        }
+        
+        if = {
+            limit = {
+                has_variable = ase_stockpile_country_reserve_$goods$
+            }
+            remove_variable = ase_stockpile_country_reserve_$goods$
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_country_transfer_$goods$
+            }
+            remove_variable = ase_stockpile_country_transfer_$goods$
+        }
+
+        if = {
+            limit = {
+                has_variable = ase_stockpile_transfer_saving_$goods$
+            }
+            remove_variable = ase_stockpile_transfer_saving_$goods$
+        }
+
+        every_scope_state = {
+            if = {
+                limit = {
+                    has_variable = ase_stockpile_state_reserve_$goods$
+                }
+                remove_variable = ase_stockpile_state_reserve_$goods$
+            }
+            if = {
+                limit = {
+                    has_variable = ase_stockpile_state_transfer_$goods$
+                }
+                remove_variable = ase_stockpile_state_transfer_$goods$
+            }
+        }
+
+        every_scope_building = {
+            if = {
+                limit = {
+                    is_building_type = building_ase_stockpile_saving
+                }
+                state = {
+                    remove_building = building_ase_stockpile_saving
+                }
+            }
+            else_if = {
+                limit = {
+                    is_building_type = building_ase_stockpile_spending
+                }
+                state = {
+                    remove_building = building_ase_stockpile_spending
+                }
+            }
+        }
+    }
 }

@@ -1,80 +1,94 @@
-﻿var goods = [
-//  Name                Max reserve   Priority        Input add type  Input mult type Output mult type
+﻿
+// Table of goods with data required to generate code for them.
+// Max reserve – upper limit for reserve factor, is lower for goods like meat which you can't store for a long time.
+// Priority – how important the goods are, used for both players and AI. Groups of goods has min and max priority.
+// Input add – if there's goods_input_*_add modifier type in vanilla or not, otherwise we'll need to create it.
+// Input mult – if there's goods_input_*_mult modifier type in vanilla or not, otherwise we'll need to create it.
+// Output add – if there's goods_output_*_mult modifier type in vanilla or not, otherwise we'll need to create it.
 
-    // Army
-    ['small_arms',      1.00,           12,           1,           1,           1],
-    ['artillery',       1.00,           12,           1,           1,           1],
-    ['ammunition',      1.00,           12,           1,           1,           0],
-    ['tanks',           1.00,           11,           1,           1,           1],
-    ['aeroplanes',      1.00,           11,           1,           0,           1],
+var goods = [
+// Name                     Max reserve         Priority          Input add        Input mult       Output mult
 
-    // Navy
-    ['manowars',        1.00,           11,           1,           0,           1],
-    ['ironclads',       1.00,           11,           1,           0,           1],
+// Group: Military, Priority 11 - 12
 
-    // Ports
-    ['clippers',        1.00,           7,            1,           0,           1],
-    ['steamers',        1.00,           7,            1,           0,           1],
+// Army
+['small_arms',              1.00,               12,               1,               1,               1],
+['artillery',               1.00,               12,               1,               1,               1],
+['ammunition',              1.00,               12,               1,               1,               0],
+['tanks',                   1.00,               11,               1,               1,               1],
+['aeroplanes',              1.00,               11,               1,               0,               1],
+['radios',                  1.00,               11,               1,               1,               0],
 
-    // High tech industrial goods
-    ['radios',          1.00,           11,           1,           1,           0],
-    ['automobiles',     1.00,           8,            1,           0,           1],
-    ['telephones',      1.00,           8,            1,           0,           0],
+// Navy
+['manowars',                1.00,               11,               1,               0,               1],
+['ironclads',               1.00,               11,               1,               0,               1],
 
-    // Regular industrial goods
-    ['tools',           1.00,           10,           1,           0,           1],
-    ['engines',         1.00,           10,           1,           0,           1],
-    ['explosives',      1.00,           8,            1,           0,           0],
-    ['fertilizer',      1.00,           7,            1,           0,           0],
-    ['paper',           1.00,           7,            1,           0,           0],
-    ['glass',           1.00,           6,            1,           0,           0],
+// Group: Industrial, Priority 5 - 10
+// Subgroups: Important (9 - 10), Most (7 - 10), All (5 - 10)
 
-    // Industrial materials
-    ['oil',             1.00,           11,           1,           1,           1],
-    ['rubber',          1.00,           11,           1,           0,           0],
-    ['coal',            1.00,           9,            1,           0,           0],
-    ['steel',           1.00,           9,            1,           0,           0],
-    ['iron',            1.00,           9,            1,           0,           0],
-    ['lead',            1.00,           8,            1,           0,           0],
-    ['sulfur',          1.00,           8,            1,           0,           0],
-    ['dye',             1.00,           7,            1,           0,           0],
-    ['wood',            1.00,           6,            1,           0,           0],
-    ['hardwood',        1.00,           6,            1,           0,           1],
-    ['silk',            1.00,           6,            1,           0,           1],
-    ['fabric',          1.00,           5,            1,           0,           1],
-    ['sugar',           1.00,           5,            1,           0,           1],
+// Industrial goods
+['tools',                   1.00,               10,               1,               0,               1],
+['engines',                 1.00,               10,               1,               0,               1],
+['explosives',              1.00,               8,                1,               0,               0],
+['automobiles',             1.00,               8,                1,               0,               1],
+['telephones',              1.00,               8,                1,               0,               0],
+['fertilizer',              1.00,               7,                1,               0,               0],
+['paper',                   1.00,               7,                1,               0,               0],
+['clippers',                1.00,               7,                1,               0,               1],
+['steamers',                1.00,               7,                1,               0,               1],
+['glass',                   1.00,               6,                1,               0,               0],
 
-    // Important consumer goods
-    ['clothes',         1.00,           4,            1,           0,           0],
-    ['furniture',       1.00,           4,            0,           0,           0],
-    ['grain',           1.00,           4,            1,           0,           0],
-    ['groceries',       1.00,           4,            1,           0,           0],
-    ['fruit',           0.25,           3,            1,           0,           1],
-    ['fish',            0.25,           3,            1,           0,           0],
-    ['meat',            0.25,           3,            1,           0,           0],
+// Industrial materials
+['oil',                     1.00,               10,               1,               1,               1],
+['rubber',                  1.00,               10,               1,               0,               0],
+['coal',                    1.00,               9,                1,               0,               0],
+['steel',                   1.00,               9,                1,               0,               0],
+['iron',                    1.00,               9,                1,               0,               0],
+['lead',                    1.00,               8,                1,               0,               0],
+['sulfur',                  1.00,               8,                1,               0,               0],
+['dye',                     1.00,               7,                1,               0,               0],
+['wood',                    1.00,               6,                1,               0,               0],
+['hardwood',                1.00,               6,                1,               0,               1],
+['silk',                    1.00,               6,                1,               0,               1],
+['fabric',                  1.00,               5,                1,               0,               1],
+['sugar',                   1.00,               5,                1,               0,               1],
 
-    // Intoxicants
-    ['liquor',          1.00,           3,            1,           0,           1],
-    ['tobacco',         1.00,           3,            1,           0,           0],
-    ['opium',           1.00,           3,            1,           0,           0],
+// Group: Consumer, Priority 1 - 4
+// Subgroups: Important (3 - 4), All (1 - 4)
 
-    // Luxury goods
-    ['wine',            1.00,           2,            1,           0,           1],
-    ['tea',             1.00,           2,            0,           0,           0],
-    ['coffee',          1.00,           2,            0,           0,           0],
-    ['fine_art',        1.00,           1,            0,           0,           0],
-    ['porcelain',       1.00,           1,            0,           0,           0],
-    ['luxury_clothes',  1.00,           1,            0,           0,           0],
-    ['luxury_furniture',1.00,           1,            0,           0,           0],
+// Staple consumer goods
+['clothes',                 1.00,               4,                1,               0,               0],
+['furniture',               1.00,               4,                0,               0,               0],
+['grain',                   1.00,               4,                1,               0,               0],
+['groceries',               1.00,               4,                1,               0,               0],
+['fruit',                   0.25,               3,                1,               0,               1],
+['fish',                    0.25,               3,                1,               0,               0],
+['meat',                    0.25,               3,                1,               0,               0],
+
+// Intoxicants
+['liquor',                  1.00,               3,                1,               0,               1],
+['tobacco',                 1.00,               3,                1,               0,               0],
+['opium',                   1.00,               3,                1,               0,               0],
+
+// Luxury goods
+['wine',                    1.00,               2,                1,               0,               1],
+['tea',                     1.00,               2,                0,               0,               0],
+['coffee',                  1.00,               2,                0,               0,               0],
+['fine_art',                1.00,               1,                0,               0,               0],
+['porcelain',               1.00,               1,                0,               0,               0],
+['luxury_clothes',          1.00,               1,                0,               0,               0],
+['luxury_furniture',        1.00,               1,                0,               0,               0],
     
-    // ['services',      1.00,           12,           1,           1], // Can't stockpile logically
-    // ['transportation',      1.00,           12,           1,           1], // Can't stockpile logically
-    // ['electricity',      1.00,           12,           1,           1], // Can't stockpile logically
-    // ['gold',      1.00,           12,           1,           1], // Is not used anywhere
+// ['services',                1.00,               12,               1,               1], // Can't stockpile logically
+// ['transportation',          1.00,               12,               1,               1], // Can't stockpile logically
+// ['electricity',             1.00,               12,               1,               1], // Can't stockpile logically
+// ['gold',                    1.00,               12,               1,               1], // Is not used as a good
 ];
 
+// Goods should be in alphabetical order in the code
 goods.sort();
 
+// Input production method will include modifiers for all goods
 var ase_production_methods_saving = `
 pm_ase_stockpile_saving_base = {
     texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
@@ -90,6 +104,7 @@ pm_ase_stockpile_saving_input = {
     building_modifiers = {
         workforce_scaled = {`;
 
+// Output production method will include modifiers for all goods
 var ase_production_methods_spending = `
 pm_ase_stockpile_spending_base = {
     texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
@@ -108,10 +123,12 @@ pm_ase_stockpile_spending_output = {
     building_modifiers = {
         workforce_scaled = {`;
 
+// Modifier types
 var ase_modifier_types_input_add = '';
 var ase_modifier_types_input_mult = '';
 var ase_modifier_types_output_mult = '';
 
+// Input and output modifiers, for each goods separately and for all goods at once
 var ase_modifiers_input_mult_all_goods = `
 ase_stockpile_input_mult_all_goods = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds`;
@@ -121,8 +138,11 @@ ase_stockpile_output_mult_all_goods = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds`;
 var ase_modifiers_output_mult = '';
 
-var ase_perform_effect_for_every_market_goods = 'ase_perform_effect_for_every_market_goods = {';
+// Proxy for scripted effects, no need to generate effects, just execute the effect you want for all goods with this one
+var ase_perform_effect_for_every_market_goods = `
+ase_perform_effect_for_every_market_goods = {`;
 
+// Scripted values
 var ase_stockpile_goods_priority_values = '';
 var ase_stockpile_goods_reserve_max_factor_values = '';
 var ase_market_volume_values = '';
@@ -136,8 +156,10 @@ var ase_state_transfer_values = '';
 var ase_scripted_trigger_values = '';
 var ase_country_reserve_weeks_values = '';
 
+// Scripted GUIs
 var ase_generated_scripted_guis = '';
 
+// Localization for generated stuff
 var ase_generated_localization = `l_english:`;
 
 for (var i = 0; i < goods.length; i++)
@@ -242,7 +264,7 @@ ase_stockpile_goods_priority_` + goods[i][0] + ` = {
                 has_technology_researched = pumpjacks
             }
         }
-        subtract = 8
+        subtract = 7
     }
 }`;
 }
@@ -1128,49 +1150,53 @@ ase_stockpile_clear_list_of_countries_in_market_` + goods[i][0] + ` = {
 
 }
 
+// Close variables that were initialized with some code already
 ase_production_methods_saving += `
         }
     }
 }
 `;
-
 ase_production_methods_spending += `
         }
     }
 }
 `;
-
 ase_modifiers_input_mult_all_goods += `
 }
 `;
-
 ase_modifiers_output_mult_all_goods += `
 }
 `;
+ase_perform_effect_for_every_market_goods += `
+}
+`;
 
-ase_perform_effect_for_every_market_goods += '\n}\n';
-
+console.log('### PRODUCTION METHODS START ###');
 console.log(
     ase_production_methods_saving +
     ase_production_methods_spending
 );
+console.log('### PRODUCTION METHODS END ###');
 console.log('##########');
+console.log('### MODIFIER TYPES START ###');
 console.log(
     ase_modifier_types_input_add +
     ase_modifier_types_input_mult +
     ase_modifier_types_output_mult
 );
+console.log('### MODIFIER TYPES END ###');
 console.log('##########');
+console.log('### GENERATED MODIFIERS START ###');
 console.log(
     ase_modifiers_input_mult_all_goods +
     ase_modifiers_input_mult +
     ase_modifiers_output_mult_all_goods +
     ase_modifiers_output_mult
 );
+console.log('### GENERATED MODIFIERS END ###');
 console.log('##########');
 console.log('### GENERATED EFFECTS START ###');
 console.log(
-    '\n' +
     ase_perform_effect_for_every_market_goods
 );
 console.log('### GENERATED EFFECTS END ###');

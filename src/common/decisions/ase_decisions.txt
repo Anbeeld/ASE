@@ -1,0 +1,16 @@
+﻿
+ase_remove_everything_related_to_stockpiling = {
+    is_shown = {
+        is_player = yes
+    }
+    
+    when_taken = {
+        trigger_event = {
+            id = ase_framework_events.4
+        }
+    }
+    
+    ai_chance = {
+        base = 0
+    }
+}

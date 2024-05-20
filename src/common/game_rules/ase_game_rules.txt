@@ -119,7 +119,7 @@ ase_percentage_of_stockpiling_states_player = {
 }
 
 ase_percentage_of_stockpiling_states_ai = {
-    default = ase_percentage_of_stockpiling_states_ai_030
+    default = ase_percentage_of_stockpiling_states_ai_025
     ase_percentage_of_stockpiling_states_ai_0 = {}
     ase_percentage_of_stockpiling_states_ai_005 = {}
     ase_percentage_of_stockpiling_states_ai_010 = {}
