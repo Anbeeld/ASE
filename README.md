@@ -22,7 +22,7 @@ Doesn't work with non-vanilla goods out of the box, but it's very much possible 
 
 ### Performance
 
-A lot of time and effort were spent specifically to make sure the mod taxes game's performance as little as possible. Some parts of the code were reworked 3+ times just because of this without functionality changes. But there's always room for improvement, so I'll try to further optimize it.
+A lot of time and effort were put specifically to make sure the mod affects game's performance as little as possible. Some parts of the code were reworked 3+ times just because of this without functionality changes. But there's always room for improvement, so I'll try to further optimize it.
 
 Another concern is usage of hidden buildings for stockpiling, which affects performance a bit. Unfortunately there's no way to avoid this issue, but I did my best to minimize the impact it has.
 
