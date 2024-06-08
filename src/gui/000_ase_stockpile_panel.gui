@@ -1,0 +1,1892 @@
+
+types stockpile
+{
+    # ------------------------------------------------------------------------------------------------------------------
+    # Stockpile panels for different goods panels
+    # ------------------------------------------------------------------------------------------------------------------
+
+    type stockpile_panel_market = flowcontainer {
+        visible = "[GetGlobalVariable(Concatenate('ase_goods_can_be_stockpiled_', Goods.GetKey)).IsSet]"
+
+        direction = vertical
+        parentanchor = hcenter
+        
+        background = {
+            using = entry_bg_simple
+        }
+
+        stockpile_panel_market_progressbar_without_transfer = {}
+        stockpile_panel_market_progressbar_with_transfer = {}
+
+        stockpile_panel_country_progressbar = {}
+
+        # Stockpile control panel
+        flowcontainer = {
+            visible = "[ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket)]"
+
+            direction = vertical
+
+            widget = {
+                size = { 10 18 }
+            }
+
+            section_header_button = {
+                parentanchor = right
+                position = { 0 2 }
+                size = { 540 38 }
+                
+                blockoverride "left_text" {
+                    text = "ASE_STOCKPILE_SECTION_GOODS_POLICY"
+                }
+                
+                blockoverride "onclick" {
+                    onclick = "[GetVariableSystem.Toggle('stockpile_panel_section_goods_policy')]"
+                }
+                blockoverride "onclick_showmore" {
+                    visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_goods_policy'))]"
+                }
+                blockoverride "onclick_showless" {
+                    visible = "[GetVariableSystem.Exists('stockpile_panel_section_goods_policy')]"
+                }
+            }
+
+            container = {
+                visible = "[GetVariableSystem.Exists('stockpile_panel_section_goods_policy')]"
+                stockpile_panel_goods_policy = {}
+            }
+
+            section_header_button = {
+                parentanchor = right
+                position = { 0 2 }
+                size = { 540 38 }
+                
+                blockoverride "left_text" {
+                    text = "ASE_STOCKPILE_SECTION_DEFAULT_POLICY"
+                }
+                
+                blockoverride "onclick" {
+                    onclick = "[GetVariableSystem.Toggle('stockpile_panel_section_default_policy')]"
+                }
+                blockoverride "onclick_showmore" {
+                    visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_default_policy'))]"
+                }
+                blockoverride "onclick_showless" {
+                    visible = "[GetVariableSystem.Exists('stockpile_panel_section_default_policy')]"
+                }
+            }
+
+            container = {
+                visible = "[GetVariableSystem.Exists('stockpile_panel_section_default_policy')]"
+                stockpile_panel_default_policy = {}
+            }
+        }
+
+        widget = {
+            visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_default_policy'))]"
+            size = { 10 18 }
+        }
+    }
+
+    type stockpile_panel_state = flowcontainer {
+        visible = "[GetGlobalVariable(Concatenate('ase_goods_can_be_stockpiled_', Goods.GetKey)).IsSet]"
+
+        direction = vertical
+        parentanchor = hcenter
+        
+        background = {
+            using = entry_bg_simple
+        }
+
+        stockpile_panel_market_progressbar_without_transfer = {}
+        stockpile_panel_market_progressbar_with_transfer = {}
+
+        stockpile_panel_country_progressbar = {}
+        
+        stockpile_panel_state_progressbar = {}
+
+        # Stockpile control panel
+        flowcontainer = {
+            visible = "[ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket)]"
+
+            direction = vertical
+
+            widget = {
+                size = { 10 18 }
+            }
+
+            section_header_button = {
+                parentanchor = right
+                position = { 0 2 }
+                size = { 540 38 }
+                
+                blockoverride "left_text" {
+                    text = "ASE_STOCKPILE_SECTION_GOODS_POLICY"
+                }
+                
+                blockoverride "onclick" {
+                    onclick = "[GetVariableSystem.Toggle('stockpile_panel_section_goods_policy')]"
+                }
+                blockoverride "onclick_showmore" {
+                    visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_goods_policy'))]"
+                }
+                blockoverride "onclick_showless" {
+                    visible = "[GetVariableSystem.Exists('stockpile_panel_section_goods_policy')]"
+                }
+            }
+
+            container = {
+                visible = "[GetVariableSystem.Exists('stockpile_panel_section_goods_policy')]"
+                stockpile_panel_goods_policy = {}
+            }
+
+            section_header_button = {
+                parentanchor = right
+                position = { 0 2 }
+                size = { 540 38 }
+                
+                blockoverride "left_text" {
+                    text = "ASE_STOCKPILE_SECTION_DEFAULT_POLICY"
+                }
+                
+                blockoverride "onclick" {
+                    onclick = "[GetVariableSystem.Toggle('stockpile_panel_section_default_policy')]"
+                }
+                blockoverride "onclick_showmore" {
+                    visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_default_policy'))]"
+                }
+                blockoverride "onclick_showless" {
+                    visible = "[GetVariableSystem.Exists('stockpile_panel_section_default_policy')]"
+                }
+            }
+
+            container = {
+                visible = "[GetVariableSystem.Exists('stockpile_panel_section_default_policy')]"
+                stockpile_panel_default_policy = {}
+            }
+
+            section_header_button = {
+                visible = "[ObjectsEqual(GetPlayer, GoodsStatePanel.GetGoods.GetState.GetOwner)]"
+
+                parentanchor = right
+                position = { 0 2 }
+                size = { 540 38 }
+                
+                blockoverride "left_text" {
+                    text = "ASE_STOCKPILE_SECTION_STATE_POLICY"
+                }
+                
+                blockoverride "onclick" {
+                    onclick = "[GetVariableSystem.Toggle('stockpile_panel_section_state_policy')]"
+                }
+                blockoverride "onclick_showmore" {
+                    visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_state_policy'))]"
+                }
+                blockoverride "onclick_showless" {
+                    visible = "[GetVariableSystem.Exists('stockpile_panel_section_state_policy')]"
+                }
+            }
+
+            container = {
+                visible = "[And(GetVariableSystem.Exists('stockpile_panel_section_state_policy'), ObjectsEqual(GetPlayer, GoodsStatePanel.GetGoods.GetState.GetOwner))]"
+                stockpile_panel_state_policy = {}
+            }
+        }
+
+        widget = {
+            visible = "[Not(GetVariableSystem.Exists('stockpile_panel_section_state_policy'))]"
+            size = { 10 18 }
+        }
+    }
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # Progressbars for all scopes
+    # ------------------------------------------------------------------------------------------------------------------
+
+    type stockpile_panel_market_progressbar_without_transfer = flowcontainer {
+        visible = "[And(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0'), EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+        
+        margin = { 12 0 }
+        margin_top = 20
+        margin_bottom = 2
+
+        default_progressbar_horizontal = {
+            blockoverride "values" {
+                value = 0
+                min = 0
+                max = 1
+            }
+            size = { 516 25 }
+
+            widget = {
+                size = { 100% 100% }
+
+                textbox = {
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 7 0 }
+                    autoresize = yes
+                    text = "ASE_MARKET_STOCKPILE"
+                }
+
+                textbox = {
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "['(CFixedPoint)0'|Dv] #variable +0.00#!"
+                }
+
+                textbox = {
+                    position = { 350 0 }
+                    raw_text = "#variable ['(CFixedPoint)0'|%0]#!"
+                    parentanchor = left|vcenter
+                    autoresize = yes
+                    align = left|nobaseline
+                }
+
+                textbox = {
+                    position = { -7 0 }
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_target_', Goods.GetKey)), '(CFixedPoint)10')|Dv]"
+                    parentanchor = right|vcenter
+                    autoresize = yes
+                    align = right|nobaseline
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_market_progressbar_with_transfer = flowcontainer {
+        visible = "[Or(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0')))]"
+
+        margin = { 12 0 }
+        margin_top = 20
+        margin_bottom = 2
+
+        default_progressbar_horizontal = {
+            blockoverride "values" {
+                value = "[GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_to_max_reserve_', Goods.GetKey))]"
+                min = 0
+                max = 1
+            }
+            size = { 516 25 }
+
+            tooltipwidget = {
+                stockpile_tooltip_states_in_market = {}
+            }
+
+            widget = {
+                size = { 100% 100% }
+
+                textbox = {
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 7 0 }
+                    autoresize = yes
+                    text = "ASE_MARKET_STOCKPILE"
+                }
+
+                textbox = {
+                    visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv] #variable +0.00#!"
+                }
+                textbox = {
+                    visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv] [Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0.1')|=+D]"
+                }
+
+                textbox = {
+                    position = { 350 0 }
+                    raw_text = "#variable [GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_to_max_reserve_', Goods.GetKey))|%0]#!"
+                    parentanchor = left|vcenter
+                    autoresize = yes
+                    align = left|nobaseline
+                }
+
+                textbox = {
+                    position = { -7 0 }
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_target_', Goods.GetKey)), '(CFixedPoint)10')|Dv]"
+                    parentanchor = right|vcenter
+                    autoresize = yes
+                    align = right|nobaseline
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_country_progressbar = flowcontainer {
+
+        # Is the market of the player, the market has more than one country in it, there is some reserve in the
+        # market, the player is either a junior market partner or market owner that doesn't have 100% of reserve.
+        # visible = "[
+        #     And(
+        #         ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket),
+        #         And(
+        #             GreaterThan_CFixedPoint(
+        #                 GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'),
+        #                 '(CFixedPoint)1'
+        #             ),
+        #             And(
+        #                 Not(
+        #                     EqualTo_CFixedPoint(
+        #                         GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)),
+        #                         '(CFixedPoint)0'
+        #                     )
+        #                 ),
+        #                 Or(
+        #                     Not(
+        #                         ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)
+        #                     ),
+        #                     Not(
+        #                         EqualTo_CFixedPoint(
+        #                             GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)),
+        #                             '(CFixedPoint)1'
+        #                         )
+        #                     )
+        #                 )
+        #             )
+        #         )
+        #     )
+        # ]"
+
+        visible = "[And(ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket), And(GreaterThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'), '(CFixedPoint)1'), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Or(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)1'))))))]"
+
+        margin = { 12 0 }
+        margin_top = 20
+        margin_bottom = 2
+
+        default_progressbar_horizontal = {
+            blockoverride "values" {
+                value = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey))]"
+                min = 0
+                max = 1
+            }
+            size = { 516 25 }
+
+            tooltipwidget = {
+                stockpile_tooltip_countries_in_market = {}
+            }
+
+            widget = {
+                size = { 100% 100% }
+
+                textbox = {
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 7 0 }
+                    autoresize = yes
+                    text = "ASE_COUNTRY_STOCKPILE"
+                }
+
+                textbox = {
+                    visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv] #variable +0.00#!"
+                }
+                textbox = {
+                    visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv] [Multiply_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_transfer_', Goods.GetKey)), '(CFixedPoint)0.1')|=+D]"
+                }
+
+                textbox = {
+                    position = { 350 0 }
+                    raw_text = "#variable [GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey))|%0]#!"
+                    parentanchor = left|vcenter
+                    autoresize = yes
+                    align = left|nobaseline
+                }
+
+                textbox = {
+                    position = { -7 0 }
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]"
+                    parentanchor = right|vcenter
+                    autoresize = yes
+                    align = right|nobaseline
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_state_progressbar = flowcontainer {
+        # There is some reserve in the market
+        # visible = "[
+        #     Not(
+        #         EqualTo_CFixedPoint(
+        #             GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)),
+        #             '(CFixedPoint)0'
+        #         )
+        #     )
+        # ]"
+
+        visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0'))]"
+
+        margin = { 12 0 }
+        margin_top = 20
+        margin_bottom = 2
+
+        default_progressbar_horizontal = {
+            blockoverride "values" {
+                value = "[GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_to_country_reserve_', Goods.GetKey))]"
+                min = 0
+                max = 1
+            }
+            size = { 516 25 }
+
+            tooltipwidget = {
+                stockpile_tooltip_states_in_market = {}
+            }
+
+            widget = {
+                size = { 100% 100% }
+
+                textbox = {
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 7 0 }
+                    autoresize = yes
+                    text = "ASE_STATE_STOCKPILE"
+                }
+
+                textbox = {
+                    visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv] #variable +0.00#!"
+                }
+                textbox = {
+                    visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+                    parentanchor = left|vcenter
+                    align = left|nobaseline
+                    position = { 200 0 }
+                    autoresize = yes
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv] [Multiply_CFixedPoint(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0.1')|=+D]"
+                }
+
+                textbox = {
+                    position = { 350 0 }
+                    raw_text = "#variable [GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_to_country_reserve_', Goods.GetKey))|%0]#!"
+                    parentanchor = left|vcenter
+                    autoresize = yes
+                    align = left|nobaseline
+                }
+
+                textbox = {
+                    position = { -7 0 }
+                    raw_text = "[Multiply_CFixedPoint(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]"
+                    parentanchor = right|vcenter
+                    autoresize = yes
+                    align = right|nobaseline
+                }
+            }
+        }
+    }
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # Goods policy
+    # ------------------------------------------------------------------------------------------------------------------
+
+    type stockpile_panel_goods_policy = flowcontainer {
+        parentanchor = hcenter
+        direction = horizontal
+        margin = { 10 8 }
+        spacing = 15
+
+        flowcontainer = {
+            direction = vertical
+            
+            stockpile_panel_transfers = {}
+            stockpile_panel_limit = {}
+        }
+
+        vertical_divider = {
+            size = { 0 85% }
+        }
+
+        flowcontainer = {
+            direction = vertical
+
+            stockpile_panel_saving_target = {}
+            stockpile_panel_spending_target = {}
+        }
+    }
+
+    type stockpile_panel_transfers = widget {
+        size = { 245 48 }
+        hbox = {                                            
+            textbox = {
+                autoresize = yes
+                align = nobaseline
+                text = "ASE_STOCKPILE_TRANSFERS"
+            }
+
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+            
+            flowcontainer = {
+                # Both saving and spending
+                set_level_bar_item = {
+                    datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_both_', Goods.GetKey))]"
+                    tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
+
+                    blockoverride "button_texture" {
+                        texture = "gfx/interface/icons/trade_icons/unfocused.dds"
+                    }
+                    blockoverride "click" {
+                        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible" {
+                        visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible_2" {
+                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    }
+                }
+
+                # Saving only
+                set_level_bar_item = {
+                    datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_saving_', Goods.GetKey))]"
+                    tooltip = "ASE_STOCKPILE_TRANSFERS_SAVING_TOOLTIP"
+
+                    blockoverride "button_texture" {
+                        texture = "gfx/interface/icons/trade_icons/import_focused.dds"
+                    }
+                    blockoverride "click" {
+                        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible" {
+                        visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible_2" {
+                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    }
+                }
+
+                # Spending only
+                set_level_bar_item = {
+                    datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_spending_', Goods.GetKey))]"
+                    tooltip = "ASE_STOCKPILE_TRANSFERS_SPENDING_TOOLTIP"
+
+                    blockoverride "button_texture" {
+                        texture = "gfx/interface/icons/trade_icons/export_focused.dds"
+                    }
+                    blockoverride "click" {
+                        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible" {
+                        visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible_2" {
+                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    }
+                }
+
+                # None
+                set_level_bar_item = {
+                    datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_none_', Goods.GetKey))]"
+                    tooltip = "ASE_STOCKPILE_TRANSFERS_NONE_TOOLTIP"
+
+                    blockoverride "button_texture" {
+                        texture = "gfx/interface/icons/generic_icons/red_cross.dds"
+                    }
+                    blockoverride "texture_size" {
+                        size = { 19 19 }
+                    }
+                    blockoverride "selected_texture_size" {
+                        size = { 23 23 }
+                    }
+                    blockoverride "click" {
+                        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible" {
+                        visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    }
+                    blockoverride "setvisible_2" {
+                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    }
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_limit = widget {
+        size = { 245 48 }
+        hbox = {
+            textbox = {
+                autoresize = yes
+                align = nobaseline
+                text = "ASE_STOCKPILE_CAPACITY"
+            }
+            
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            textbox = {
+                autoresize = yes
+                align = nobaseline
+                raw_text = "[FixedPointToInt(Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_weeks_target_', Goods.GetKey)), '(CFixedPoint)0.24'))|v]"
+            }
+            textbox = {
+                autoresize = yes
+                margin_right = 7
+                align = nobaseline
+                text = "ASE_STOCKPILE_CAPACITY_MONTHS"
+            }
+            
+            flowcontainer = {
+                stockpile_panel_limit_decrease = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_limit_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_LOWEST"
+                }
+                stockpile_panel_limit_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_LOWER"
+                }
+
+                stockpile_panel_limit_increase = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_limit_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_HIGHEST"
+                }
+                stockpile_panel_limit_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_HIGHER"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_limit_decrease = button_icon_round {
+        datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_reserve_weeks_target_decrease_', Goods.GetKey))]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/profitability_01.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 23 23 }
+        }
+    }
+
+    type stockpile_panel_limit_increase = button_icon_round {
+        datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_reserve_weeks_target_increase_', Goods.GetKey))]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/profitability_13.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 23 23 }
+        }
+    }
+
+    type stockpile_panel_saving_target = widget {
+        size = { 245 48 }
+        hbox = {
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                text = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING"
+            }
+
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                margin_right = 6
+                raw_text = "[GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_price_target_saving_', Goods.GetKey))|%0=-]"
+            }
+
+            flowcontainer = {
+                stockpile_panel_saving_target_decrease = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_saving_target_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWEST"
+                }
+                stockpile_panel_saving_target_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWER"
+                }
+
+                stockpile_panel_saving_target_increase = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_saving_target_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHEST"
+                }
+                stockpile_panel_saving_target_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHER"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_saving_target_decrease = button_icon_round {
+        datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_price_target_saving_decrease_', Goods.GetKey))]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_07.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_saving_target_increase = button_icon_round {
+        datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_price_target_saving_increase_', Goods.GetKey))]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_10.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_spending_target = widget {
+        size = { 245 48 }
+        hbox = {
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                text = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING"
+            }
+
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                margin_right = 6
+                raw_text = "[GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_price_target_spending_', Goods.GetKey))|%0=-]"
+            }
+            
+            flowcontainer = {
+                stockpile_panel_spending_target_decrease = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_spending_target_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWEST"
+                }
+                stockpile_panel_spending_target_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWER"
+                }
+
+                stockpile_panel_spending_target_increase = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_spending_target_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHEST"
+                }
+                stockpile_panel_spending_target_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHER"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_spending_target_decrease = button_icon_round {
+        datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_price_target_spending_decrease_', Goods.GetKey))]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_07.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_spending_target_increase = button_icon_round {
+        datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_price_target_spending_increase_', Goods.GetKey))]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_10.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # Default policy
+    # TODO "Are you sure?" button will become grey and won't go away if you reset that single good that's not default
+    # ------------------------------------------------------------------------------------------------------------------
+
+    type stockpile_panel_default_policy = flowcontainer {
+        parentanchor = hcenter
+        direction = horizontal
+        margin = { 10 8 }
+        spacing = 17
+
+        flowcontainer = {
+            direction = vertical
+
+            stockpile_panel_limit_default = {}
+            stockpile_panel_saving_target_default = {}
+            stockpile_panel_spending_target_default = {}
+        }
+
+        flowcontainer = {
+            direction = vertical
+
+            stockpile_panel_limit_default_reset = {}
+            stockpile_panel_saving_target_default_reset = {}
+            stockpile_panel_spending_target_default_reset = {}
+        }
+    }
+
+    type stockpile_panel_limit_default = widget {
+        size = { 245 48 }
+        hbox = {
+            textbox = {
+                autoresize = yes
+                align = nobaseline
+                text = "ASE_STOCKPILE_CAPACITY"
+            }
+            
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            textbox = {
+                autoresize = yes
+                align = nobaseline
+                raw_text = "[FixedPointToInt(Multiply_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue('ase_stockpile_reserve_weeks_target_default'), '(CFixedPoint)0.24'))|v]"
+            }
+            textbox = {
+                autoresize = yes
+                margin_right = 7
+                align = nobaseline
+                text = "ASE_STOCKPILE_CAPACITY_MONTHS"
+            }
+            
+            flowcontainer = {
+                stockpile_panel_limit_default_decrease = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_limit_default_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_LOWEST"
+                }
+                stockpile_panel_limit_default_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_LOWER"
+                }
+
+                stockpile_panel_limit_default_increase = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_limit_default_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_HIGHEST"
+                }
+                stockpile_panel_limit_default_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_CAPACITY_HIGHER"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_limit_default_decrease = button_icon_round {
+        datacontext = "[GetScriptedGui('ase_stockpile_country_reserve_weeks_target_default_decrease')]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/profitability_01.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 23 23 }
+        }
+    }
+
+    type stockpile_panel_limit_default_increase = button_icon_round {
+        datacontext = "[GetScriptedGui('ase_stockpile_country_reserve_weeks_target_default_increase')]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/profitability_13.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 23 23 }
+        }
+    }
+
+    type stockpile_panel_limit_default_reset = widget {
+        size = { 258 48 }
+        hbox = {
+            button = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_reserve_weeks_target_reset_', Goods.GetKey))]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_SPECIFIC"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                tooltip = "ASE_STOCKPILE_RESET_SPECIFIC_TOOLTIP"
+            }
+            
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            button = {
+                visible = "[Not(GetVariableSystem.Exists('limit_default_reset_reset_confirm'))]"
+                datacontext = "[GetScriptedGui('ase_stockpile_country_reserve_weeks_target_reset_all_goods')]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_ALL_GOODS"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[GetVariableSystem.Set('limit_default_reset_reset_confirm', '')]"
+                tooltip = "ASE_STOCKPILE_RESET_ALL_GOODS_TOOLTIP"
+            }
+            
+            button = {
+                visible = "[GetVariableSystem.Exists('limit_default_reset_reset_confirm')]"
+                datacontext = "[GetScriptedGui('ase_stockpile_country_reserve_weeks_target_reset_all_goods')]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_CONFIRM"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[GetVariableSystem.Clear('limit_default_reset_reset_confirm')]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onrightclick = "[GetVariableSystem.Clear('limit_default_reset_reset_confirm')]"
+                tooltip = "ASE_STOCKPILE_RESET_ALL_GOODS_TOOLTIP"
+            }
+        }
+    }
+
+    type stockpile_panel_saving_target_default = widget {
+        size = { 245 48 }
+        hbox = {
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                text = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING"
+            }
+
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                margin_right = 6
+                raw_text = "[GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue('ase_stockpile_price_target_saving_default')|%0=-]"
+            }
+
+            flowcontainer = {
+                stockpile_panel_saving_target_default_decrease = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_saving_target_default_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWEST"
+                }
+                stockpile_panel_saving_target_default_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_LOWER"
+                }
+
+                stockpile_panel_saving_target_default_increase = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_saving_target_default_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHEST"
+                }
+                stockpile_panel_saving_target_default_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SAVING_HIGHER"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_saving_target_default_decrease = button_icon_round {
+        datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_saving_default_decrease')]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_07.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_saving_target_default_increase = button_icon_round {
+        datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_saving_default_increase')]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_10.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_saving_target_default_reset = widget {
+        size = { 258 48 }
+        hbox = {
+            button = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_price_target_saving_reset_', Goods.GetKey))]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_SPECIFIC"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                tooltip = "ASE_STOCKPILE_RESET_SPECIFIC_TOOLTIP"
+            }
+            
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            button = {
+                visible = "[Not(GetVariableSystem.Exists('saving_target_default_reset_confirm'))]"
+                datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_saving_reset_all_goods')]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_ALL_GOODS"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[GetVariableSystem.Set('saving_target_default_reset_confirm', '')]"
+                tooltip = "ASE_STOCKPILE_RESET_ALL_GOODS_TOOLTIP"
+            }
+            
+            button = {
+                visible = "[GetVariableSystem.Exists('saving_target_default_reset_confirm')]"
+                datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_saving_reset_all_goods')]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_CONFIRM"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[GetVariableSystem.Clear('saving_target_default_reset_confirm')]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onrightclick = "[GetVariableSystem.Clear('saving_target_default_reset_confirm')]"
+                tooltip = "ASE_STOCKPILE_RESET_ALL_GOODS_TOOLTIP"
+            }
+        }
+    }
+
+    type stockpile_panel_spending_target_default = widget {
+        size = { 245 48 }
+        hbox = {
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                text = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING"
+            }
+
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            textbox = {
+                autoresize = yes
+                align = left|nobaseline
+                margin_right = 6
+                raw_text = "[GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue('ase_stockpile_price_target_spending_default')|%0=-]"
+            }
+            
+            flowcontainer = {
+                stockpile_panel_spending_target_default_decrease = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_spending_target_default_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWEST"
+                }
+                stockpile_panel_spending_target_default_decrease = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_LOWER"
+                }
+
+                stockpile_panel_spending_target_default_increase = {
+                    visible = "[Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner))]"
+                    tooltip = "ASE_STOCKPILE_NOT_OWNER"
+                }
+                stockpile_panel_spending_target_default_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHEST"
+                }
+                stockpile_panel_spending_target_default_increase = {
+                    visible = "[And(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+                    tooltip = "ASE_STOCKPILE_COUNTRY_PRICE_TARGET_SPENDING_HIGHER"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_spending_target_default_decrease = button_icon_round {
+        datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_spending_default_decrease')]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_07.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_spending_target_default_increase = button_icon_round {
+        datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_spending_default_increase')]"
+        size = { 35 35 }
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        blockoverride "icon" {
+            texture = "gfx/interface/icons/generic_icons/coin_icon_10.dds"
+        }
+        blockoverride "icon_size" {
+            size = { 21 21 }
+        }
+    }
+
+    type stockpile_panel_spending_target_default_reset = widget {
+        size = { 258 48 }
+        hbox = {
+            button = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_price_target_spending_reset_', Goods.GetKey))]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_SPECIFIC"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                tooltip = "ASE_STOCKPILE_RESET_SPECIFIC_TOOLTIP"
+            }
+            
+            textbox = {
+                layoutpolicy_horizontal = expanding
+            }
+
+            button = {
+                visible = "[Not(GetVariableSystem.Exists('spending_target_default_reset_confirm'))]"
+                datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_spending_reset_all_goods')]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_ALL_GOODS"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[GetVariableSystem.Set('spending_target_default_reset_confirm', '')]"
+                tooltip = "ASE_STOCKPILE_RESET_ALL_GOODS_TOOLTIP"
+            }
+            
+            button = {
+                visible = "[GetVariableSystem.Exists('spending_target_default_reset_confirm')]"
+                datacontext = "[GetScriptedGui('ase_stockpile_country_price_target_spending_reset_all_goods')]"
+                using = default_button_action
+                size = { 121 35 }
+                text = "ASE_STOCKPILE_RESET_CONFIRM"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onclick = "[GetVariableSystem.Clear('spending_target_default_reset_confirm')]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                onrightclick = "[GetVariableSystem.Clear('spending_target_default_reset_confirm')]"
+                tooltip = "ASE_STOCKPILE_RESET_ALL_GOODS_TOOLTIP"
+            }
+        }
+    }
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # State policy
+    # ------------------------------------------------------------------------------------------------------------------
+
+    type stockpile_panel_state_policy = flowcontainer {
+        parentanchor = hcenter
+        direction = horizontal
+        margin = { 10 8 }
+        spacing = 16
+
+        flowcontainer = {
+            direction = vertical
+
+            widget = {
+                size = { 83 48 }
+                textbox = {
+                    parentanchor = vcenter
+                    autoresize = yes
+                    align = nobaseline
+                    text = "ASE_STOCKPILE_ONLY_FOR_SPECIFIC"
+                    tooltip = "ASE_STOCKPILE_ONLY_FOR_SPECIFIC_TOOLTIP"
+                }
+            }
+            widget = {
+                size = { 83 48 }
+                textbox = {
+                    parentanchor = vcenter
+                    autoresize = yes
+                    align = nobaseline
+                    text = "ASE_STOCKPILE_FOR_ALL_GOODS"
+                    tooltip = "ASE_STOCKPILE_FOR_ALL_GOODS_TOOLTIP"
+                }
+            }
+        }
+
+        flowcontainer = {
+            direction = vertical
+
+            stockpile_panel_state_prioritize_specific = {}
+            stockpile_panel_state_prioritize_all_goods = {}
+        }
+
+        flowcontainer = {
+            direction = vertical
+
+            stockpile_panel_state_transfers_specific = {}
+            stockpile_panel_state_transfers_all_goods = {}
+        }
+
+        vertical_divider = {
+            size = { 0 85% }
+        }
+
+        flowcontainer = {
+            direction = vertical
+            
+            stockpile_panel_state_reset_specific = {}
+            stockpile_panel_state_reset_all_goods = {}
+        }
+    }
+    
+    type stockpile_panel_state_prioritize_specific = widget {
+        size = { 89 48 }
+
+        flowcontainer = {
+            direction = horizontal
+            parentanchor = right|vcenter
+            tooltip = "ASE_STOCKPILE_PRIORITY_TOOLTIP"
+            margin_left = 3
+            margin_right = 2
+
+            checkbutton = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_state_toggle_is_prioritized_', Goods.GetKey))]"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                checked = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                using = check_button
+                size = { 25 25 }
+            }
+
+            textbox = {
+                autoresize = yes
+                parentanchor = vcenter
+                align = nobaseline
+                margin_left = 7
+                text = "ASE_STOCKPILE_PRIORITY"
+            }
+        }
+    }
+    
+    type stockpile_panel_state_prioritize_all_goods = widget {
+        size = { 89 48 }
+
+        flowcontainer = {
+            direction = horizontal
+            parentanchor = right|vcenter
+            tooltip = "ASE_STOCKPILE_PRIORITY_TOOLTIP"
+            margin_left = 3
+            margin_right = 2
+
+            checkbutton = {
+                datacontext = "[GetScriptedGui('ase_stockpile_state_toggle_is_prioritized_all_goods')]"
+                enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                checked = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                using = check_button
+                size = { 25 25 }
+            }
+
+            textbox = {
+                autoresize = yes
+                parentanchor = vcenter
+                align = nobaseline
+                margin_left = 7
+                text = "ASE_STOCKPILE_PRIORITY"
+            }
+        }
+    }
+
+    type stockpile_panel_state_transfers_specific = widget {
+        size = { 160 48 }
+            
+        flowcontainer = {
+            # Both saving and spending
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_state_change_direction_to_both_', Goods.GetKey))]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/trade_icons/unfocused.dds"
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+
+            # Saving only
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_state_change_direction_to_saving_', Goods.GetKey))]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_SAVING_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/trade_icons/import_focused.dds"
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+
+            # Spending only
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_state_change_direction_to_spending_', Goods.GetKey))]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_SPENDING_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/trade_icons/export_focused.dds"
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+
+            # None
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_state_change_direction_to_none_', Goods.GetKey))]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_NONE_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/generic_icons/red_cross.dds"
+                }
+                blockoverride "texture_size" {
+                    size = { 19 19 }
+                }
+                blockoverride "selected_texture_size" {
+                    size = { 23 23 }
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_state_transfers_all_goods = widget {
+        size = { 160 48 }
+        
+        flowcontainer = {
+            # Both saving and spending
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui('ase_stockpile_state_change_direction_all_goods_to_both')]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/trade_icons/unfocused.dds"
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+
+            # Saving only
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui('ase_stockpile_state_change_direction_all_goods_to_saving')]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_SAVING_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/trade_icons/import_focused.dds"
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+
+            # Spending only
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui('ase_stockpile_state_change_direction_all_goods_to_spending')]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_SPENDING_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/trade_icons/export_focused.dds"
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+
+            # None
+            set_level_bar_item = {
+                datacontext = "[GetScriptedGui('ase_stockpile_state_change_direction_all_goods_to_none')]"
+                tooltip = "ASE_STOCKPILE_TRANSFERS_NONE_TOOLTIP"
+
+                blockoverride "button_texture" {
+                    texture = "gfx/interface/icons/generic_icons/red_cross.dds"
+                }
+                blockoverride "texture_size" {
+                    size = { 19 19 }
+                }
+                blockoverride "selected_texture_size" {
+                    size = { 23 23 }
+                }
+                blockoverride "click" {
+                    enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                    onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible" {
+                    visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+                }
+                blockoverride "setvisible_2" {
+                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
+                }
+            }
+        }
+    }
+
+    type stockpile_panel_state_reset_specific = widget {
+        size = { 124 48 }
+        button = {
+            parentanchor = right|vcenter
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_state_reset_priority_and_direction_', Goods.GetKey))]"
+            using = default_button_action
+            size = { 121 35 }
+            text = "ASE_STOCKPILE_RESET_SPECIFIC"
+            enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+            onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+            tooltip = "ASE_STOCKPILE_RESET_STATE_SPECIFIC_TOOLTIP"
+        }
+    }
+
+    type stockpile_panel_state_reset_all_goods = widget {
+        size = { 124 48 }
+
+        button = {
+            visible = "[Not(GetVariableSystem.Exists('state_reset_all_goods_confirm'))]"
+            parentanchor = right|vcenter
+            datacontext = "[GetScriptedGui('ase_stockpile_state_reset_priority_and_direction_all_goods')]"
+            using = default_button_action
+            size = { 121 35 }
+            text = "ASE_STOCKPILE_RESET_ALL_GOODS"
+            enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+            onclick = "[GetVariableSystem.Set('state_reset_all_goods_confirm', '')]"
+            tooltip = "ASE_STOCKPILE_RESET_STATE_ALL_GOODS_TOOLTIP"
+        }
+        
+        button = {
+            visible = "[GetVariableSystem.Exists('state_reset_all_goods_confirm')]"
+            parentanchor = right|vcenter
+            datacontext = "[GetScriptedGui('ase_stockpile_state_reset_priority_and_direction_all_goods')]"
+            using = default_button_action
+            size = { 121 35 }
+            text = "ASE_STOCKPILE_RESET_CONFIRM"
+            enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+            onclick = "[GetVariableSystem.Clear('state_reset_all_goods_confirm')]"
+            onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
+            onrightclick = "[GetVariableSystem.Clear('state_reset_all_goods_confirm')]"
+            tooltip = "ASE_STOCKPILE_RESET_STATE_ALL_GOODS_TOOLTIP"
+        }
+    }
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # Icons and tooltips in the market panel where you see all the goods
+    # ------------------------------------------------------------------------------------------------------------------
+
+    type stockpile_market_panel_icon = icon {
+        visible = "[GetGlobalVariable(Concatenate('ase_goods_can_be_stockpiled_', Goods.GetKey)).IsSet]"
+        parentanchor = top|right
+        size = { 25 25 }
+
+        icon = {
+            visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+
+            size = { 25 25 }
+            parentanchor = center
+            texture = "gfx/interface/buttons/round_button_big_wood_action.dds"
+            tooltip = "ASE_STOCKPILE_ONGOING_TRANSFER_SAVING"
+
+            icon = {
+                size = { 17 17 }
+                parentanchor = center
+                texture = "gfx/interface/icons/trade_icons/import_focused.dds"
+            }
+        }
+
+        icon = {
+            visible = "[LessThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+
+            size = { 25 25 }
+            parentanchor = center
+            texture = "gfx/interface/buttons/round_button_big_wood_action.dds"
+            tooltip = "ASE_STOCKPILE_ONGOING_TRANSFER_SPENDING"
+
+            icon = {
+                size = { 17 17 }
+                parentanchor = center
+                texture = "gfx/interface/icons/trade_icons/export_focused.dds"
+            }
+        }
+
+        icon = {
+            visible = "[And(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_transfer_', Goods.GetKey)), '(CFixedPoint)0'), GreaterThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0'))]"
+
+            size = { 25 25 }
+            parentanchor = center
+            texture = "gfx/interface/buttons/round_button_big_wood_action.dds"
+            tooltip = "ASE_STOCKPILE_NO_ONGOING_TRANSFER"
+
+            icon = {
+                size = { 13 13 }
+                parentanchor = center
+                texture = "gfx/interface/icons/generic_icons/generic_goods.dds"
+            }
+        }
+    }
+
+    type stockpile_tooltip_states_in_market = TooltipWidgetType {
+        state = {
+            name = _show
+            on_start = "[GetScriptedGui(Concatenate('ase_stockpile_create_list_of_states_in_market_', Goods.GetKey)).Execute(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).End)]"
+        }
+        state = {
+            name = _hide
+            on_start = "[GetScriptedGui(Concatenate('ase_stockpile_clear_list_of_states_in_market_', Goods.GetKey)).Execute(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).End)]"
+        }
+
+        blockoverride "tooltip_content_after" {
+            flowcontainer = {
+                direction = vertical
+
+                flowcontainer = {
+                    textbox = {
+                        autoresize = yes
+                        align = left|nobaseline
+                        text = "ASE_STOCKPILE_STATES_IN_MARKET"
+                    }
+                }
+
+                flowcontainer = {
+
+                    # Is the market of the player, the market has more than one country in it, there is some reserve in
+                    # the market, the player has some reserve and thus states with the reserve, the player is either
+                    # junior market partner or market owner that doesn't have 100% of reserve.
+                    # visible = "[
+                    #     And(
+                    #         ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket),
+                    #         And(
+                    #             GreaterThan_CFixedPoint(
+                    #                 GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'),
+                    #                 '(CFixedPoint)1'
+                    #             ),
+                    #             And(
+                    #                 Not(
+                    #                     EqualTo_CFixedPoint(
+                    #                         GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)),
+                    #                         '(CFixedPoint)0'
+                    #                     )
+                    #                 ),
+                    #                 And(
+                    #                     Not(
+                    #                         EqualTo_CFixedPoint(
+                    #                             GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)),
+                    #                             '(CFixedPoint)0'
+                    #                         )
+                    #                     ),
+                    #                     Or(
+                    #                         Not(
+                    #                             ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)
+                    #                         ),
+                    #                         Not(
+                    #                             EqualTo_CFixedPoint(
+                    #                                 GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)),
+                    #                                 '(CFixedPoint)1'
+                    #                             )
+                    #                         )
+                    #                     )
+                    #                 )
+                    #             )
+                    #         )
+                    #     )
+                    # ]"
+
+                    visible = "[And(ObjectsEqual(GetPlayer.GetCapital.GetMarket, Goods.GetMarket), And(GreaterThan_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.MakeScope).ScriptValue('ase_num_countries_in_market'), '(CFixedPoint)1'), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Goods.GetMarket.GetOwner.MakeScope).ScriptValue(Concatenate('ase_stockpile_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), And(Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)0')), Or(Not(ObjectsEqual(GetPlayer, Goods.GetMarket.GetOwner)), Not(EqualTo_CFixedPoint(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey)), '(CFixedPoint)1')))))))]"
+                    
+                    textbox = {
+                        autoresize = yes
+                        align = left|nobaseline
+
+                        tooltipwidget = {
+                            stockpile_tooltip_states_in_country = {}
+                        }
+
+                        text = "ASE_STOCKPILE_SHOW_STATES_IN_COUNTRY"
+                    }
+                }
+
+                dynamicgridbox = {
+                    datamodel = "[Goods.GetMarket.GetOwner.MakeScope.GetList(Concatenate('ase_stockpile_sgui_states_in_market_', Goods.GetKey))]"
+
+                    item = {
+                        flowcontainer = {
+                            flowcontainer = {
+                                datacontext = "[Scope.GetState]"
+
+                                visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+
+                                textbox = {
+                                    autoresize = yes
+                                    align = left|nobaseline
+                                    raw_text = "#variable [Multiply_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]#! #variable +0.00#! (#variable [GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_to_market_reserve_', Goods.GetKey))|%0]#!): [State.GetName]"
+                                }
+                            }
+
+                            flowcontainer = {
+                                datacontext = "[Scope.GetState]"
+
+                                visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+
+                                textbox = {
+                                    autoresize = yes
+                                    align = left|nobaseline
+                                    raw_text = "#variable [Multiply_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]#! [Multiply_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0.1')|=+D] (#variable [GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_to_market_reserve_', Goods.GetKey))|%0]#!): [State.GetName]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    type stockpile_tooltip_states_in_country = TooltipWidgetType {
+        state = {
+            name = _show
+            on_start = "[GetScriptedGui(Concatenate('ase_stockpile_create_list_of_states_in_country_', Goods.GetKey)).Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        }
+        state = {
+            name = _hide
+            on_start = "[GetScriptedGui(Concatenate('ase_stockpile_clear_list_of_states_in_country_', Goods.GetKey)).Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        }
+
+        blockoverride "tooltip_content_after" {
+            flowcontainer = {
+                direction = vertical
+
+                flowcontainer = {
+                    textbox = {
+                        autoresize = yes
+                        align = left|nobaseline
+                        text = "ASE_STOCKPILE_STATES_IN_COUNTRY"
+                    }
+                }
+
+                dynamicgridbox = {
+                    datamodel = "[GetPlayer.MakeScope.GetList(Concatenate('ase_stockpile_sgui_states_in_country_', Goods.GetKey))]"
+
+                    item = {
+                        flowcontainer = {
+                            flowcontainer = {
+                                datacontext = "[Scope.GetState]"
+
+                                visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+
+                                textbox = {
+                                    autoresize = yes
+                                    align = left|nobaseline
+                                    raw_text = "#variable [Multiply_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]#! #variable +0.00#! (#variable [GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_to_country_reserve_', Goods.GetKey))|%0]#!): [State.GetName]"
+                                }
+                            }
+
+                            flowcontainer = {
+                                datacontext = "[Scope.GetState]"
+
+                                visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+
+                                textbox = {
+                                    autoresize = yes
+                                    align = left|nobaseline
+                                    raw_text = "#variable [Multiply_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]#! [Multiply_CFixedPoint(GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_transfer_', Goods.GetKey)), '(CFixedPoint)0.1')|=+D] (#variable [GuiScope.SetRoot(State.MakeScope).ScriptValue(Concatenate('ase_stockpile_state_to_country_reserve_', Goods.GetKey))|%0]#!): [State.GetName]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    type stockpile_tooltip_countries_in_market = TooltipWidgetType {
+        state = {
+            name = _show
+            on_start = "[GetScriptedGui(Concatenate('ase_stockpile_create_list_of_countries_in_market_', Goods.GetKey)).Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        }
+        state = {
+            name = _hide
+            on_start = "[GetScriptedGui(Concatenate('ase_stockpile_clear_list_of_countries_in_market_', Goods.GetKey)).Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        }
+
+        blockoverride "tooltip_content_after" {
+            flowcontainer = {
+                direction = vertical
+
+                flowcontainer = {
+                    textbox = {
+                        autoresize = yes
+                        align = left|nobaseline
+                        text = "ASE_STOCKPILE_COUNTRIES_IN_MARKET"
+                    }
+                }
+                dynamicgridbox = {
+                    datamodel = "[GetPlayer.MakeScope.GetList(Concatenate('ase_stockpile_sgui_countries_in_market_', Goods.GetKey))]"
+
+                    item = {
+                        flowcontainer = {
+                            flowcontainer = {
+                                datacontext = "[Scope.GetCountry]"
+
+                                visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_transfer_', Goods.GetKey)), '(CFixedPoint)0')]"
+
+                                textbox = {
+                                    autoresize = yes
+                                    align = left|nobaseline
+                                    raw_text = "#variable [Multiply_CFixedPoint(GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]#! #variable +0.00#! (#variable [GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey))|%0]#!): [Country.GetName]"
+                                }
+                            }
+
+                            flowcontainer = {
+                                datacontext = "[Scope.GetCountry]"
+
+                                visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_transfer_', Goods.GetKey)), '(CFixedPoint)0'))]"
+
+                                textbox = {
+                                    autoresize = yes
+                                    align = left|nobaseline
+                                    raw_text = "#variable [Multiply_CFixedPoint(GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_reserve_', Goods.GetKey)), '(CFixedPoint)10')|Dv]#! [Multiply_CFixedPoint(GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_transfer_', Goods.GetKey)), '(CFixedPoint)0.1')|=+D] (#variable [GuiScope.SetRoot(Country.MakeScope).ScriptValue(Concatenate('ase_stockpile_country_to_market_reserve_', Goods.GetKey))|%0]#!): [Country.GetName]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

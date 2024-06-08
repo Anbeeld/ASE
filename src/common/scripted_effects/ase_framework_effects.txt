@@ -81,31 +81,6 @@ ase_call_main_event_from_random_countries = {
 }
 
 ase_initialize_stockpile_loop_distribution = {
-
-    # Required for ase_should_country_stockpile_goods_in_direction, don't wanna create a separate effect
-    if = {
-        limit = {
-            NOT = {
-                has_global_variable = ase_country_stockpile_direction_saving
-            }
-        }
-        set_global_variable = {
-            name = ase_country_stockpile_direction_saving
-            value = 1
-        }
-    }
-    if = {
-        limit = {
-            NOT = {
-                has_global_variable = ase_country_stockpile_direction_spending
-            }
-        }
-        set_global_variable = {
-            name = ase_country_stockpile_direction_spending
-            value = 2
-        }
-    }
-
     if = {
         limit = {
             NOT = {

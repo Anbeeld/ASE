@@ -1,5 +1,8 @@
 ﻿
-# Perform stockpiling related operations in all markets 
+# ----------------------------------------------------------------------------------------------------------------------
+# Stockpile main algorithm, step 0: collect data that doesn't depend on goods and perform algorithm for every goods
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_stockpile_algorithm_initialize_markets = {
     every_market = {
         limit = {
@@ -31,7 +34,7 @@ ase_stockpile_algorithm_initialize_markets = {
             target = owner
         }
 
-        # Initialize the list of market player countries, used to allow players to stockpile if AI market owner doesn't
+        # Initialize the list of player countries, is used to allow players to stockpile if market owner doesn't want it
         add_to_local_variable_list = {
             name = ase_market_countries_controlled_by_players
             target = owner
@@ -158,8 +161,7 @@ ase_stockpile_algorithm_initialize_markets = {
         # effect and can be deleted immediately after, while country scope variables are checked and cleared next week.
         ase_remove_has_transfers_variables_in_states = yes
 
-        ase_remove_saving_states_list_and_variables = yes
-
+        # Remove variables with saved maximum reserve share
         every_in_local_list = {
             variable = ase_market_countries_allowed_to_stockpile
             limit = {
@@ -290,30 +292,7 @@ ase_remove_has_transfers_variables_in_states = {
     }
 }
 
-ase_remove_saving_states_list_and_variables = {
-    every_in_local_list = {
-        variable = ase_market_countries_allowed_to_stockpile
-        limit = {
-            has_variable = ase_collected_data_of_saving_states
-        }
-        remove_variable = ase_collected_data_of_saving_states
-        remove_variable = ase_stockpile_country_num_saving_states
-        remove_variable = ase_stockpile_country_saving_states_gdp
-        every_in_list = {
-            variable = ase_stockpile_country_saving_states
-            limit = {
-                has_variable = ase_stockpile_state_transfer_share
-            }
-            remove_variable = ase_stockpile_state_transfer_share
-        }
-        clear_variable_list = ase_stockpile_country_saving_states
-    }
-}
-
-# Save scopes of all already existing stockpile buildings to variables in state scope and multiply stockpile transfer
-# variables of corresponding goods by occupancy of the building so we don't stockpile goods that we didn't actually buy.
-# Market access not is considered because we buy goods either way, but # TODO there are edge cases where market access
-# won't allow us to buy goods due to them being in the market but in shortage in the state, solution is required here.
+# Save scopes of all already existing stockpile buildings to variables in state scope
 ase_save_stockpile_buildings_to_variables = {
     if = {
         limit = {
@@ -385,6 +364,10 @@ ase_save_stockpile_buildings_to_variables = {
     }
 }
 
+# ----------------------------------------------------------------------------------------------------------------------
+# Stockpile main algorithm, step 1: process old transfers and check if starting new ones is possible
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_stockpile_algorithm_process_old_transfers = {
     if = {
         limit = {
@@ -440,14 +423,6 @@ ase_stockpile_algorithm_process_old_transfers = {
                     }
                 }
             }
-            if = {
-                limit = {
-                    local_var:ase_num_countries_with_stockpile_transfer > 0
-                }
-                ase_remove_transfer_variables_in_all_scopes = {
-                    goods = $goods$
-                }
-            }
             scope:ase_current_market.owner = {
                 if = {
                     limit = {
@@ -463,6 +438,14 @@ ase_stockpile_algorithm_process_old_transfers = {
             }
         }
 
+        ase_remove_market_old_transfers_without_mark = {
+            goods = $goods$
+        }
+
+        ase_remove_mark_variables_of_old_transfers = {
+            goods = $goods$
+        }
+
         # Garbage collection
         remove_local_variable = ase_num_countries_with_stockpile_transfer
     }
@@ -471,12 +454,12 @@ ase_stockpile_algorithm_process_old_transfers = {
 ase_process_old_transfers_and_clear_modifiers = {
     if = {
         limit = {
-            scope:ase_current_market.owner = {
+            owner = {
                 has_variable = ase_stockpile_market_transfer_$goods$
             }
         }
 
-        scope:ase_current_market.owner = {
+        owner = {
             if = {
                 limit = {
                     NOT = {
@@ -508,28 +491,6 @@ ase_process_old_transfers_and_clear_modifiers = {
                     value = 0
                 }
             }
-            change_variable = {
-                name = ase_stockpile_country_reserve_$goods$
-                add = {
-                    value = var:ase_stockpile_country_transfer_$goods$
-                    divide = 100
-                }
-            }
-            scope:ase_current_market.owner = {
-                change_variable = {
-                    name = ase_stockpile_market_reserve_$goods$
-                    add = {
-                        value = prev.var:ase_stockpile_country_transfer_$goods$
-                        divide = 100
-                    }
-                }
-            }
-            if = {
-                limit = {
-                    var:ase_stockpile_country_reserve_$goods$ = 0
-                }
-                remove_variable = ase_stockpile_country_reserve_$goods$
-            }
 
             every_scope_state = {
                 limit = {
@@ -546,8 +507,36 @@ ase_process_old_transfers_and_clear_modifiers = {
 
                 # Fetch stockpile buildings if haven't before
                 ase_save_stockpile_buildings_to_variables = yes
+
+                # Multiply transfer by occupancy so we don't stockpile out of thin air
+                if = {
+                    limit = {
+                        var:ase_stockpile_state_transfer_$goods$ > 0
+                        has_variable = ase_stockpile_state_building_saving
+                        var:ase_stockpile_state_building_saving = {
+                            occupancy < 1.00
+                        }
+                    }
+                    change_variable = {
+                        name = ase_stockpile_state_transfer_$goods$
+                        multiply = var:ase_stockpile_state_building_saving.occupancy
+                    }
+                }
+                else_if = {
+                    limit = {
+                        var:ase_stockpile_state_transfer_$goods$ < 0
+                        has_variable = ase_stockpile_state_building_spending
+                        var:ase_stockpile_state_building_spending = {
+                            occupancy < 1.00
+                        }
+                    }
+                    change_variable = {
+                        name = ase_stockpile_state_transfer_$goods$
+                        multiply = var:ase_stockpile_state_building_spending.occupancy
+                    }
+                }
                 
-                # Update stockpile reserve
+                # Update state, country and market stockpile reserve
                 if = {
                     limit = {
                         NOT = {
@@ -564,6 +553,24 @@ ase_process_old_transfers_and_clear_modifiers = {
                     add = {
                         value = var:ase_stockpile_state_transfer_$goods$
                         divide = 100
+                    }
+                }
+                scope:ase_current_country = {
+                    change_variable = {
+                        name = ase_stockpile_country_reserve_$goods$
+                        add = {
+                            value = prev.var:ase_stockpile_state_transfer_$goods$
+                            divide = 100
+                        }
+                    }
+                }
+                scope:ase_current_market.owner = {
+                    change_variable = {
+                        name = ase_stockpile_market_reserve_$goods$
+                        add = {
+                            value = prev.var:ase_stockpile_state_transfer_$goods$
+                            divide = 100
+                        }
                     }
                 }
                 if = {
@@ -602,6 +609,13 @@ ase_process_old_transfers_and_clear_modifiers = {
                 clear_saved_scope = ase_current_state
             }
 
+            if = {
+                limit = {
+                    var:ase_stockpile_country_reserve_$goods$ = 0
+                }
+                remove_variable = ase_stockpile_country_reserve_$goods$
+            }
+
             # Garbage collection
             clear_saved_scope = ase_current_country
         }
@@ -617,32 +631,9 @@ ase_process_old_transfers_and_clear_modifiers = {
     }
 }
 
-ase_remove_transfer_variables_in_all_scopes = {
-    owner = {
-        if = {
-            limit = {
-                has_variable = ase_stockpile_market_transfer_$goods$
-            }
-            remove_variable = ase_stockpile_market_transfer_$goods$
-
-            market = {
-                every_scope_country = {
-                    limit = {
-                        has_variable = ase_stockpile_country_transfer_$goods$
-                    }
-                    remove_variable = ase_stockpile_country_transfer_$goods$
-
-                    every_scope_state = {
-                        limit = {
-                            has_variable = ase_stockpile_state_transfer_$goods$
-                        }
-                        remove_variable = ase_stockpile_state_transfer_$goods$
-                    }
-                }
-            }
-        }
-    }
-}
+# ----------------------------------------------------------------------------------------------------------------------
+# Everything related to reseting stockpile building to their initial state
+# ----------------------------------------------------------------------------------------------------------------------
 
 ase_reset_building_goods_input_modifier = {
     while = {
@@ -689,6 +680,185 @@ ase_set_default_building_output_modifier = {
         }
     }
 }
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Remove variables containing information about transfers from previous week.
+#
+# General idea: we can't remove variables with old transfers right at the start, we need them later, mostly to calculate
+# non-stockpile buy and sell orders. Thus what we do is when we reach a point in the script where we set up new market,
+# country or state transfer variable, we manually remove old ones right before this and leave a mark about it, so that
+# later we can be sure that this transfer variable the scope has is actually new and not old and shouldn't be removed.
+#
+# Note that when removing old transfers you must remove all of them in lower scopes too, e.g. removing market variables
+# means you need to remove variables of all countries in the market, and variables of all states of all these countries.
+# This is because we must preserve a situation where if x scope has a mark or doesn't have transfer variables, then all
+# the lower scopes must not have them too. Otherwise we would be forced to check all scopes down from market to states
+# every time we clear some transfer variables, as we are not sure if there are any or not, which is insanely expensive.
+#
+# Overall order of things looks like this:
+# 1. Remove old transfers and add mark variables about this in main algorithm right before setting each new transfer.
+# 2. After main algorithm remove all transfers that have no marks, meaning it's an old transfer that wasn't overwritten.
+# 3. Remove all mark variables.
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_remove_market_old_transfers_and_mark_it = {
+    owner = {
+        if = {
+            limit = {
+                NOT = {
+                    has_variable = ase_removed_old_market_transfer_$goods$
+                }
+            }
+            set_variable = {
+                name = ase_removed_old_market_transfer_$goods$
+                value = 1
+            }
+            if = {
+                limit = {
+                    has_variable = ase_stockpile_market_transfer_$goods$
+                }
+                remove_variable = ase_stockpile_market_transfer_$goods$
+            }
+
+            market = {
+                every_scope_country = {
+                    ase_remove_country_old_transfers_and_mark_it = {
+                        goods = $goods$
+                    }
+                }
+            }
+        }
+    }
+}
+
+ase_remove_country_old_transfers_and_mark_it = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_removed_old_country_transfer_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_removed_old_country_transfer_$goods$
+            value = 1
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_country_transfer_$goods$
+            }
+            remove_variable = ase_stockpile_country_transfer_$goods$
+        }
+
+        every_scope_state = {
+            ase_remove_state_old_transfers_and_mark_it = {
+                goods = $goods$
+            }
+        }
+    }
+}
+
+ase_remove_state_old_transfers_and_mark_it = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = ase_removed_old_state_transfer_$goods$
+            }
+        }
+        set_variable = {
+            name = ase_removed_old_state_transfer_$goods$
+            value = 1
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_state_transfer_$goods$
+            }
+            remove_variable = ase_stockpile_state_transfer_$goods$
+        }
+    }
+}
+
+ase_remove_market_old_transfers_without_mark = {
+    owner = {
+        if = {
+            limit = {
+                has_variable = ase_stockpile_market_transfer_$goods$
+                NOT = {
+                    has_variable = ase_removed_old_market_transfer_$goods$
+                }
+            }
+            remove_variable = ase_stockpile_market_transfer_$goods$
+
+            market = {
+                every_scope_country = {
+                    ase_remove_country_old_transfers_without_mark = {
+                        goods = $goods$
+                    }
+                }
+            }
+        }
+    }
+}
+
+ase_remove_country_old_transfers_without_mark = {
+    if = {
+        limit = {
+            has_variable = ase_stockpile_country_transfer_$goods$
+            NOT = {
+                has_variable = ase_removed_old_country_transfer_$goods$
+            }
+        }
+        remove_variable = ase_stockpile_country_transfer_$goods$
+
+        every_scope_state = {
+            ase_remove_state_old_transfers_without_mark = {
+                goods = $goods$
+            }
+        }
+    }
+}
+
+ase_remove_state_old_transfers_without_mark = {
+    if = {
+        limit = {
+            has_variable = ase_stockpile_state_transfer_$goods$
+            NOT = {
+                has_variable = ase_removed_old_state_transfer_$goods$
+            }
+        }
+        remove_variable = ase_stockpile_state_transfer_$goods$
+    }
+}
+
+ase_remove_mark_variables_of_old_transfers = {
+    owner = {
+        if = {
+            limit = {
+                has_variable = ase_removed_old_market_transfer_$goods$
+            }
+            remove_variable = ase_removed_old_market_transfer_$goods$
+            
+            market = {
+                every_scope_country = {
+                    limit = {
+                        has_variable = ase_removed_old_country_transfer_$goods$
+                    }
+                    remove_variable = ase_removed_old_country_transfer_$goods$
+
+                    every_scope_state = {
+                        limit = {
+                            has_variable = ase_removed_old_state_transfer_$goods$
+                        }
+                        remove_variable = ase_removed_old_state_transfer_$goods$
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Stockpile main algorithm, step 2: collect data on market level, check if any of price targets is matched
+# ----------------------------------------------------------------------------------------------------------------------
 
 ase_stockpile_algorithm_collect_market_data = {
     mg:$goods$ = {
@@ -738,13 +908,6 @@ ase_stockpile_algorithm_collect_market_data = {
             change_local_variable = {
                 name = ase_non_stockpile_market_goods_sell_orders
                 subtract = local_var:ase_non_stockpile_market_goods_sell_orders
-            }
-        }
-
-        # Now we can remove transfer variables
-        scope:ase_current_market = {
-            ase_remove_transfer_variables_in_all_scopes = {
-                goods = $goods$
             }
         }
 
@@ -997,6 +1160,10 @@ ase_update_market_volume_records_of_goods = {
     }
 }
 
+# ----------------------------------------------------------------------------------------------------------------------
+# Stockpile main algorithm, step 3: collect data on country level, check if transfer direction requirements are matched
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_stockpile_algorithm_collect_country_data = {
     set_local_variable = {
         name = ase_stockpile_market_reserve_target
@@ -1243,17 +1410,28 @@ ase_collect_data_of_stockpiling_countries = {
     }
 }
 
+# ----------------------------------------------------------------------------------------------------------------------
+# Stockpile main algorithm, step 4: for every stockpiling country choose states and set up new transfers in them
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_perform_stockpiling_of_goods_in_market = {
     set_local_variable = {
         name = ase_stockpile_market_transfer
         value = 0
     }
 
+    ordered_in_local_list = {
+        variable = ase_stockpiling_countries_in_market
+        order_by = ase_thousands_of_gdp_with_owner_factor
+        position = 0
+        save_scope_as = ase_remainder_country
+    }
+
     every_in_local_list = {
         variable = ase_stockpiling_countries_in_market
         limit = {
             NOT = {
-                this = scope:ase_current_market.owner
+                this = scope:ase_remainder_country
             }
         }
         ase_perform_stockpiling_of_goods_in_country = {
@@ -1261,7 +1439,15 @@ ase_perform_stockpiling_of_goods_in_market = {
         }
     }
 
-    owner = {
+    scope:ase_remainder_country = {
+        ase_perform_stockpiling_of_goods_in_country = {
+            goods = $goods$
+        }
+    }
+
+    clear_saved_scope = ase_remainder_country
+
+    scope:ase_current_market.owner = {
         # Starting new saving transfer is allowed once per 3 months for performance reasons
         if = {
             limit = {
@@ -1276,22 +1462,12 @@ ase_perform_stockpiling_of_goods_in_market = {
 
         if = {
             limit = {
-                is_target_in_local_variable_list = {
-                    name = ase_stockpiling_countries_in_market
-                    target = this
-                }
-            }
-            ase_perform_stockpiling_of_goods_in_country = {
-                goods = $goods$
-            }
-        }
-    }
-
-    scope:ase_current_market.owner = {
-        if = {
-            limit = {
                 local_var:ase_stockpile_market_transfer != 0
             }
+            ase_remove_market_old_transfers_and_mark_it = {
+                goods = $goods$
+            }
+
             set_variable = {
                 name = ase_stockpile_market_transfer_$goods$
                 value = {
@@ -1324,11 +1500,6 @@ ase_perform_stockpiling_of_goods_in_country = {
         value = 0
     }
 
-    # Initialize list
-    add_to_local_variable_list = {
-        name = ase_country_states_allowed_to_stockpile
-        target = capital
-    }
     ase_collect_data_of_stockpiling_states = {
         goods = $goods$
     }
@@ -1377,35 +1548,43 @@ ase_perform_stockpiling_of_goods_in_country = {
             limit = {
                 ase_stockpile_country_transfer_relative != 0
             }
+            ordered_in_local_list = {
+                variable = ase_country_states_allowed_to_stockpile
+                order_by = ase_thousands_of_gdp_with_priority_factor
+                position = 0
+                save_scope_as = ase_remainder_state
+            }
+
             every_in_local_list = {
                 variable = ase_country_states_allowed_to_stockpile
                 limit = {
-                    is_capital = no
+                    NOT = {
+                        this = scope:ase_remainder_state
+                    }
                 }
                 ase_perform_stockpiling_of_goods_in_state = {
                     goods = $goods$
                 }
             }
 
-            if = {
-                limit = {
-                    is_target_in_local_variable_list = {
-                        name = ase_country_states_allowed_to_stockpile
-                        target = capital
-                    }
-                }
-                capital = {
-                    ase_perform_stockpiling_of_goods_in_state = {
-                        goods = $goods$
-                    }
+            scope:ase_remainder_state = {
+                ase_perform_stockpiling_of_goods_in_state = {
+                    goods = $goods$
                 }
             }
+
+            clear_saved_scope = ase_remainder_state
+
         }
         
         if = {
             limit = {
                 local_var:ase_stockpile_country_transfer != 0
             }
+            ase_remove_country_old_transfers_and_mark_it = {
+                goods = $goods$
+            }
+
             set_variable = {
                 name = ase_stockpile_country_transfer_$goods$
                 value = {
@@ -1431,6 +1610,7 @@ ase_perform_stockpiling_of_goods_in_country = {
     remove_local_variable = ase_stockpiling_states_combined_gdp
     remove_local_variable = ase_stockpiling_states_combined_reserve
     clear_local_variable_list = ase_country_states_allowed_to_stockpile
+    clear_local_variable_list = ase_allowed_states_prioritized_to_stockpile
     clear_saved_scope = ase_current_country
 }
 
@@ -1440,139 +1620,57 @@ ase_collect_data_of_stockpiling_states = {
             local_var:ase_meets_stockpile_saving_requirements = 1
         }
 
-        # Saving stockpiling states are identical for all goods, so we save data in variables in country scopes
-        if = {
+        # Cache value as it can be used many many times while adding states
+        set_local_variable = {
+            name = ase_country_saving_states_min_combined_gdp
+            value = ase_country_saving_states_min_combined_gdp
+        }
+
+        # Add states from largest to smallest until the threshold is reached
+        ordered_scope_state = {
             limit = {
-                NOT = {
-                    has_variable = ase_collected_data_of_saving_states
+                ase_is_state_prioritized_to_stockpile_specific = {
+                    goods = $goods$
+                }
+                ase_is_state_allowed_to_stockpile_all_goods = yes
+                ase_is_state_allowed_to_stockpile_in_direction_specific = {
+                    goods = $goods$
+                    direction = saving
                 }
             }
-            set_variable = {
-                name = ase_collected_data_of_saving_states
-                value = 1
-            }
-            
-            set_variable = {
-                name = ase_stockpile_country_num_saving_states
-                value = 0
-            }
-            set_variable = {
-                name = ase_stockpile_country_saving_states_gdp
-                value = 0
-            }
+            order_by = ase_thousands_of_gdp
+            min = 0
 
-            # Capital is always added first before any other states are considered
-            capital = {
-                if = {
-                    limit = {
-                        ase_is_state_allowed_to_stockpile = yes # Basic requirements like reasonable market access
-                    }
-                    scope:ase_current_country = {
-                        add_to_variable_list = {
-                            name = ase_stockpile_country_saving_states
-                            target = prev
-                        }
-
-                        change_variable = {
-                            name = ase_stockpile_country_num_saving_states
-                            add = 1
-                        }
-                        change_variable = {
-                            name = ase_stockpile_country_saving_states_gdp
-                            add = prev.ase_thousands_of_gdp
-                        }
-                    }
-                }
-            }
-
-            # Cache value as it can be used many many times while adding states
-            set_local_variable = {
-                name = ase_country_saving_states_min_combined_gdp
-                value = ase_country_saving_states_min_combined_gdp
-            }
-
-            # If capital doesn't have enough GDP, add states from largest to smallest until the threshold is reached
             if = {
                 limit = {
                     OR = {
-                        var:ase_stockpile_country_saving_states_gdp = 0 # Capital wasn't added
-                        var:ase_stockpile_country_saving_states_gdp < ase_country_saving_states_min_combined_gdp
-                    }
-                }
-                ordered_scope_state = {
-                    limit = {
-                        is_capital = no
-                        ase_is_state_allowed_to_stockpile = yes
-                    }
-                    order_by = ase_thousands_of_gdp
-                    min = 0
-
-                    if = {
-                        limit = {
-                            scope:ase_current_country.var:ase_stockpile_country_saving_states_gdp < ase_country_saving_states_min_combined_gdp
-                        }
-                        scope:ase_current_country = {
-                            add_to_variable_list = {
-                                name = ase_stockpile_country_saving_states
-                                target = prev
-                            }
-
-                            change_variable = {
-                                name = ase_stockpile_country_num_saving_states
-                                add = 1
-                            }
-                            change_variable = {
-                                name = ase_stockpile_country_saving_states_gdp
-                                add = prev.ase_thousands_of_gdp
+                        NAND = {
+                            has_local_variable_list = ase_country_states_allowed_to_stockpile
+                            local_variable_list_size = {
+                                name = ase_country_states_allowed_to_stockpile
+                                value > 0
                             }
                         }
+                        local_var:ase_stockpiling_states_combined_gdp < ase_country_saving_states_min_combined_gdp
                     }
-                }
-            }
-
-            # Garbage collection
-            remove_local_variable = ase_country_saving_states_min_combined_gdp
-        }
-
-        # Fill local variables with data from country scope variables
-        change_local_variable = {
-            name = ase_num_stockpiling_states_in_country
-            add = var:ase_stockpile_country_num_saving_states
-        }
-        change_local_variable = {
-            name = ase_stockpiling_states_combined_gdp
-            add = var:ase_stockpile_country_saving_states_gdp
-        }
-
-        every_in_list = {
-            variable = ase_stockpile_country_saving_states
-
-            # Cache saving transfer share in country scope as it's used many times
-            if = {
-                limit = {
-                    NOT = {
-                        has_variable = ase_stockpile_state_transfer_share
-                    }
-                }
-                set_variable = {
-                    name = ase_stockpile_state_transfer_share
-                    value = ase_stockpile_state_transfer_share
-                }
-            }
-
-            if = {
-                limit = {
-                    has_variable = ase_stockpile_state_reserve_$goods$
                 }
                 change_local_variable = {
-                    name = ase_stockpiling_states_combined_reserve
-                    add = var:ase_stockpile_state_reserve_$goods$
+                    name = ase_num_stockpiling_states_in_country
+                    add = 1
                 }
-            }
-
-            if = {
-                limit = {
-                    is_capital = no # Added to list when initilizing
+                change_local_variable = {
+                    name = ase_stockpiling_states_combined_gdp
+                    add = ase_thousands_of_gdp
+                }
+                # TODO Do we need it?
+                if = {
+                    limit = {
+                        has_variable = ase_stockpile_state_reserve_$goods$
+                    }
+                    change_local_variable = {
+                        name = ase_stockpiling_states_combined_reserve
+                        add = var:ase_stockpile_state_reserve_$goods$
+                    }
                 }
                 add_to_local_variable_list = {
                     name = ase_country_states_allowed_to_stockpile
@@ -1581,23 +1679,94 @@ ase_collect_data_of_stockpiling_states = {
             }
         }
 
-        # If capital is not in the variable list remove it from the local list, as it is initialized using capital
-        capital = {
-            if = {
-                limit = {
-                    NOT = {
-                        scope:ase_current_country = {
-                            is_target_in_variable_list = {
-                                name = ase_stockpile_country_saving_states
-                                target = prev
-                            }
+        if = {
+            limit = {
+                OR = {
+                    NAND = {
+                        has_variable_list = ase_country_states_allowed_to_stockpile
+                        variable_list_size = {
+                            name = ase_country_states_allowed_to_stockpile
+                            value > 0
                         }
                     }
+                    local_var:ase_stockpiling_states_combined_gdp < ase_country_saving_states_min_combined_gdp
                 }
-                remove_list_local_variable = {
-                    name = ase_country_states_allowed_to_stockpile
-                    target = this
+            }
+            ordered_scope_state = {
+                limit = {
+                    NOT = {
+                        ase_is_state_prioritized_to_stockpile_specific = {
+                            goods = $goods$
+                        }
+                    }
+                    ase_is_state_allowed_to_stockpile_all_goods = yes
+                    ase_is_state_allowed_to_stockpile_in_direction_specific = {
+                        goods = $goods$
+                        direction = saving
+                    }
                 }
+                order_by = ase_thousands_of_gdp
+                min = 0
+
+                if = {
+                    limit = {
+                        OR = {
+                            NAND = {
+                                has_local_variable_list = ase_country_states_allowed_to_stockpile
+                                local_variable_list_size = {
+                                    name = ase_country_states_allowed_to_stockpile
+                                    value > 0
+                                }
+                            }
+                            local_var:ase_stockpiling_states_combined_gdp < ase_country_saving_states_min_combined_gdp
+                        }
+                    }
+                    change_local_variable = {
+                        name = ase_num_stockpiling_states_in_country
+                        add = 1
+                    }
+                    change_local_variable = {
+                        name = ase_stockpiling_states_combined_gdp
+                        add = ase_thousands_of_gdp
+                    }
+                    # TODO Do we need it?
+                    if = {
+                        limit = {
+                            has_variable = ase_stockpile_state_reserve_$goods$
+                        }
+                        change_local_variable = {
+                            name = ase_stockpiling_states_combined_reserve
+                            add = var:ase_stockpile_state_reserve_$goods$
+                        }
+                    }
+                    add_to_local_variable_list = {
+                        name = ase_country_states_allowed_to_stockpile
+                        target = this
+                    }
+                }
+            }
+        }
+
+        # Garbage collection
+        remove_local_variable = ase_country_saving_states_min_combined_gdp
+
+        every_in_local_list = {
+            variable = ase_country_states_allowed_to_stockpile
+            limit = {
+                ase_is_state_prioritized_to_stockpile_specific = {
+                    goods = $goods$
+                }
+            }
+            change_local_variable = {
+                name = ase_stockpiling_states_combined_gdp
+                add = {
+                    value = ase_thousands_of_gdp
+                    multiply = ase_stockpile_prioritized_state_share_bonus
+                }
+            }
+            add_to_local_variable_list = {
+                name = ase_allowed_states_prioritized_to_stockpile
+                target = this
             }
         }
     }
@@ -1606,15 +1775,20 @@ ase_collect_data_of_stockpiling_states = {
             local_var:ase_meets_stockpile_spending_requirements = 1
         }
 
-        # On the contrary, spending states are different for every goods, so we collect all the data on the fly
         every_scope_state = {
             limit = {
                 has_variable = ase_stockpile_state_reserve_$goods$
+                ase_is_state_allowed_to_stockpile_all_goods = yes
+                ase_is_state_allowed_to_stockpile_in_direction_specific = {
+                    goods = $goods$
+                    direction = spending
+                }
             }
             change_local_variable = {
                 name = ase_num_stockpiling_states_in_country
                 add = 1
             }
+            # TODO Do we need it?
             change_local_variable = {
                 name = ase_stockpiling_states_combined_gdp
                 add = ase_thousands_of_gdp
@@ -1623,29 +1797,9 @@ ase_collect_data_of_stockpiling_states = {
                 name = ase_stockpiling_states_combined_reserve
                 add = var:ase_stockpile_state_reserve_$goods$
             }
-            if = {
-                limit = {
-                    is_capital = no # Added to list when initilizing
-                }
-                add_to_local_variable_list = {
-                    name = ase_country_states_allowed_to_stockpile
-                    target = this
-                }
-            }
-        }
-
-        # If capital has no reserve remove it from the local list, as it is initialized using capital
-        capital = {
-            if = {
-                limit = {
-                    NOT = {
-                        has_variable = ase_stockpile_state_reserve_$goods$
-                    }
-                }
-                remove_list_local_variable = {
-                    name = ase_country_states_allowed_to_stockpile
-                    target = this
-                }
+            add_to_local_variable_list = {
+                name = ase_country_states_allowed_to_stockpile
+                target = this
             }
         }
     }
@@ -1669,20 +1823,52 @@ ase_perform_stockpiling_of_goods_in_state = {
             }
         }
     }
-    # TODO Must be calculated before clearing transfer variables, which sounds like a noticeable performance tax
-    # set_local_variable = {
-    #     name = ase_non_stockpile_state_goods_production
-    #     value = {
-    #         value = sg:$goods$.state_goods_production
-    #         subtract = {
 
-    #         }
-    #     }
-    # }
-    # set_local_variable = {
-    #     name = ase_non_stockpile_state_goods_consumption
-    #     value = sg:$goods$.state_goods_consumption
-    # }
+    # TODO Must be calculated before clearing transfer variables, which sounds like a noticeable performance tax
+    set_local_variable = {
+        name = ase_non_stockpile_state_goods_production
+        value = {
+            value = sg:$goods$.state_goods_production
+            # BUG state_goods_production gives values that are affected by market price share for no reason
+            divide = {
+                value = market_access
+                multiply = modifier:state_market_access_price_impact
+            }
+            if = {
+                limit = {
+                    has_variable = ase_stockpile_state_transfer_$goods$
+                    var:ase_stockpile_state_transfer_$goods$ < 0
+                }
+                add = {
+                    value = var:ase_stockpile_state_transfer_$goods$
+                    divide = 10
+                }
+            }
+            min = 0
+        }
+    }
+    set_local_variable = {
+        name = ase_non_stockpile_state_goods_consumption
+        value = {
+            value = sg:$goods$.state_goods_consumption
+            # BUG state_goods_production gives values that are affected by market price share for no reason
+            divide = {
+                value = market_access
+                multiply = modifier:state_market_access_price_impact
+            }
+            if = {
+                limit = {
+                    has_variable = ase_stockpile_state_transfer_$goods$
+                    var:ase_stockpile_state_transfer_$goods$ > 0
+                }
+                subtract = {
+                    value = var:ase_stockpile_state_transfer_$goods$
+                    divide = 10
+                }
+            }
+            min = 0
+        }
+    }
 
     # Used multiple times in different values and scopes while containing calculations itself, so just save as local
     set_local_variable = {
@@ -1692,8 +1878,8 @@ ase_perform_stockpiling_of_goods_in_state = {
 
     # Garbage collection
     remove_local_variable = ase_stockpile_state_reserve
-    # remove_local_variable = ase_non_stockpile_state_goods_production
-    # remove_local_variable = ase_non_stockpile_state_goods_consumption
+    remove_local_variable = ase_non_stockpile_state_goods_production
+    remove_local_variable = ase_non_stockpile_state_goods_consumption
 
     # If there is stockpile to operate, set new stuff
     if = {
@@ -1787,6 +1973,10 @@ ase_perform_stockpiling_of_goods_in_state = {
             }
         }
 
+        ase_remove_state_old_transfers_and_mark_it = {
+            goods = $goods$
+        }
+
         set_variable = {
             name = ase_stockpile_state_transfer_$goods$
             value = {
@@ -1850,7 +2040,10 @@ ase_perform_stockpiling_of_goods_in_state = {
     clear_saved_scope = ase_current_state
 }    
 
-# Market owner scope, called by various on_actions to recalculate stuff in case of states switching countries etc.
+# ----------------------------------------------------------------------------------------------------------------------
+# Called by various on_actions in market owner scope to recalculate stuff in case of states switching countries etc.
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_recalculate_market_and_country_reserve = {
     save_scope_as = ase_current_market_owner
 
@@ -2053,6 +2246,10 @@ ase_clamp_market_reserve_if_limit_is_exceeded = {
     remove_local_variable = ase_stockpile_market_reserve_limit
 }
 
+# ----------------------------------------------------------------------------------------------------------------------
+# Is used by decision of the same name, required so you can stop using the mod without corrurpting the save
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_remove_everything_related_to_stockpiling = {
     every_country = {
         if = {
@@ -2078,6 +2275,44 @@ ase_remove_everything_related_to_stockpiling = {
                 has_variable = ase_has_spending_stockpile_transfers
             }
             remove_variable = ase_has_spending_stockpile_transfers
+        }
+
+        if = {
+            limit = {
+                has_variable = ase_stockpile_reserve_weeks_target_factor_default
+            }
+            remove_variable = ase_stockpile_reserve_weeks_target_factor_default
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_price_target_saving_default
+            }
+            remove_variable = ase_stockpile_price_target_saving_default
+        }
+        if = {
+            limit = {
+                has_variable = ase_stockpile_price_target_spending_default
+            }
+            remove_variable = ase_stockpile_price_target_spending_default
+        }
+
+        every_scope_building = {
+            if = {
+                limit = {
+                    is_building_type = building_ase_stockpile_saving
+                }
+                state = {
+                    remove_building = building_ase_stockpile_saving
+                }
+            }
+            else_if = {
+                limit = {
+                    is_building_type = building_ase_stockpile_spending
+                }
+                state = {
+                    remove_building = building_ase_stockpile_spending
+                }
+            }
         }
     }
 
@@ -2173,24 +2408,25 @@ ase_remove_stockpile_buildings_and_variables = {
                 }
                 remove_variable = ase_stockpile_state_transfer_$goods$
             }
-        }
 
-        every_scope_building = {
             if = {
                 limit = {
-                    is_building_type = building_ase_stockpile_saving
+                    has_variable = ase_stockpile_state_is_prioritized_$goods$
                 }
-                state = {
-                    remove_building = building_ase_stockpile_saving
-                }
+                remove_variable = ase_stockpile_state_is_prioritized_$goods$
             }
-            else_if = {
+
+            if = {
                 limit = {
-                    is_building_type = building_ase_stockpile_spending
+                    has_variable = ase_stockpile_saving_allowed_$goods$
                 }
-                state = {
-                    remove_building = building_ase_stockpile_spending
+                remove_variable = ase_stockpile_saving_allowed_$goods$
+            }
+            if = {
+                limit = {
+                    has_variable = ase_stockpile_spending_allowed_$goods$
                 }
+                remove_variable = ase_stockpile_spending_allowed_$goods$
             }
         }
     }

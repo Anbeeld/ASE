@@ -13704,7 +13704,7 @@ ase_stockpile_country_reserve_weeks_target_factor_aeroplanes = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_aeroplanes
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -13758,7 +13758,7 @@ ase_stockpile_country_reserve_weeks_target_factor_ammunition = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_ammunition
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -13812,7 +13812,7 @@ ase_stockpile_country_reserve_weeks_target_factor_artillery = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_artillery
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -13866,7 +13866,7 @@ ase_stockpile_country_reserve_weeks_target_factor_automobiles = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_automobiles
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -13920,7 +13920,7 @@ ase_stockpile_country_reserve_weeks_target_factor_clippers = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_clippers
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -13974,7 +13974,7 @@ ase_stockpile_country_reserve_weeks_target_factor_clothes = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_clothes
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14028,7 +14028,7 @@ ase_stockpile_country_reserve_weeks_target_factor_coal = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_coal
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14082,7 +14082,7 @@ ase_stockpile_country_reserve_weeks_target_factor_coffee = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_coffee
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14136,7 +14136,7 @@ ase_stockpile_country_reserve_weeks_target_factor_dye = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_dye
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14190,7 +14190,7 @@ ase_stockpile_country_reserve_weeks_target_factor_engines = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_engines
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14244,7 +14244,7 @@ ase_stockpile_country_reserve_weeks_target_factor_explosives = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_explosives
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14298,7 +14298,7 @@ ase_stockpile_country_reserve_weeks_target_factor_fabric = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_fabric
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14352,7 +14352,7 @@ ase_stockpile_country_reserve_weeks_target_factor_fertilizer = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_fertilizer
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14406,7 +14406,7 @@ ase_stockpile_country_reserve_weeks_target_factor_fine_art = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_fine_art
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14460,7 +14460,7 @@ ase_stockpile_country_reserve_weeks_target_factor_fish = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_fish
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14514,7 +14514,7 @@ ase_stockpile_country_reserve_weeks_target_factor_fruit = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_fruit
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14568,7 +14568,7 @@ ase_stockpile_country_reserve_weeks_target_factor_furniture = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_furniture
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14622,7 +14622,7 @@ ase_stockpile_country_reserve_weeks_target_factor_glass = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_glass
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14676,7 +14676,7 @@ ase_stockpile_country_reserve_weeks_target_factor_grain = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_grain
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14730,7 +14730,7 @@ ase_stockpile_country_reserve_weeks_target_factor_groceries = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_groceries
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14784,7 +14784,7 @@ ase_stockpile_country_reserve_weeks_target_factor_hardwood = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_hardwood
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14838,7 +14838,7 @@ ase_stockpile_country_reserve_weeks_target_factor_iron = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_iron
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14892,7 +14892,7 @@ ase_stockpile_country_reserve_weeks_target_factor_ironclads = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_ironclads
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -14946,7 +14946,7 @@ ase_stockpile_country_reserve_weeks_target_factor_lead = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_lead
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15000,7 +15000,7 @@ ase_stockpile_country_reserve_weeks_target_factor_liquor = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_liquor
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15054,7 +15054,7 @@ ase_stockpile_country_reserve_weeks_target_factor_luxury_clothes = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_luxury_clothes
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15108,7 +15108,7 @@ ase_stockpile_country_reserve_weeks_target_factor_luxury_furniture = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_luxury_furniture
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15162,7 +15162,7 @@ ase_stockpile_country_reserve_weeks_target_factor_manowars = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_manowars
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15216,7 +15216,7 @@ ase_stockpile_country_reserve_weeks_target_factor_meat = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_meat
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15270,7 +15270,7 @@ ase_stockpile_country_reserve_weeks_target_factor_oil = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_oil
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15286,12 +15286,12 @@ ase_stockpile_country_reserve_weeks_target_factor_oil = {
                         ase_stockpile_goods_priority_oil <= 8
                     }
                     subtract = 0.25
-                }
-                if = {
-                    limit = {
-                        ase_stockpile_goods_priority_oil <= 4
+                    if = {
+                        limit = {
+                            ase_stockpile_goods_priority_oil <= 4
+                        }
+                        subtract = 0.25
                     }
-                    subtract = 0.25
                 }
             }
         }
@@ -15344,7 +15344,7 @@ ase_stockpile_country_reserve_weeks_target_factor_opium = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_opium
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15398,7 +15398,7 @@ ase_stockpile_country_reserve_weeks_target_factor_paper = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_paper
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15452,7 +15452,7 @@ ase_stockpile_country_reserve_weeks_target_factor_porcelain = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_porcelain
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15506,7 +15506,7 @@ ase_stockpile_country_reserve_weeks_target_factor_radios = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_radios
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15560,7 +15560,7 @@ ase_stockpile_country_reserve_weeks_target_factor_rubber = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_rubber
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15614,7 +15614,7 @@ ase_stockpile_country_reserve_weeks_target_factor_silk = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_silk
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15668,7 +15668,7 @@ ase_stockpile_country_reserve_weeks_target_factor_small_arms = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_small_arms
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15722,7 +15722,7 @@ ase_stockpile_country_reserve_weeks_target_factor_steamers = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_steamers
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15776,7 +15776,7 @@ ase_stockpile_country_reserve_weeks_target_factor_steel = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_steel
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15830,7 +15830,7 @@ ase_stockpile_country_reserve_weeks_target_factor_sugar = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_sugar
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15884,7 +15884,7 @@ ase_stockpile_country_reserve_weeks_target_factor_sulfur = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_sulfur
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15938,7 +15938,7 @@ ase_stockpile_country_reserve_weeks_target_factor_tanks = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_tanks
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -15992,7 +15992,7 @@ ase_stockpile_country_reserve_weeks_target_factor_tea = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_tea
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -16046,7 +16046,7 @@ ase_stockpile_country_reserve_weeks_target_factor_telephones = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_telephones
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -16100,7 +16100,7 @@ ase_stockpile_country_reserve_weeks_target_factor_tobacco = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_tobacco
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -16154,7 +16154,7 @@ ase_stockpile_country_reserve_weeks_target_factor_tools = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_tools
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -16208,7 +16208,7 @@ ase_stockpile_country_reserve_weeks_target_factor_wine = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_wine
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -16262,7 +16262,7 @@ ase_stockpile_country_reserve_weeks_target_factor_wood = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_wood
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {

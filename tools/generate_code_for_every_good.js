@@ -142,6 +142,13 @@ var ase_modifiers_output_mult = '';
 var ase_perform_effect_for_every_market_goods = `
 ase_perform_effect_for_every_market_goods = {`;
 
+// Proxy for scripted triggers
+var ase_check_trigger_for_any_market_goods = `
+ase_check_trigger_for_any_market_goods = {
+    OR = {`;
+var ase_check_trigger_for_all_market_goods = `
+ase_check_trigger_for_all_market_goods = {`;
+
 // Scripted values
 var ase_stockpile_goods_priority_values = '';
 var ase_stockpile_goods_reserve_max_factor_values = '';
@@ -248,6 +255,20 @@ ase_generated_localization += `
 
     ase_perform_effect_for_every_market_goods += `
     $effect$ = {
+        goods = ` + goods[i][0] + `
+    }`;
+
+
+
+    ase_check_trigger_for_any_market_goods += `
+        $trigger$ = {
+            goods = ` + goods[i][0] + `
+        }`;
+
+
+
+    ase_check_trigger_for_all_market_goods += `
+    $trigger$ = {
         goods = ` + goods[i][0] + `
     }`;
 
@@ -714,7 +735,7 @@ ase_stockpile_country_reserve_weeks_target_factor_` + goods[i][0] + ` = {
         }
         else = {
             value = ase_stockpile_goods_reserve_max_factor_` + goods[i][0] + `
-            multiply = ase_stockpile_player_reserve_weeks_target_factor
+            multiply = ase_stockpile_reserve_weeks_target_factor_default
         }
     }
     else = {
@@ -730,12 +751,12 @@ ase_stockpile_country_reserve_weeks_target_factor_` + goods[i][0] + ` = {
                         ase_stockpile_goods_priority_` + goods[i][0] + ` <= 8
                     }
                     subtract = 0.25
-                }
-                if = {
-                    limit = {
-                        ase_stockpile_goods_priority_` + goods[i][0] + ` <= 4
+                    if = {
+                        limit = {
+                            ase_stockpile_goods_priority_` + goods[i][0] + ` <= 4
+                        }
+                        subtract = 0.25
                     }
-                    subtract = 0.25
                 }
             }
         }` : ase_stockpile_country_reserve_weeks_target_factor_value) + `
@@ -774,17 +795,17 @@ ase_stockpile_country_reserve_weeks_max_factor_` + goods[i][0] + ` = {
 
 
 ase_generated_scripted_guis += `
-ase_stockpile_toggle_direction_permission_both_` + goods[i][0] + ` = {
+ase_stockpile_country_change_direction_to_both_` + goods[i][0] + ` = {
     scope = country
 
     effect = {
-        ase_stockpile_toggle_direction_permission_both = {
+        ase_stockpile_country_change_direction_specific_to_both = {
             goods = ` + goods[i][0] + `
         }
     }
 
     is_shown = {
-        ase_stockpile_toggle_direction_permission_both_is_shown = {
+        ase_stockpile_country_change_direction_specific_to_both_is_shown = {
             goods = ` + goods[i][0] + `
         }
     }
@@ -798,17 +819,17 @@ ase_stockpile_toggle_direction_permission_both_` + goods[i][0] + ` = {
     }
 }
 
-ase_stockpile_toggle_direction_permission_saving_` + goods[i][0] + ` = {
+ase_stockpile_country_change_direction_to_saving_` + goods[i][0] + ` = {
     scope = country
 
     effect = {
-        ase_stockpile_toggle_direction_permission_saving = {
+        ase_stockpile_country_change_direction_specific_to_saving = {
             goods = ` + goods[i][0] + `
         }
     }
 
     is_shown = {
-        ase_stockpile_toggle_direction_permission_saving_is_shown = {
+        ase_stockpile_country_change_direction_specific_to_saving_is_shown = {
             goods = ` + goods[i][0] + `
         }
     }
@@ -822,17 +843,17 @@ ase_stockpile_toggle_direction_permission_saving_` + goods[i][0] + ` = {
     }
 }
 
-ase_stockpile_toggle_direction_permission_spending_` + goods[i][0] + ` = {
+ase_stockpile_country_change_direction_to_spending_` + goods[i][0] + ` = {
     scope = country
 
     effect = {
-        ase_stockpile_toggle_direction_permission_spending = {
+        ase_stockpile_country_change_direction_specific_to_spending = {
             goods = ` + goods[i][0] + `
         }
     }
 
     is_shown = {
-        ase_stockpile_toggle_direction_permission_spending_is_shown = {
+        ase_stockpile_country_change_direction_specific_to_spending_is_shown = {
             goods = ` + goods[i][0] + `
         }
     }
@@ -846,17 +867,17 @@ ase_stockpile_toggle_direction_permission_spending_` + goods[i][0] + ` = {
     }
 }
 
-ase_stockpile_toggle_direction_permission_none_` + goods[i][0] + ` = {
+ase_stockpile_country_change_direction_to_none_` + goods[i][0] + ` = {
     scope = country
 
     effect = {
-        ase_stockpile_toggle_direction_permission_none = {
+        ase_stockpile_country_change_direction_specific_to_none = {
             goods = ` + goods[i][0] + `
         }
     }
 
     is_shown = {
-        ase_stockpile_toggle_direction_permission_none_is_shown = {
+        ase_stockpile_country_change_direction_specific_to_none_is_shown = {
             goods = ` + goods[i][0] + `
         }
     }
@@ -1145,6 +1166,232 @@ ase_stockpile_clear_list_of_countries_in_market_` + goods[i][0] + ` = {
         always = no
     }
 }
+
+ase_stockpile_state_toggle_is_prioritized_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_toggle_is_prioritized_specific = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        ase_stockpile_state_toggle_is_prioritized_specific_is_shown = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_valid = {
+        ase_stockpile_state_toggle_is_prioritized_specific_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_country_reserve_weeks_target_reset_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_reserve_weeks_target_reset_specific = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_reserve_weeks_target_reset_specific_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_country_price_target_saving_reset_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_saving_reset_specific = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_saving_reset_specific_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_country_price_target_spending_reset_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_spending_reset_specific = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_spending_reset_specific_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_to_both_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_specific_to_both = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_specific_to_both_is_shown = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_specific_to_both_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_to_saving_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_specific_to_saving = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_specific_to_saving_is_shown = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_specific_to_saving_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_to_spending_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_specific_to_spending = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_specific_to_spending_is_shown = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_specific_to_spending_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_to_none_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_specific_to_none = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_specific_to_none_is_shown = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_specific_to_none_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_reset_priority_and_direction_` + goods[i][0] + ` = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_reset_priority_and_direction_specific = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_reset_priority_and_direction_specific_is_valid = {
+            goods = ` + goods[i][0] + `
+        }
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
 `;
 
 
@@ -1168,6 +1415,13 @@ ase_modifiers_output_mult_all_goods += `
 }
 `;
 ase_perform_effect_for_every_market_goods += `
+}
+`;
+ase_check_trigger_for_any_market_goods += `
+    }
+}
+`;
+ase_check_trigger_for_all_market_goods += `
 }
 `;
 
@@ -1200,6 +1454,13 @@ console.log(
     ase_perform_effect_for_every_market_goods
 );
 console.log('### GENERATED EFFECTS END ###');
+console.log('##########');
+console.log('### GENERATED TRIGGERS START ###');
+console.log(
+    ase_check_trigger_for_any_market_goods +
+    ase_check_trigger_for_all_market_goods
+);
+console.log('### GENERATED TRIGGERS END ###');
 console.log('##########');
 console.log('### GENERATED VALUES START ###');
 console.log(

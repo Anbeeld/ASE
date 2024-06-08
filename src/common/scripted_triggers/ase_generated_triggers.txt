@@ -1,0 +1,296 @@
+﻿
+ase_check_trigger_for_any_market_goods = {
+    OR = {
+        $trigger$ = {
+            goods = aeroplanes
+        }
+        $trigger$ = {
+            goods = ammunition
+        }
+        $trigger$ = {
+            goods = artillery
+        }
+        $trigger$ = {
+            goods = automobiles
+        }
+        $trigger$ = {
+            goods = clippers
+        }
+        $trigger$ = {
+            goods = clothes
+        }
+        $trigger$ = {
+            goods = coal
+        }
+        $trigger$ = {
+            goods = coffee
+        }
+        $trigger$ = {
+            goods = dye
+        }
+        $trigger$ = {
+            goods = engines
+        }
+        $trigger$ = {
+            goods = explosives
+        }
+        $trigger$ = {
+            goods = fabric
+        }
+        $trigger$ = {
+            goods = fertilizer
+        }
+        $trigger$ = {
+            goods = fine_art
+        }
+        $trigger$ = {
+            goods = fish
+        }
+        $trigger$ = {
+            goods = fruit
+        }
+        $trigger$ = {
+            goods = furniture
+        }
+        $trigger$ = {
+            goods = glass
+        }
+        $trigger$ = {
+            goods = grain
+        }
+        $trigger$ = {
+            goods = groceries
+        }
+        $trigger$ = {
+            goods = hardwood
+        }
+        $trigger$ = {
+            goods = iron
+        }
+        $trigger$ = {
+            goods = ironclads
+        }
+        $trigger$ = {
+            goods = lead
+        }
+        $trigger$ = {
+            goods = liquor
+        }
+        $trigger$ = {
+            goods = luxury_clothes
+        }
+        $trigger$ = {
+            goods = luxury_furniture
+        }
+        $trigger$ = {
+            goods = manowars
+        }
+        $trigger$ = {
+            goods = meat
+        }
+        $trigger$ = {
+            goods = oil
+        }
+        $trigger$ = {
+            goods = opium
+        }
+        $trigger$ = {
+            goods = paper
+        }
+        $trigger$ = {
+            goods = porcelain
+        }
+        $trigger$ = {
+            goods = radios
+        }
+        $trigger$ = {
+            goods = rubber
+        }
+        $trigger$ = {
+            goods = silk
+        }
+        $trigger$ = {
+            goods = small_arms
+        }
+        $trigger$ = {
+            goods = steamers
+        }
+        $trigger$ = {
+            goods = steel
+        }
+        $trigger$ = {
+            goods = sugar
+        }
+        $trigger$ = {
+            goods = sulfur
+        }
+        $trigger$ = {
+            goods = tanks
+        }
+        $trigger$ = {
+            goods = tea
+        }
+        $trigger$ = {
+            goods = telephones
+        }
+        $trigger$ = {
+            goods = tobacco
+        }
+        $trigger$ = {
+            goods = tools
+        }
+        $trigger$ = {
+            goods = wine
+        }
+        $trigger$ = {
+            goods = wood
+        }
+    }
+}
+
+ase_check_trigger_for_all_market_goods = {
+    $trigger$ = {
+        goods = aeroplanes
+    }
+    $trigger$ = {
+        goods = ammunition
+    }
+    $trigger$ = {
+        goods = artillery
+    }
+    $trigger$ = {
+        goods = automobiles
+    }
+    $trigger$ = {
+        goods = clippers
+    }
+    $trigger$ = {
+        goods = clothes
+    }
+    $trigger$ = {
+        goods = coal
+    }
+    $trigger$ = {
+        goods = coffee
+    }
+    $trigger$ = {
+        goods = dye
+    }
+    $trigger$ = {
+        goods = engines
+    }
+    $trigger$ = {
+        goods = explosives
+    }
+    $trigger$ = {
+        goods = fabric
+    }
+    $trigger$ = {
+        goods = fertilizer
+    }
+    $trigger$ = {
+        goods = fine_art
+    }
+    $trigger$ = {
+        goods = fish
+    }
+    $trigger$ = {
+        goods = fruit
+    }
+    $trigger$ = {
+        goods = furniture
+    }
+    $trigger$ = {
+        goods = glass
+    }
+    $trigger$ = {
+        goods = grain
+    }
+    $trigger$ = {
+        goods = groceries
+    }
+    $trigger$ = {
+        goods = hardwood
+    }
+    $trigger$ = {
+        goods = iron
+    }
+    $trigger$ = {
+        goods = ironclads
+    }
+    $trigger$ = {
+        goods = lead
+    }
+    $trigger$ = {
+        goods = liquor
+    }
+    $trigger$ = {
+        goods = luxury_clothes
+    }
+    $trigger$ = {
+        goods = luxury_furniture
+    }
+    $trigger$ = {
+        goods = manowars
+    }
+    $trigger$ = {
+        goods = meat
+    }
+    $trigger$ = {
+        goods = oil
+    }
+    $trigger$ = {
+        goods = opium
+    }
+    $trigger$ = {
+        goods = paper
+    }
+    $trigger$ = {
+        goods = porcelain
+    }
+    $trigger$ = {
+        goods = radios
+    }
+    $trigger$ = {
+        goods = rubber
+    }
+    $trigger$ = {
+        goods = silk
+    }
+    $trigger$ = {
+        goods = small_arms
+    }
+    $trigger$ = {
+        goods = steamers
+    }
+    $trigger$ = {
+        goods = steel
+    }
+    $trigger$ = {
+        goods = sugar
+    }
+    $trigger$ = {
+        goods = sulfur
+    }
+    $trigger$ = {
+        goods = tanks
+    }
+    $trigger$ = {
+        goods = tea
+    }
+    $trigger$ = {
+        goods = telephones
+    }
+    $trigger$ = {
+        goods = tobacco
+    }
+    $trigger$ = {
+        goods = tools
+    }
+    $trigger$ = {
+        goods = wine
+    }
+    $trigger$ = {
+        goods = wood
+    }
+}

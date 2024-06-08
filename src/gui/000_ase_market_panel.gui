@@ -1,0 +1,41 @@
+
+template goods_list_item {
+	widget = {
+		size = { 55 55 }
+		block "goods_list_item_datacontext" {}
+		parentanchor = vcenter
+
+		tooltipwidget = {
+			FancyTooltip_Goods = {}
+		}
+		
+		icon = {
+			texture = "gfx/interface/market_view/trade_good_list_bg.dds"
+			position = { 25 0 }
+			size = { 190 46 }
+			parentanchor = vcenter
+			color = "[Goods.GetCategoryColor]"
+		}
+
+		icon = {
+			texture = "gfx/interface/market_view/trade_good_icon_bg.dds"
+			size = { 55 55 }
+			color = "[Goods.GetCategoryColor]"
+			
+			icon = {
+				texture = "[Goods.GetTexture]"
+				size = { 40 40 }
+				parentanchor = center
+			}
+			icon = {
+				size = { 25 25 }
+				visible = "[Goods.HasGoodsShortage]"
+				texture = "gfx/interface/icons/generic_icons/goods_shortage.dds"
+				tooltip = "GOODS_SHORTAGE_TOOLTIP"
+				parentanchor = bottom
+			}
+			
+            stockpile_market_panel_icon = {}
+		}
+	}
+}

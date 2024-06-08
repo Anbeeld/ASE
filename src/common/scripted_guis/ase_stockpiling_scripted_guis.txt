@@ -1,0 +1,336 @@
+﻿
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country default reserve weeks
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_reserve_weeks_target_default_decrease = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_reserve_weeks_target_default_decrease = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_reserve_weeks_target_default_decrease_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_country_reserve_weeks_target_default_increase = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_reserve_weeks_target_default_increase = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_reserve_weeks_target_default_increase_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country default saving target
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_saving_default_decrease = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_saving_default_decrease = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_saving_default_decrease_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_country_price_target_saving_default_increase = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_saving_default_increase = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_saving_default_increase_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country default spending target
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_spending_default_decrease = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_spending_default_decrease = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_spending_default_decrease_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_country_price_target_spending_default_increase = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_spending_default_increase = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_spending_default_increase_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset reserve weeks to default
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_reserve_weeks_target_reset_all_goods = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_reserve_weeks_target_reset_all_goods = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_reserve_weeks_target_reset_all_goods_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset saving price target to default
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_saving_reset_all_goods = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_saving_reset_all_goods = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_saving_reset_all_goods_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset spending price target to default
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_spending_reset_all_goods = {
+    scope = country
+
+    effect = {
+        ase_stockpile_country_price_target_spending_reset_all_goods = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_country_price_target_spending_reset_all_goods_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Toggle state being prioritized for stockpiling
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_toggle_is_prioritized_all_goods = {
+    scope = state
+
+    effect = {
+        ase_stockpile_state_toggle_is_prioritized_all_goods = yes
+    }
+
+    is_shown = {
+        ase_stockpile_state_toggle_is_prioritized_all_goods_is_shown = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_toggle_is_prioritized_all_goods_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change state direction permission for all goods
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_change_direction_all_goods_to_both = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_all_goods_to_both = yes
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_all_goods_to_both_is_shown = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_all_goods_to_both_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_all_goods_to_saving = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_all_goods_to_saving = yes
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_all_goods_to_saving_is_shown = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_all_goods_to_saving_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_all_goods_to_spending = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_all_goods_to_spending = yes
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_all_goods_to_spending_is_shown = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_all_goods_to_spending_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+ase_stockpile_state_change_direction_all_goods_to_none = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_change_direction_all_goods_to_none = yes
+    }
+
+    is_shown = {
+        ase_stockpile_state_change_direction_all_goods_to_none_is_shown = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_change_direction_all_goods_to_none_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset state level settings of goods stockpiling
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_reset_priority_and_direction_all_goods = {
+    scope = country
+
+    effect = {
+        ase_stockpile_state_reset_priority_and_direction_all_goods = yes
+    }
+
+    is_shown = {
+        always = yes
+    }
+
+    is_valid = {
+        ase_stockpile_state_reset_priority_and_direction_all_goods_is_valid = yes
+    }
+
+    ai_is_valid = {
+        always = no
+    }
+}

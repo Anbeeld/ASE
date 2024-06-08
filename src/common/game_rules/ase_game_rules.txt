@@ -66,7 +66,7 @@ ase_stockpile_price_target_spending_default = {
 }
 
 ase_goods_to_stockpile_by_default = {
-    default = ase_goods_to_stockpile_by_default_all_military_and_all_industrial
+    default = ase_goods_to_stockpile_by_default_all_military
     ase_goods_to_stockpile_by_default_none = {}
     ase_goods_to_stockpile_by_default_important_consumer = {}
     ase_goods_to_stockpile_by_default_all_consumer = {}
@@ -167,29 +167,29 @@ ase_stockpile_reserve_weeks_max_factor = {
     ase_stockpile_reserve_weeks_max_factor_200 = {}
 }
 
-ase_stockpile_country_capital_fixed_share = {
-    default = ase_stockpile_country_capital_fixed_share_010
-    ase_stockpile_country_capital_fixed_share_0 = {}
-    ase_stockpile_country_capital_fixed_share_005 = {}
-    ase_stockpile_country_capital_fixed_share_010 = {}
-    ase_stockpile_country_capital_fixed_share_015 = {}
-    ase_stockpile_country_capital_fixed_share_020 = {}
-    ase_stockpile_country_capital_fixed_share_025 = {}
-    ase_stockpile_country_capital_fixed_share_030 = {}
-    ase_stockpile_country_capital_fixed_share_035 = {}
-    ase_stockpile_country_capital_fixed_share_040 = {}
-    ase_stockpile_country_capital_fixed_share_045 = {}
-    ase_stockpile_country_capital_fixed_share_050 = {}
-    ase_stockpile_country_capital_fixed_share_055 = {}
-    ase_stockpile_country_capital_fixed_share_060 = {}
-    ase_stockpile_country_capital_fixed_share_065 = {}
-    ase_stockpile_country_capital_fixed_share_070 = {}
-    ase_stockpile_country_capital_fixed_share_075 = {}
-    ase_stockpile_country_capital_fixed_share_080 = {}
-    ase_stockpile_country_capital_fixed_share_085 = {}
-    ase_stockpile_country_capital_fixed_share_090 = {}
-    ase_stockpile_country_capital_fixed_share_095 = {}
-    ase_stockpile_country_capital_fixed_share_100 = {}
+ase_stockpile_prioritized_state_share_bonus = {
+    default = ase_stockpile_prioritized_state_share_bonus_050
+    ase_stockpile_prioritized_state_share_bonus_0 = {}
+    ase_stockpile_prioritized_state_share_bonus_005 = {}
+    ase_stockpile_prioritized_state_share_bonus_010 = {}
+    ase_stockpile_prioritized_state_share_bonus_015 = {}
+    ase_stockpile_prioritized_state_share_bonus_020 = {}
+    ase_stockpile_prioritized_state_share_bonus_025 = {}
+    ase_stockpile_prioritized_state_share_bonus_030 = {}
+    ase_stockpile_prioritized_state_share_bonus_035 = {}
+    ase_stockpile_prioritized_state_share_bonus_040 = {}
+    ase_stockpile_prioritized_state_share_bonus_045 = {}
+    ase_stockpile_prioritized_state_share_bonus_050 = {}
+    ase_stockpile_prioritized_state_share_bonus_055 = {}
+    ase_stockpile_prioritized_state_share_bonus_060 = {}
+    ase_stockpile_prioritized_state_share_bonus_065 = {}
+    ase_stockpile_prioritized_state_share_bonus_070 = {}
+    ase_stockpile_prioritized_state_share_bonus_075 = {}
+    ase_stockpile_prioritized_state_share_bonus_080 = {}
+    ase_stockpile_prioritized_state_share_bonus_085 = {}
+    ase_stockpile_prioritized_state_share_bonus_090 = {}
+    ase_stockpile_prioritized_state_share_bonus_095 = {}
+    ase_stockpile_prioritized_state_share_bonus_100 = {}
 }
 
 ase_ai_countries_that_are_allowed_to_stockpile = {

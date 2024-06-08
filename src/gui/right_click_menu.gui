@@ -3720,137 +3720,69 @@ right_click_menu = {
 
         # Both saving and spending
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_both_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_both_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_BOTH_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_BOTH"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_both_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_BOTH_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_BOTH"
+				text = "ASE_STOCKPILE_TRANSFERS_BOTH"
 			}
         }
 
         # Saving only
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_saving_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_saving_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_SAVING_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_SAVING_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_SAVING"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_saving_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_SAVING_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_SAVING"
+				text = "ASE_STOCKPILE_TRANSFERS_SAVING"
 			}
         }
 
         # Spending only
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_spending_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_spending_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_SPENDING_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_SPENDING_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_SPENDING"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_spending_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_SPENDING_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_SPENDING"
+				text = "ASE_STOCKPILE_TRANSFERS_SPENDING"
 			}
         }
 
         # None
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_none_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_none_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_NONE_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_NONE_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_NONE"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_none_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_NONE_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_NONE"
+				text = "ASE_STOCKPILE_TRANSFERS_NONE"
 			}
         }
 	
@@ -3999,137 +3931,69 @@ right_click_menu = {
 
         # Both saving and spending
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_both_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_both_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_BOTH_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_BOTH"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_both_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_BOTH_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_BOTH"
+				text = "ASE_STOCKPILE_TRANSFERS_BOTH"
 			}
         }
 
         # Saving only
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_saving_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_saving_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_SAVING_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_SAVING_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_SAVING"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_saving_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_SAVING_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_SAVING"
+				text = "ASE_STOCKPILE_TRANSFERS_SAVING"
 			}
         }
 
         # Spending only
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_spending_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_spending_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_SPENDING_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_SPENDING_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_SPENDING"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_spending_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_SPENDING_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_SPENDING"
+				text = "ASE_STOCKPILE_TRANSFERS_SPENDING"
 			}
         }
 
         # None
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_none_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_none_', Goods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_NONE_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_NONE_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_NONE"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_none_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_NONE_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_NONE"
+				text = "ASE_STOCKPILE_TRANSFERS_NONE"
 			}
         }
 
@@ -4246,137 +4110,69 @@ right_click_menu = {
 
         # Both saving and spending
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_both_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_both_', TradeRoute.GetGoods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_BOTH_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_BOTH"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_both_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_BOTH_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_BOTH"
+				text = "ASE_STOCKPILE_TRANSFERS_BOTH"
 			}
         }
 
         # Saving only
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_saving_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_saving_', TradeRoute.GetGoods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_SAVING_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_SAVING_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_SAVING"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_saving_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_SAVING_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_SAVING"
+				text = "ASE_STOCKPILE_TRANSFERS_SAVING"
 			}
         }
 
         # Spending only
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_spending_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_spending_', TradeRoute.GetGoods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_SPENDING_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_SPENDING_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_SPENDING"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_spending_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_SPENDING_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_SPENDING"
+				text = "ASE_STOCKPILE_TRANSFERS_SPENDING"
 			}
         }
 
         # None
         right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_none_', Goods.GetKey))]"
+            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_country_change_direction_to_none_', TradeRoute.GetGoods.GetKey))]"
 
 			blockoverride "properties" {
 				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_MARKET_NONE_TOOLTIP"
-				visible = "[ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner)]"
+				tooltip = "ASE_STOCKPILE_TRANSFERS_NONE_TOOLTIP"
 			}
 
 			blockoverride "icon" {}
 			
 			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_MARKET_NONE"
-			}
-        }
-        right_click_menu_item = {
-            datacontext = "[GetScriptedGui(Concatenate('ase_stockpile_toggle_direction_permission_none_', Goods.GetKey))]"
-
-			blockoverride "properties" {
-				enabled = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				tooltip = "ASE_STOCKPILE_POLICY_COUNTRY_NONE_TOOLTIP"
-				visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetCapital.GetMarket.GetOwner))]"
-			}
-
-			blockoverride "icon" {}
-			
-			blockoverride "text" {
-				text = "ASE_STOCKPILE_POLICY_COUNTRY_NONE"
+				text = "ASE_STOCKPILE_TRANSFERS_NONE"
 			}
         }
 	

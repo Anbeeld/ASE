@@ -1,5 +1,9 @@
 ﻿
-ase_stockpile_toggle_direction_permission_both_is_shown = {
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country goods-specific direction permission
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_change_direction_specific_to_both_is_shown = {
     ase_should_country_stockpile_goods_in_direction = {
         goods = $goods$
         direction = saving
@@ -10,7 +14,7 @@ ase_stockpile_toggle_direction_permission_both_is_shown = {
     }
 }
 
-ase_stockpile_toggle_direction_permission_saving_is_shown = {
+ase_stockpile_country_change_direction_specific_to_saving_is_shown = {
     ase_should_country_stockpile_goods_in_direction = {
         goods = $goods$
         direction = saving
@@ -23,7 +27,7 @@ ase_stockpile_toggle_direction_permission_saving_is_shown = {
     }
 }
 
-ase_stockpile_toggle_direction_permission_spending_is_shown = {
+ase_stockpile_country_change_direction_specific_to_spending_is_shown = {
     NOT = {
         ase_should_country_stockpile_goods_in_direction = {
             goods = $goods$
@@ -36,7 +40,7 @@ ase_stockpile_toggle_direction_permission_spending_is_shown = {
     }
 }
 
-ase_stockpile_toggle_direction_permission_none_is_shown = {
+ase_stockpile_country_change_direction_specific_to_none_is_shown = {
     NOR = {
         ase_should_country_stockpile_goods_in_direction = {
             goods = $goods$
@@ -49,6 +53,24 @@ ase_stockpile_toggle_direction_permission_none_is_shown = {
     }
 }
 
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country goods-specific reserve weeks
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_reserve_weeks_target_decrease_is_valid = {
+    this = market.owner
+    ase_stockpile_country_reserve_weeks_target_factor_$goods$ > ase_stockpile_goods_reserve_weeks_factor_lower_limit
+}
+
+ase_stockpile_country_reserve_weeks_target_increase_is_valid = {
+    this = market.owner
+    ase_stockpile_country_reserve_weeks_target_factor_$goods$ < ase_stockpile_country_reserve_weeks_max_factor_$goods$
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country goods-specific saving target
+# ----------------------------------------------------------------------------------------------------------------------
+
 ase_stockpile_country_price_target_saving_decrease_is_valid = {
     this = market.owner
     ase_stockpile_country_price_target_saving_$goods$ > ase_stockpile_country_price_target_saving_min
@@ -58,6 +80,10 @@ ase_stockpile_country_price_target_saving_increase_is_valid = {
     this = market.owner
     ase_stockpile_country_price_target_saving_$goods$ < ase_stockpile_country_price_target_saving_max
 }
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country goods-specific spending target
+# ----------------------------------------------------------------------------------------------------------------------
 
 ase_stockpile_country_price_target_spending_decrease_is_valid = {
     this = market.owner
@@ -69,12 +95,258 @@ ase_stockpile_country_price_target_spending_increase_is_valid = {
     ase_stockpile_country_price_target_spending_$goods$ < ase_stockpile_country_price_target_spending_max
 }
 
-ase_stockpile_country_reserve_weeks_target_decrease_is_valid = {
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country default reserve weeks
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_reserve_weeks_target_default_decrease_is_valid = {
     this = market.owner
-    ase_stockpile_country_reserve_weeks_target_factor_$goods$ > ase_stockpile_goods_reserve_weeks_factor_lower_limit
+    ase_stockpile_reserve_weeks_target_factor_default > ase_stockpile_goods_reserve_weeks_factor_lower_limit
 }
 
-ase_stockpile_country_reserve_weeks_target_increase_is_valid = {
+ase_stockpile_country_reserve_weeks_target_default_increase_is_valid = {
     this = market.owner
-    ase_stockpile_country_reserve_weeks_target_factor_$goods$ < ase_stockpile_country_reserve_weeks_max_factor_$goods$
+    ase_stockpile_reserve_weeks_target_factor_default < ase_stockpile_goods_reserve_weeks_max_factor
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country default saving target
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_saving_default_decrease_is_valid = {
+    this = market.owner
+    ase_stockpile_price_target_saving_default > ase_stockpile_country_price_target_saving_min
+}
+
+ase_stockpile_country_price_target_saving_default_increase_is_valid = {
+    this = market.owner
+    ase_stockpile_price_target_saving_default_raw < ase_stockpile_country_price_target_saving_max
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change country default spending target
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_spending_default_decrease_is_valid = {
+    this = market.owner
+    ase_stockpile_price_target_spending_default > ase_stockpile_country_price_target_spending_min
+}
+
+ase_stockpile_country_price_target_spending_default_increase_is_valid = {
+    this = market.owner
+    ase_stockpile_price_target_spending_default < ase_stockpile_country_price_target_spending_max
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset reserve weeks to default
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_reserve_weeks_target_reset_specific_is_valid = {
+    has_variable = ase_stockpile_country_reserve_weeks_target_factor_$goods$
+}
+
+ase_stockpile_country_reserve_weeks_target_reset_all_goods_is_valid = {
+    ase_check_trigger_for_any_market_goods = {
+        trigger = ase_stockpile_country_reserve_weeks_target_reset_specific_is_valid
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset saving price target to default
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_saving_reset_specific_is_valid = {
+    has_variable = ase_stockpile_country_price_target_saving_$goods$
+}
+
+ase_stockpile_country_price_target_saving_reset_all_goods_is_valid = {
+    ase_check_trigger_for_any_market_goods = {
+        trigger = ase_stockpile_country_price_target_saving_reset_specific_is_valid
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset spending price target to default
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_country_price_target_spending_reset_specific_is_valid = {
+    has_variable = ase_stockpile_country_price_target_spending_$goods$
+}
+
+ase_stockpile_country_price_target_spending_reset_all_goods_is_valid = {
+    ase_check_trigger_for_any_market_goods = {
+        trigger = ase_stockpile_country_price_target_spending_reset_specific_is_valid
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Toggle state being prioritized for stockpiling
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_toggle_is_prioritized_specific_is_valid = {
+    owner.market.mg:$goods$ = owner.market.mg:$goods$
+}
+
+ase_stockpile_state_toggle_is_prioritized_specific_is_shown = {
+    ase_is_state_prioritized_to_stockpile_specific = {
+        goods = $goods$
+    }
+}
+
+ase_stockpile_state_toggle_is_prioritized_all_goods_is_valid = {
+    always = yes
+}
+
+ase_stockpile_state_toggle_is_prioritized_all_goods_is_shown = {
+    ase_is_state_prioritized_to_stockpile_all_goods = yes
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change state goods-specific direction permission
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_change_direction_specific_to_both_is_valid = {
+    owner.market.mg:$goods$ = owner.market.mg:$goods$
+}
+
+ase_stockpile_state_change_direction_specific_to_saving_is_valid = {
+    owner.market.mg:$goods$ = owner.market.mg:$goods$
+}
+
+ase_stockpile_state_change_direction_specific_to_spending_is_valid = {
+    owner.market.mg:$goods$ = owner.market.mg:$goods$
+}
+
+ase_stockpile_state_change_direction_specific_to_none_is_valid = {
+    owner.market.mg:$goods$ = owner.market.mg:$goods$
+}
+
+ase_stockpile_state_change_direction_specific_to_both_is_shown = {
+    ase_is_state_allowed_to_stockpile_in_direction_specific = {
+        goods = $goods$
+        direction = saving
+    }
+    ase_is_state_allowed_to_stockpile_in_direction_specific = {
+        goods = $goods$
+        direction = spending
+    }
+}
+
+ase_stockpile_state_change_direction_specific_to_saving_is_shown = {
+    ase_is_state_allowed_to_stockpile_in_direction_specific = {
+        goods = $goods$
+        direction = saving
+    }
+    NOT = {
+        ase_is_state_allowed_to_stockpile_in_direction_specific = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_state_change_direction_specific_to_spending_is_shown = {
+    NOT = {
+        ase_is_state_allowed_to_stockpile_in_direction_specific = {
+            goods = $goods$
+            direction = saving
+        }
+    }
+    ase_is_state_allowed_to_stockpile_in_direction_specific = {
+        goods = $goods$
+        direction = spending
+    }
+}
+
+ase_stockpile_state_change_direction_specific_to_none_is_shown = {
+    NOR = {
+        ase_is_state_allowed_to_stockpile_in_direction_specific = {
+            goods = $goods$
+            direction = saving
+        }
+        ase_is_state_allowed_to_stockpile_in_direction_specific = {
+            goods = $goods$
+            direction = spending
+        }
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Change state direction permission for all goods
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_change_direction_all_goods_to_both_is_valid = {
+    always = yes
+}
+
+ase_stockpile_state_change_direction_all_goods_to_saving_is_valid = {
+    always = yes
+}
+
+ase_stockpile_state_change_direction_all_goods_to_spending_is_valid = {
+    always = yes
+}
+
+ase_stockpile_state_change_direction_all_goods_to_none_is_valid = {
+    always = yes
+}
+
+ase_stockpile_state_change_direction_all_goods_to_both_is_shown = {
+    ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+        direction = saving
+    }
+    ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+        direction = spending
+    }
+}
+
+ase_stockpile_state_change_direction_all_goods_to_saving_is_shown = {
+    ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+        direction = saving
+    }
+    NOT = {
+        ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+            direction = spending
+        }
+    }
+}
+
+ase_stockpile_state_change_direction_all_goods_to_spending_is_shown = {
+    NOT = {
+        ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+            direction = saving
+        }
+    }
+    ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+        direction = spending
+    }
+}
+
+ase_stockpile_state_change_direction_all_goods_to_none_is_shown = {
+    NOR = {
+        ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+            direction = saving
+        }
+        ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+            direction = spending
+        }
+    }
+}
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Reset state level settings of goods stockpiling
+# ----------------------------------------------------------------------------------------------------------------------
+
+ase_stockpile_state_reset_priority_and_direction_specific_is_valid = {
+    OR = {
+        has_variable = ase_stockpile_state_is_prioritized_$goods$
+        has_variable = ase_stockpile_saving_allowed_$goods$
+        has_variable = ase_stockpile_spending_allowed_$goods$
+    }
+}
+
+ase_stockpile_state_reset_priority_and_direction_all_goods_is_valid = {
+    ase_check_trigger_for_any_market_goods = {
+        trigger = ase_stockpile_state_reset_priority_and_direction_specific_is_valid
+    }
 }

@@ -115,7 +115,7 @@ ase_should_country_stockpile_goods_in_direction = {
         # Saving
         trigger_if = { 
             limit = {
-                global_var:ase_country_stockpile_direction_$direction$ = 1
+                ase_get_stockpile_direction_id_$direction$ = 1
             }
             OR = {
                 this = market.owner
@@ -159,7 +159,97 @@ ase_should_country_stockpile_goods_in_current_direction = {
     }
 }
 
-ase_is_state_allowed_to_stockpile = {
+ase_is_state_allowed_to_stockpile_all_goods = {
     is_incorporated = yes
-    market_access >= 0.50
+    market_access >= 0.25
+}
+
+ase_is_state_allowed_to_stockpile_in_direction_specific = {
+    trigger_if = {
+        limit = {
+            owner = {
+                is_player = yes
+            }
+            has_variable = ase_stockpile_$direction$_allowed_$goods$
+        }
+        var:ase_stockpile_$direction$_allowed_$goods$ = 1
+    }
+    trigger_else = {
+        ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+            direction = $direction$
+        }
+    }
+}
+
+ase_is_state_allowed_to_stockpile_in_direction_all_goods = {
+    trigger_if = {
+        limit = {
+            owner = {
+                is_player = yes
+            }
+        }
+        trigger_if = {
+            limit = {
+                has_variable = ase_stockpile_$direction$_allowed_all_goods
+            }
+            var:ase_stockpile_$direction$_allowed_all_goods = 1
+        }
+        trigger_else = {
+            always = yes
+        }
+    }
+    trigger_else = {
+        always = yes
+    }
+}
+
+ase_is_state_prioritized_to_stockpile_all_goods = {
+    trigger_if = {
+        limit = {
+            owner = {
+                is_player = yes
+            }
+        }
+        OR = {
+            AND = {
+                is_capital = yes
+                NAND = {
+                    has_variable = ase_stockpile_state_is_prioritized_all_goods
+                    var:ase_stockpile_state_is_prioritized_all_goods = 0
+                }
+            }
+            AND = {
+                has_variable = ase_stockpile_state_is_prioritized_all_goods
+                var:ase_stockpile_state_is_prioritized_all_goods = 1
+            }
+        }
+    }
+    trigger_else = {
+        is_capital = yes
+    }
+}
+
+ase_is_state_prioritized_to_stockpile_specific = {
+    trigger_if = {
+        limit = {
+            owner = {
+                is_player = yes
+            }
+        }
+        OR = {
+            AND = {
+                has_variable = ase_stockpile_state_is_prioritized_$goods$
+                var:ase_stockpile_state_is_prioritized_$goods$ = 1
+            }
+            AND = {
+                NOT = {
+                    has_variable = ase_stockpile_state_is_prioritized_$goods$
+                }
+                ase_is_state_prioritized_to_stockpile_all_goods = yes
+            }
+        }
+    }
+    trigger_else = {
+        is_capital = yes
+    }
 }

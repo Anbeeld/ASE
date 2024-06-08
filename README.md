@@ -4,7 +4,7 @@
 
 The mod allows you to set **Price Targets** for all goods individually, and then the **Stockpile** of your country will buy them when the price falls below **Saving** target and sell when it's above **Spending** target. Naturally, **Saving** costs money for the government, while **Spending** means you'll get the money back, as in both cases you buy and sell goods directly in the market.
 
-**Stockpile** is stored on a **state basis**. It may be all states in the country or just a few of them, depending on game rules you set. The ability for players to manually control which states can stockpile which goods is not implemented yet, but you may expect it in the future updates.
+**Stockpile** is stored on a **state basis**. You can control what goods and in which states you want to **Stockpile** with mod's UI. **Game Rules** are there as well to customize how the system works.
 
 **[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3249228964)**  
 **[Paradox Mods](https://mods.paradoxplaza.com/mods/81091/Any)**  
@@ -20,12 +20,18 @@ To remove the mod during the playthrough you need to open the "Decisions" tab an
 
 Doesn't work with non-vanilla goods out of the box, but it's very much possible to create compatibility patches, see "tools" directory in this repo. You can still use ASE with mods that add new goods even without a patch, but you won't be able to stockpile them.
 
+### Performance
+
+A lot of time and effort were spent specifically to make sure the mod taxes game's performance as little as possible. Some parts of the code were reworked 3+ times just because of this without functionality changes. But there's always room for improvement, so I'll try to further optimize it.
+
+Another concern is usage of hidden buildings for stockpiling, which affects performance a bit. Unfortunately there's no way to avoid this issue, but I did my best to minimize the impact it has.
+
 ### Manual installation
 
 1) Download [the archive](https://github.com/Anbeeld/ASE/releases) with the latest version.
 2) Unpack it so you have a folder named "Anbeeld's Stockpile Economy" with mod's contents inside.
 3) Go to "Documents > Paradox Interactive > Victoria 3 > mod" or create such a folder if it doesn't exist.
-4) Place your "Anbeeld's Stockpile Economy" folder here.
+4) Place your "Anbeeld's Stockpile Economy" folder here. If there'a already such a folder, delete it before that.
 5) Open launcher and add the mod to your playset or create a new playset with it if you don't have one.
 
 ![Anbeeld's Stockpile Economy](https://forumcontent.paradoxplaza.com/public/1125490/1.jpg)
