@@ -9,9 +9,12 @@ building_ase_stockpile_saving = {
     buildable = no
     expandable = no
     downsizeable = no
+	ownership_type = self
+	cannot_switch_owner = yes
     min_raise_to_hire = -1.0
     residence_points_per_level = 0
     levels_per_mesh = 2
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 building_ase_stockpile_spending = {
@@ -24,7 +27,10 @@ building_ase_stockpile_spending = {
     buildable = no
     expandable = no
     downsizeable = no
+	ownership_type = self
+	cannot_switch_owner = yes
     min_raise_to_hire = -1.0
     residence_points_per_level = 0
     levels_per_mesh = 2
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }

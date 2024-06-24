@@ -232,7 +232,7 @@ ase_stockpile_state_toggle_is_prioritized_all_goods = {
 # ----------------------------------------------------------------------------------------------------------------------
 
 ase_stockpile_state_change_direction_all_goods_to_both = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_all_goods_to_both = yes
@@ -252,7 +252,7 @@ ase_stockpile_state_change_direction_all_goods_to_both = {
 }
 
 ase_stockpile_state_change_direction_all_goods_to_saving = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_all_goods_to_saving = yes
@@ -272,7 +272,7 @@ ase_stockpile_state_change_direction_all_goods_to_saving = {
 }
 
 ase_stockpile_state_change_direction_all_goods_to_spending = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_all_goods_to_spending = yes
@@ -292,7 +292,7 @@ ase_stockpile_state_change_direction_all_goods_to_spending = {
 }
 
 ase_stockpile_state_change_direction_all_goods_to_none = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_all_goods_to_none = yes
@@ -316,7 +316,7 @@ ase_stockpile_state_change_direction_all_goods_to_none = {
 # ----------------------------------------------------------------------------------------------------------------------
 
 ase_stockpile_state_reset_priority_and_direction_all_goods = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_all_goods = yes

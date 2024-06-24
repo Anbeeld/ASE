@@ -1905,7 +1905,13 @@ ase_perform_stockpiling_of_goods_in_state = {
                     building = building_ase_stockpile_saving
                     subsidized = no
                     reserves = 0
-                    level = 1
+                    # level = 1
+                    add_ownership = {
+                        country = {
+                            country = scope:ase_current_state.owner
+                            levels = 1  
+                        }  
+                    }
                 }
 
                 random_scope_building = {
@@ -1944,7 +1950,13 @@ ase_perform_stockpiling_of_goods_in_state = {
                     building = building_ase_stockpile_spending
                     subsidized = no
                     reserves = 0
-                    level = 1
+                    # level = 1
+                    add_ownership = {
+                        country = {
+                            country = scope:ase_current_state.owner
+                            levels = 1  
+                        }  
+                    }
                 }
 
                 random_scope_building = {

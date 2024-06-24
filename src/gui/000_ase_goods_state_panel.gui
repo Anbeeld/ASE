@@ -16,7 +16,7 @@ types goods_state_panel_types
 	type goods_state_panel = default_block_window_two_lines {
 		name = "goods_state_panel"
 
-        state = {
+		state = {
             name = _show
             on_start = "[GetVariableSystem.Clear('stockpile_panel_section_goods_policy')]"
             on_start = "[GetVariableSystem.Clear('stockpile_panel_section_default_policy')]"

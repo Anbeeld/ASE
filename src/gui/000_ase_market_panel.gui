@@ -34,8 +34,8 @@ template goods_list_item {
 				tooltip = "GOODS_SHORTAGE_TOOLTIP"
 				parentanchor = bottom
 			}
-			
-            stockpile_market_panel_icon = {}
+
+			stockpile_market_panel_icon = {}
 		}
 	}
 }

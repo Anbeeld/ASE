@@ -6,12 +6,12 @@ bg_ase_stockpile = {
 
     always_possible = yes
     
-    is_government_funded = yes
+    # is_government_funded = yes
     
     min_hiring_rate = 1.0
     max_hiring_rate = 1.0
     
-    # ignores_productivity_when_hiring = yes
+    ignores_productivity_when_hiring = yes
     
     proportionality_limit = 1.0
     

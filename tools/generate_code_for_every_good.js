@@ -112,9 +112,6 @@ pm_ase_stockpile_spending_base = {
         level_scaled = {
             building_employment_laborers_add = 10
         }
-        unscaled = {
-            building_government_shares_add = 1
-        }
     }
 }
 
@@ -186,8 +183,11 @@ if (goods[i][3] === 0)
 {
 ase_modifier_types_input_add += `
 goods_input_` + goods[i][0] + `_add = {
-    good = yes
-    percent = no
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
 }
 `;
 ase_generated_localization += `
@@ -201,9 +201,12 @@ if (goods[i][4] === 0)
 {
 ase_modifier_types_input_mult += `
 goods_input_` + goods[i][0] + `_mult = {
-    good = no
-    percent = yes
-    num_decimals = 0
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
 }
 `;
 ase_generated_localization += `
@@ -217,8 +220,12 @@ if (goods[i][5] === 0)
 {
 ase_modifier_types_output_mult += `
 goods_output_` + goods[i][0] + `_mult = {
-    good = yes
-    percent = yes
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
 }
 `;
 ase_generated_localization += `
@@ -1168,7 +1175,7 @@ ase_stockpile_clear_list_of_countries_in_market_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -1194,7 +1201,7 @@ ase_stockpile_state_toggle_is_prioritized_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -1266,7 +1273,7 @@ ase_stockpile_country_price_target_spending_reset_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_state_change_direction_to_both_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -1292,7 +1299,7 @@ ase_stockpile_state_change_direction_to_both_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_state_change_direction_to_saving_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -1318,7 +1325,7 @@ ase_stockpile_state_change_direction_to_saving_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_state_change_direction_to_spending_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -1344,7 +1351,7 @@ ase_stockpile_state_change_direction_to_spending_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_state_change_direction_to_none_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -1370,7 +1377,7 @@ ase_stockpile_state_change_direction_to_none_` + goods[i][0] + ` = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_` + goods[i][0] + ` = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {

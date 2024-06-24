@@ -1,0 +1,695 @@
+﻿
+goods_input_coffee_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_fine_art_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_furniture_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_luxury_clothes_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_luxury_furniture_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_porcelain_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_tea_add = {
+    decimals=1
+	color=bad
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_aeroplanes_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_automobiles_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_clippers_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_clothes_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_coal_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_coffee_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_dye_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_engines_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_explosives_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_fabric_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_fertilizer_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_fine_art_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_fish_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_fruit_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_furniture_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_glass_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_grain_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_groceries_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_hardwood_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_iron_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_ironclads_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_lead_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_liquor_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_luxury_clothes_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_luxury_furniture_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_manowars_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_meat_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_opium_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_paper_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_porcelain_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_rubber_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_silk_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_steamers_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_steel_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_sugar_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_sulfur_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_tea_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_telephones_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_tobacco_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_tools_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_wine_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_wood_mult = {
+    decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_ammunition_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_clothes_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_coal_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_coffee_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_dye_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_explosives_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_fertilizer_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_fine_art_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_fish_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_furniture_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_glass_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_grain_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_groceries_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_iron_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_lead_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_luxury_clothes_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_luxury_furniture_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_meat_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_opium_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_paper_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_porcelain_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_radios_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_rubber_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_steel_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_sulfur_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_tea_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_telephones_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_tobacco_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_wood_mult = {
+    decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}

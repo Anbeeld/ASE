@@ -372,7 +372,7 @@ ase_stockpile_clear_list_of_countries_in_market_aeroplanes = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -398,7 +398,7 @@ ase_stockpile_state_toggle_is_prioritized_aeroplanes = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -470,7 +470,7 @@ ase_stockpile_country_price_target_spending_reset_aeroplanes = {
 }
 
 ase_stockpile_state_change_direction_to_both_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -496,7 +496,7 @@ ase_stockpile_state_change_direction_to_both_aeroplanes = {
 }
 
 ase_stockpile_state_change_direction_to_saving_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -522,7 +522,7 @@ ase_stockpile_state_change_direction_to_saving_aeroplanes = {
 }
 
 ase_stockpile_state_change_direction_to_spending_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -548,7 +548,7 @@ ase_stockpile_state_change_direction_to_spending_aeroplanes = {
 }
 
 ase_stockpile_state_change_direction_to_none_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -574,7 +574,7 @@ ase_stockpile_state_change_direction_to_none_aeroplanes = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_aeroplanes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -970,7 +970,7 @@ ase_stockpile_clear_list_of_countries_in_market_ammunition = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -996,7 +996,7 @@ ase_stockpile_state_toggle_is_prioritized_ammunition = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -1068,7 +1068,7 @@ ase_stockpile_country_price_target_spending_reset_ammunition = {
 }
 
 ase_stockpile_state_change_direction_to_both_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -1094,7 +1094,7 @@ ase_stockpile_state_change_direction_to_both_ammunition = {
 }
 
 ase_stockpile_state_change_direction_to_saving_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -1120,7 +1120,7 @@ ase_stockpile_state_change_direction_to_saving_ammunition = {
 }
 
 ase_stockpile_state_change_direction_to_spending_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -1146,7 +1146,7 @@ ase_stockpile_state_change_direction_to_spending_ammunition = {
 }
 
 ase_stockpile_state_change_direction_to_none_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -1172,7 +1172,7 @@ ase_stockpile_state_change_direction_to_none_ammunition = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_ammunition = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -1568,7 +1568,7 @@ ase_stockpile_clear_list_of_countries_in_market_artillery = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -1594,7 +1594,7 @@ ase_stockpile_state_toggle_is_prioritized_artillery = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -1666,7 +1666,7 @@ ase_stockpile_country_price_target_spending_reset_artillery = {
 }
 
 ase_stockpile_state_change_direction_to_both_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -1692,7 +1692,7 @@ ase_stockpile_state_change_direction_to_both_artillery = {
 }
 
 ase_stockpile_state_change_direction_to_saving_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -1718,7 +1718,7 @@ ase_stockpile_state_change_direction_to_saving_artillery = {
 }
 
 ase_stockpile_state_change_direction_to_spending_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -1744,7 +1744,7 @@ ase_stockpile_state_change_direction_to_spending_artillery = {
 }
 
 ase_stockpile_state_change_direction_to_none_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -1770,7 +1770,7 @@ ase_stockpile_state_change_direction_to_none_artillery = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_artillery = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -2166,7 +2166,7 @@ ase_stockpile_clear_list_of_countries_in_market_automobiles = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -2192,7 +2192,7 @@ ase_stockpile_state_toggle_is_prioritized_automobiles = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -2264,7 +2264,7 @@ ase_stockpile_country_price_target_spending_reset_automobiles = {
 }
 
 ase_stockpile_state_change_direction_to_both_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -2290,7 +2290,7 @@ ase_stockpile_state_change_direction_to_both_automobiles = {
 }
 
 ase_stockpile_state_change_direction_to_saving_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -2316,7 +2316,7 @@ ase_stockpile_state_change_direction_to_saving_automobiles = {
 }
 
 ase_stockpile_state_change_direction_to_spending_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -2342,7 +2342,7 @@ ase_stockpile_state_change_direction_to_spending_automobiles = {
 }
 
 ase_stockpile_state_change_direction_to_none_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -2368,7 +2368,7 @@ ase_stockpile_state_change_direction_to_none_automobiles = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_automobiles = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -2764,7 +2764,7 @@ ase_stockpile_clear_list_of_countries_in_market_clippers = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -2790,7 +2790,7 @@ ase_stockpile_state_toggle_is_prioritized_clippers = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -2862,7 +2862,7 @@ ase_stockpile_country_price_target_spending_reset_clippers = {
 }
 
 ase_stockpile_state_change_direction_to_both_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -2888,7 +2888,7 @@ ase_stockpile_state_change_direction_to_both_clippers = {
 }
 
 ase_stockpile_state_change_direction_to_saving_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -2914,7 +2914,7 @@ ase_stockpile_state_change_direction_to_saving_clippers = {
 }
 
 ase_stockpile_state_change_direction_to_spending_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -2940,7 +2940,7 @@ ase_stockpile_state_change_direction_to_spending_clippers = {
 }
 
 ase_stockpile_state_change_direction_to_none_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -2966,7 +2966,7 @@ ase_stockpile_state_change_direction_to_none_clippers = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_clippers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -3362,7 +3362,7 @@ ase_stockpile_clear_list_of_countries_in_market_clothes = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -3388,7 +3388,7 @@ ase_stockpile_state_toggle_is_prioritized_clothes = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -3460,7 +3460,7 @@ ase_stockpile_country_price_target_spending_reset_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_both_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -3486,7 +3486,7 @@ ase_stockpile_state_change_direction_to_both_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_saving_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -3512,7 +3512,7 @@ ase_stockpile_state_change_direction_to_saving_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_spending_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -3538,7 +3538,7 @@ ase_stockpile_state_change_direction_to_spending_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_none_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -3564,7 +3564,7 @@ ase_stockpile_state_change_direction_to_none_clothes = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -3960,7 +3960,7 @@ ase_stockpile_clear_list_of_countries_in_market_coal = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -3986,7 +3986,7 @@ ase_stockpile_state_toggle_is_prioritized_coal = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -4058,7 +4058,7 @@ ase_stockpile_country_price_target_spending_reset_coal = {
 }
 
 ase_stockpile_state_change_direction_to_both_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -4084,7 +4084,7 @@ ase_stockpile_state_change_direction_to_both_coal = {
 }
 
 ase_stockpile_state_change_direction_to_saving_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -4110,7 +4110,7 @@ ase_stockpile_state_change_direction_to_saving_coal = {
 }
 
 ase_stockpile_state_change_direction_to_spending_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -4136,7 +4136,7 @@ ase_stockpile_state_change_direction_to_spending_coal = {
 }
 
 ase_stockpile_state_change_direction_to_none_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -4162,7 +4162,7 @@ ase_stockpile_state_change_direction_to_none_coal = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_coal = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -4558,7 +4558,7 @@ ase_stockpile_clear_list_of_countries_in_market_coffee = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -4584,7 +4584,7 @@ ase_stockpile_state_toggle_is_prioritized_coffee = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -4656,7 +4656,7 @@ ase_stockpile_country_price_target_spending_reset_coffee = {
 }
 
 ase_stockpile_state_change_direction_to_both_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -4682,7 +4682,7 @@ ase_stockpile_state_change_direction_to_both_coffee = {
 }
 
 ase_stockpile_state_change_direction_to_saving_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -4708,7 +4708,7 @@ ase_stockpile_state_change_direction_to_saving_coffee = {
 }
 
 ase_stockpile_state_change_direction_to_spending_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -4734,7 +4734,7 @@ ase_stockpile_state_change_direction_to_spending_coffee = {
 }
 
 ase_stockpile_state_change_direction_to_none_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -4760,7 +4760,7 @@ ase_stockpile_state_change_direction_to_none_coffee = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_coffee = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -5156,7 +5156,7 @@ ase_stockpile_clear_list_of_countries_in_market_dye = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -5182,7 +5182,7 @@ ase_stockpile_state_toggle_is_prioritized_dye = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -5254,7 +5254,7 @@ ase_stockpile_country_price_target_spending_reset_dye = {
 }
 
 ase_stockpile_state_change_direction_to_both_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -5280,7 +5280,7 @@ ase_stockpile_state_change_direction_to_both_dye = {
 }
 
 ase_stockpile_state_change_direction_to_saving_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -5306,7 +5306,7 @@ ase_stockpile_state_change_direction_to_saving_dye = {
 }
 
 ase_stockpile_state_change_direction_to_spending_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -5332,7 +5332,7 @@ ase_stockpile_state_change_direction_to_spending_dye = {
 }
 
 ase_stockpile_state_change_direction_to_none_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -5358,7 +5358,7 @@ ase_stockpile_state_change_direction_to_none_dye = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_dye = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -5754,7 +5754,7 @@ ase_stockpile_clear_list_of_countries_in_market_engines = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -5780,7 +5780,7 @@ ase_stockpile_state_toggle_is_prioritized_engines = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -5852,7 +5852,7 @@ ase_stockpile_country_price_target_spending_reset_engines = {
 }
 
 ase_stockpile_state_change_direction_to_both_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -5878,7 +5878,7 @@ ase_stockpile_state_change_direction_to_both_engines = {
 }
 
 ase_stockpile_state_change_direction_to_saving_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -5904,7 +5904,7 @@ ase_stockpile_state_change_direction_to_saving_engines = {
 }
 
 ase_stockpile_state_change_direction_to_spending_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -5930,7 +5930,7 @@ ase_stockpile_state_change_direction_to_spending_engines = {
 }
 
 ase_stockpile_state_change_direction_to_none_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -5956,7 +5956,7 @@ ase_stockpile_state_change_direction_to_none_engines = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_engines = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -6352,7 +6352,7 @@ ase_stockpile_clear_list_of_countries_in_market_explosives = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -6378,7 +6378,7 @@ ase_stockpile_state_toggle_is_prioritized_explosives = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -6450,7 +6450,7 @@ ase_stockpile_country_price_target_spending_reset_explosives = {
 }
 
 ase_stockpile_state_change_direction_to_both_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -6476,7 +6476,7 @@ ase_stockpile_state_change_direction_to_both_explosives = {
 }
 
 ase_stockpile_state_change_direction_to_saving_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -6502,7 +6502,7 @@ ase_stockpile_state_change_direction_to_saving_explosives = {
 }
 
 ase_stockpile_state_change_direction_to_spending_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -6528,7 +6528,7 @@ ase_stockpile_state_change_direction_to_spending_explosives = {
 }
 
 ase_stockpile_state_change_direction_to_none_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -6554,7 +6554,7 @@ ase_stockpile_state_change_direction_to_none_explosives = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_explosives = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -6950,7 +6950,7 @@ ase_stockpile_clear_list_of_countries_in_market_fabric = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -6976,7 +6976,7 @@ ase_stockpile_state_toggle_is_prioritized_fabric = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -7048,7 +7048,7 @@ ase_stockpile_country_price_target_spending_reset_fabric = {
 }
 
 ase_stockpile_state_change_direction_to_both_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -7074,7 +7074,7 @@ ase_stockpile_state_change_direction_to_both_fabric = {
 }
 
 ase_stockpile_state_change_direction_to_saving_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -7100,7 +7100,7 @@ ase_stockpile_state_change_direction_to_saving_fabric = {
 }
 
 ase_stockpile_state_change_direction_to_spending_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -7126,7 +7126,7 @@ ase_stockpile_state_change_direction_to_spending_fabric = {
 }
 
 ase_stockpile_state_change_direction_to_none_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -7152,7 +7152,7 @@ ase_stockpile_state_change_direction_to_none_fabric = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_fabric = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -7548,7 +7548,7 @@ ase_stockpile_clear_list_of_countries_in_market_fertilizer = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -7574,7 +7574,7 @@ ase_stockpile_state_toggle_is_prioritized_fertilizer = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -7646,7 +7646,7 @@ ase_stockpile_country_price_target_spending_reset_fertilizer = {
 }
 
 ase_stockpile_state_change_direction_to_both_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -7672,7 +7672,7 @@ ase_stockpile_state_change_direction_to_both_fertilizer = {
 }
 
 ase_stockpile_state_change_direction_to_saving_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -7698,7 +7698,7 @@ ase_stockpile_state_change_direction_to_saving_fertilizer = {
 }
 
 ase_stockpile_state_change_direction_to_spending_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -7724,7 +7724,7 @@ ase_stockpile_state_change_direction_to_spending_fertilizer = {
 }
 
 ase_stockpile_state_change_direction_to_none_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -7750,7 +7750,7 @@ ase_stockpile_state_change_direction_to_none_fertilizer = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_fertilizer = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -8146,7 +8146,7 @@ ase_stockpile_clear_list_of_countries_in_market_fine_art = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -8172,7 +8172,7 @@ ase_stockpile_state_toggle_is_prioritized_fine_art = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -8244,7 +8244,7 @@ ase_stockpile_country_price_target_spending_reset_fine_art = {
 }
 
 ase_stockpile_state_change_direction_to_both_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -8270,7 +8270,7 @@ ase_stockpile_state_change_direction_to_both_fine_art = {
 }
 
 ase_stockpile_state_change_direction_to_saving_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -8296,7 +8296,7 @@ ase_stockpile_state_change_direction_to_saving_fine_art = {
 }
 
 ase_stockpile_state_change_direction_to_spending_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -8322,7 +8322,7 @@ ase_stockpile_state_change_direction_to_spending_fine_art = {
 }
 
 ase_stockpile_state_change_direction_to_none_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -8348,7 +8348,7 @@ ase_stockpile_state_change_direction_to_none_fine_art = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_fine_art = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -8744,7 +8744,7 @@ ase_stockpile_clear_list_of_countries_in_market_fish = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -8770,7 +8770,7 @@ ase_stockpile_state_toggle_is_prioritized_fish = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -8842,7 +8842,7 @@ ase_stockpile_country_price_target_spending_reset_fish = {
 }
 
 ase_stockpile_state_change_direction_to_both_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -8868,7 +8868,7 @@ ase_stockpile_state_change_direction_to_both_fish = {
 }
 
 ase_stockpile_state_change_direction_to_saving_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -8894,7 +8894,7 @@ ase_stockpile_state_change_direction_to_saving_fish = {
 }
 
 ase_stockpile_state_change_direction_to_spending_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -8920,7 +8920,7 @@ ase_stockpile_state_change_direction_to_spending_fish = {
 }
 
 ase_stockpile_state_change_direction_to_none_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -8946,7 +8946,7 @@ ase_stockpile_state_change_direction_to_none_fish = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_fish = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -9342,7 +9342,7 @@ ase_stockpile_clear_list_of_countries_in_market_fruit = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -9368,7 +9368,7 @@ ase_stockpile_state_toggle_is_prioritized_fruit = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -9440,7 +9440,7 @@ ase_stockpile_country_price_target_spending_reset_fruit = {
 }
 
 ase_stockpile_state_change_direction_to_both_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -9466,7 +9466,7 @@ ase_stockpile_state_change_direction_to_both_fruit = {
 }
 
 ase_stockpile_state_change_direction_to_saving_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -9492,7 +9492,7 @@ ase_stockpile_state_change_direction_to_saving_fruit = {
 }
 
 ase_stockpile_state_change_direction_to_spending_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -9518,7 +9518,7 @@ ase_stockpile_state_change_direction_to_spending_fruit = {
 }
 
 ase_stockpile_state_change_direction_to_none_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -9544,7 +9544,7 @@ ase_stockpile_state_change_direction_to_none_fruit = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_fruit = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -9940,7 +9940,7 @@ ase_stockpile_clear_list_of_countries_in_market_furniture = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -9966,7 +9966,7 @@ ase_stockpile_state_toggle_is_prioritized_furniture = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -10038,7 +10038,7 @@ ase_stockpile_country_price_target_spending_reset_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_both_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -10064,7 +10064,7 @@ ase_stockpile_state_change_direction_to_both_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_saving_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -10090,7 +10090,7 @@ ase_stockpile_state_change_direction_to_saving_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_spending_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -10116,7 +10116,7 @@ ase_stockpile_state_change_direction_to_spending_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_none_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -10142,7 +10142,7 @@ ase_stockpile_state_change_direction_to_none_furniture = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -10538,7 +10538,7 @@ ase_stockpile_clear_list_of_countries_in_market_glass = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -10564,7 +10564,7 @@ ase_stockpile_state_toggle_is_prioritized_glass = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -10636,7 +10636,7 @@ ase_stockpile_country_price_target_spending_reset_glass = {
 }
 
 ase_stockpile_state_change_direction_to_both_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -10662,7 +10662,7 @@ ase_stockpile_state_change_direction_to_both_glass = {
 }
 
 ase_stockpile_state_change_direction_to_saving_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -10688,7 +10688,7 @@ ase_stockpile_state_change_direction_to_saving_glass = {
 }
 
 ase_stockpile_state_change_direction_to_spending_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -10714,7 +10714,7 @@ ase_stockpile_state_change_direction_to_spending_glass = {
 }
 
 ase_stockpile_state_change_direction_to_none_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -10740,7 +10740,7 @@ ase_stockpile_state_change_direction_to_none_glass = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_glass = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -11136,7 +11136,7 @@ ase_stockpile_clear_list_of_countries_in_market_grain = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -11162,7 +11162,7 @@ ase_stockpile_state_toggle_is_prioritized_grain = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -11234,7 +11234,7 @@ ase_stockpile_country_price_target_spending_reset_grain = {
 }
 
 ase_stockpile_state_change_direction_to_both_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -11260,7 +11260,7 @@ ase_stockpile_state_change_direction_to_both_grain = {
 }
 
 ase_stockpile_state_change_direction_to_saving_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -11286,7 +11286,7 @@ ase_stockpile_state_change_direction_to_saving_grain = {
 }
 
 ase_stockpile_state_change_direction_to_spending_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -11312,7 +11312,7 @@ ase_stockpile_state_change_direction_to_spending_grain = {
 }
 
 ase_stockpile_state_change_direction_to_none_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -11338,7 +11338,7 @@ ase_stockpile_state_change_direction_to_none_grain = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_grain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -11734,7 +11734,7 @@ ase_stockpile_clear_list_of_countries_in_market_groceries = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -11760,7 +11760,7 @@ ase_stockpile_state_toggle_is_prioritized_groceries = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -11832,7 +11832,7 @@ ase_stockpile_country_price_target_spending_reset_groceries = {
 }
 
 ase_stockpile_state_change_direction_to_both_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -11858,7 +11858,7 @@ ase_stockpile_state_change_direction_to_both_groceries = {
 }
 
 ase_stockpile_state_change_direction_to_saving_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -11884,7 +11884,7 @@ ase_stockpile_state_change_direction_to_saving_groceries = {
 }
 
 ase_stockpile_state_change_direction_to_spending_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -11910,7 +11910,7 @@ ase_stockpile_state_change_direction_to_spending_groceries = {
 }
 
 ase_stockpile_state_change_direction_to_none_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -11936,7 +11936,7 @@ ase_stockpile_state_change_direction_to_none_groceries = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_groceries = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -12332,7 +12332,7 @@ ase_stockpile_clear_list_of_countries_in_market_hardwood = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -12358,7 +12358,7 @@ ase_stockpile_state_toggle_is_prioritized_hardwood = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -12430,7 +12430,7 @@ ase_stockpile_country_price_target_spending_reset_hardwood = {
 }
 
 ase_stockpile_state_change_direction_to_both_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -12456,7 +12456,7 @@ ase_stockpile_state_change_direction_to_both_hardwood = {
 }
 
 ase_stockpile_state_change_direction_to_saving_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -12482,7 +12482,7 @@ ase_stockpile_state_change_direction_to_saving_hardwood = {
 }
 
 ase_stockpile_state_change_direction_to_spending_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -12508,7 +12508,7 @@ ase_stockpile_state_change_direction_to_spending_hardwood = {
 }
 
 ase_stockpile_state_change_direction_to_none_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -12534,7 +12534,7 @@ ase_stockpile_state_change_direction_to_none_hardwood = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_hardwood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -12930,7 +12930,7 @@ ase_stockpile_clear_list_of_countries_in_market_iron = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -12956,7 +12956,7 @@ ase_stockpile_state_toggle_is_prioritized_iron = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -13028,7 +13028,7 @@ ase_stockpile_country_price_target_spending_reset_iron = {
 }
 
 ase_stockpile_state_change_direction_to_both_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -13054,7 +13054,7 @@ ase_stockpile_state_change_direction_to_both_iron = {
 }
 
 ase_stockpile_state_change_direction_to_saving_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -13080,7 +13080,7 @@ ase_stockpile_state_change_direction_to_saving_iron = {
 }
 
 ase_stockpile_state_change_direction_to_spending_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -13106,7 +13106,7 @@ ase_stockpile_state_change_direction_to_spending_iron = {
 }
 
 ase_stockpile_state_change_direction_to_none_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -13132,7 +13132,7 @@ ase_stockpile_state_change_direction_to_none_iron = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_iron = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -13528,7 +13528,7 @@ ase_stockpile_clear_list_of_countries_in_market_ironclads = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -13554,7 +13554,7 @@ ase_stockpile_state_toggle_is_prioritized_ironclads = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -13626,7 +13626,7 @@ ase_stockpile_country_price_target_spending_reset_ironclads = {
 }
 
 ase_stockpile_state_change_direction_to_both_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -13652,7 +13652,7 @@ ase_stockpile_state_change_direction_to_both_ironclads = {
 }
 
 ase_stockpile_state_change_direction_to_saving_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -13678,7 +13678,7 @@ ase_stockpile_state_change_direction_to_saving_ironclads = {
 }
 
 ase_stockpile_state_change_direction_to_spending_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -13704,7 +13704,7 @@ ase_stockpile_state_change_direction_to_spending_ironclads = {
 }
 
 ase_stockpile_state_change_direction_to_none_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -13730,7 +13730,7 @@ ase_stockpile_state_change_direction_to_none_ironclads = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_ironclads = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -14126,7 +14126,7 @@ ase_stockpile_clear_list_of_countries_in_market_lead = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -14152,7 +14152,7 @@ ase_stockpile_state_toggle_is_prioritized_lead = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -14224,7 +14224,7 @@ ase_stockpile_country_price_target_spending_reset_lead = {
 }
 
 ase_stockpile_state_change_direction_to_both_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -14250,7 +14250,7 @@ ase_stockpile_state_change_direction_to_both_lead = {
 }
 
 ase_stockpile_state_change_direction_to_saving_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -14276,7 +14276,7 @@ ase_stockpile_state_change_direction_to_saving_lead = {
 }
 
 ase_stockpile_state_change_direction_to_spending_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -14302,7 +14302,7 @@ ase_stockpile_state_change_direction_to_spending_lead = {
 }
 
 ase_stockpile_state_change_direction_to_none_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -14328,7 +14328,7 @@ ase_stockpile_state_change_direction_to_none_lead = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_lead = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -14724,7 +14724,7 @@ ase_stockpile_clear_list_of_countries_in_market_liquor = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -14750,7 +14750,7 @@ ase_stockpile_state_toggle_is_prioritized_liquor = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -14822,7 +14822,7 @@ ase_stockpile_country_price_target_spending_reset_liquor = {
 }
 
 ase_stockpile_state_change_direction_to_both_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -14848,7 +14848,7 @@ ase_stockpile_state_change_direction_to_both_liquor = {
 }
 
 ase_stockpile_state_change_direction_to_saving_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -14874,7 +14874,7 @@ ase_stockpile_state_change_direction_to_saving_liquor = {
 }
 
 ase_stockpile_state_change_direction_to_spending_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -14900,7 +14900,7 @@ ase_stockpile_state_change_direction_to_spending_liquor = {
 }
 
 ase_stockpile_state_change_direction_to_none_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -14926,7 +14926,7 @@ ase_stockpile_state_change_direction_to_none_liquor = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_liquor = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -15322,7 +15322,7 @@ ase_stockpile_clear_list_of_countries_in_market_luxury_clothes = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -15348,7 +15348,7 @@ ase_stockpile_state_toggle_is_prioritized_luxury_clothes = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -15420,7 +15420,7 @@ ase_stockpile_country_price_target_spending_reset_luxury_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_both_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -15446,7 +15446,7 @@ ase_stockpile_state_change_direction_to_both_luxury_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_saving_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -15472,7 +15472,7 @@ ase_stockpile_state_change_direction_to_saving_luxury_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_spending_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -15498,7 +15498,7 @@ ase_stockpile_state_change_direction_to_spending_luxury_clothes = {
 }
 
 ase_stockpile_state_change_direction_to_none_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -15524,7 +15524,7 @@ ase_stockpile_state_change_direction_to_none_luxury_clothes = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_luxury_clothes = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -15920,7 +15920,7 @@ ase_stockpile_clear_list_of_countries_in_market_luxury_furniture = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -15946,7 +15946,7 @@ ase_stockpile_state_toggle_is_prioritized_luxury_furniture = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -16018,7 +16018,7 @@ ase_stockpile_country_price_target_spending_reset_luxury_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_both_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -16044,7 +16044,7 @@ ase_stockpile_state_change_direction_to_both_luxury_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_saving_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -16070,7 +16070,7 @@ ase_stockpile_state_change_direction_to_saving_luxury_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_spending_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -16096,7 +16096,7 @@ ase_stockpile_state_change_direction_to_spending_luxury_furniture = {
 }
 
 ase_stockpile_state_change_direction_to_none_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -16122,7 +16122,7 @@ ase_stockpile_state_change_direction_to_none_luxury_furniture = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_luxury_furniture = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -16518,7 +16518,7 @@ ase_stockpile_clear_list_of_countries_in_market_manowars = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -16544,7 +16544,7 @@ ase_stockpile_state_toggle_is_prioritized_manowars = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -16616,7 +16616,7 @@ ase_stockpile_country_price_target_spending_reset_manowars = {
 }
 
 ase_stockpile_state_change_direction_to_both_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -16642,7 +16642,7 @@ ase_stockpile_state_change_direction_to_both_manowars = {
 }
 
 ase_stockpile_state_change_direction_to_saving_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -16668,7 +16668,7 @@ ase_stockpile_state_change_direction_to_saving_manowars = {
 }
 
 ase_stockpile_state_change_direction_to_spending_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -16694,7 +16694,7 @@ ase_stockpile_state_change_direction_to_spending_manowars = {
 }
 
 ase_stockpile_state_change_direction_to_none_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -16720,7 +16720,7 @@ ase_stockpile_state_change_direction_to_none_manowars = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_manowars = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -17116,7 +17116,7 @@ ase_stockpile_clear_list_of_countries_in_market_meat = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -17142,7 +17142,7 @@ ase_stockpile_state_toggle_is_prioritized_meat = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -17214,7 +17214,7 @@ ase_stockpile_country_price_target_spending_reset_meat = {
 }
 
 ase_stockpile_state_change_direction_to_both_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -17240,7 +17240,7 @@ ase_stockpile_state_change_direction_to_both_meat = {
 }
 
 ase_stockpile_state_change_direction_to_saving_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -17266,7 +17266,7 @@ ase_stockpile_state_change_direction_to_saving_meat = {
 }
 
 ase_stockpile_state_change_direction_to_spending_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -17292,7 +17292,7 @@ ase_stockpile_state_change_direction_to_spending_meat = {
 }
 
 ase_stockpile_state_change_direction_to_none_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -17318,7 +17318,7 @@ ase_stockpile_state_change_direction_to_none_meat = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_meat = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -17714,7 +17714,7 @@ ase_stockpile_clear_list_of_countries_in_market_oil = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -17740,7 +17740,7 @@ ase_stockpile_state_toggle_is_prioritized_oil = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -17812,7 +17812,7 @@ ase_stockpile_country_price_target_spending_reset_oil = {
 }
 
 ase_stockpile_state_change_direction_to_both_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -17838,7 +17838,7 @@ ase_stockpile_state_change_direction_to_both_oil = {
 }
 
 ase_stockpile_state_change_direction_to_saving_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -17864,7 +17864,7 @@ ase_stockpile_state_change_direction_to_saving_oil = {
 }
 
 ase_stockpile_state_change_direction_to_spending_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -17890,7 +17890,7 @@ ase_stockpile_state_change_direction_to_spending_oil = {
 }
 
 ase_stockpile_state_change_direction_to_none_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -17916,7 +17916,7 @@ ase_stockpile_state_change_direction_to_none_oil = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_oil = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -18312,7 +18312,7 @@ ase_stockpile_clear_list_of_countries_in_market_opium = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -18338,7 +18338,7 @@ ase_stockpile_state_toggle_is_prioritized_opium = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -18410,7 +18410,7 @@ ase_stockpile_country_price_target_spending_reset_opium = {
 }
 
 ase_stockpile_state_change_direction_to_both_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -18436,7 +18436,7 @@ ase_stockpile_state_change_direction_to_both_opium = {
 }
 
 ase_stockpile_state_change_direction_to_saving_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -18462,7 +18462,7 @@ ase_stockpile_state_change_direction_to_saving_opium = {
 }
 
 ase_stockpile_state_change_direction_to_spending_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -18488,7 +18488,7 @@ ase_stockpile_state_change_direction_to_spending_opium = {
 }
 
 ase_stockpile_state_change_direction_to_none_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -18514,7 +18514,7 @@ ase_stockpile_state_change_direction_to_none_opium = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_opium = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -18910,7 +18910,7 @@ ase_stockpile_clear_list_of_countries_in_market_paper = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -18936,7 +18936,7 @@ ase_stockpile_state_toggle_is_prioritized_paper = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -19008,7 +19008,7 @@ ase_stockpile_country_price_target_spending_reset_paper = {
 }
 
 ase_stockpile_state_change_direction_to_both_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -19034,7 +19034,7 @@ ase_stockpile_state_change_direction_to_both_paper = {
 }
 
 ase_stockpile_state_change_direction_to_saving_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -19060,7 +19060,7 @@ ase_stockpile_state_change_direction_to_saving_paper = {
 }
 
 ase_stockpile_state_change_direction_to_spending_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -19086,7 +19086,7 @@ ase_stockpile_state_change_direction_to_spending_paper = {
 }
 
 ase_stockpile_state_change_direction_to_none_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -19112,7 +19112,7 @@ ase_stockpile_state_change_direction_to_none_paper = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_paper = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -19508,7 +19508,7 @@ ase_stockpile_clear_list_of_countries_in_market_porcelain = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -19534,7 +19534,7 @@ ase_stockpile_state_toggle_is_prioritized_porcelain = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -19606,7 +19606,7 @@ ase_stockpile_country_price_target_spending_reset_porcelain = {
 }
 
 ase_stockpile_state_change_direction_to_both_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -19632,7 +19632,7 @@ ase_stockpile_state_change_direction_to_both_porcelain = {
 }
 
 ase_stockpile_state_change_direction_to_saving_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -19658,7 +19658,7 @@ ase_stockpile_state_change_direction_to_saving_porcelain = {
 }
 
 ase_stockpile_state_change_direction_to_spending_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -19684,7 +19684,7 @@ ase_stockpile_state_change_direction_to_spending_porcelain = {
 }
 
 ase_stockpile_state_change_direction_to_none_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -19710,7 +19710,7 @@ ase_stockpile_state_change_direction_to_none_porcelain = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_porcelain = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -20106,7 +20106,7 @@ ase_stockpile_clear_list_of_countries_in_market_radios = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -20132,7 +20132,7 @@ ase_stockpile_state_toggle_is_prioritized_radios = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -20204,7 +20204,7 @@ ase_stockpile_country_price_target_spending_reset_radios = {
 }
 
 ase_stockpile_state_change_direction_to_both_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -20230,7 +20230,7 @@ ase_stockpile_state_change_direction_to_both_radios = {
 }
 
 ase_stockpile_state_change_direction_to_saving_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -20256,7 +20256,7 @@ ase_stockpile_state_change_direction_to_saving_radios = {
 }
 
 ase_stockpile_state_change_direction_to_spending_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -20282,7 +20282,7 @@ ase_stockpile_state_change_direction_to_spending_radios = {
 }
 
 ase_stockpile_state_change_direction_to_none_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -20308,7 +20308,7 @@ ase_stockpile_state_change_direction_to_none_radios = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_radios = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -20704,7 +20704,7 @@ ase_stockpile_clear_list_of_countries_in_market_rubber = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -20730,7 +20730,7 @@ ase_stockpile_state_toggle_is_prioritized_rubber = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -20802,7 +20802,7 @@ ase_stockpile_country_price_target_spending_reset_rubber = {
 }
 
 ase_stockpile_state_change_direction_to_both_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -20828,7 +20828,7 @@ ase_stockpile_state_change_direction_to_both_rubber = {
 }
 
 ase_stockpile_state_change_direction_to_saving_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -20854,7 +20854,7 @@ ase_stockpile_state_change_direction_to_saving_rubber = {
 }
 
 ase_stockpile_state_change_direction_to_spending_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -20880,7 +20880,7 @@ ase_stockpile_state_change_direction_to_spending_rubber = {
 }
 
 ase_stockpile_state_change_direction_to_none_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -20906,7 +20906,7 @@ ase_stockpile_state_change_direction_to_none_rubber = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_rubber = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -21302,7 +21302,7 @@ ase_stockpile_clear_list_of_countries_in_market_silk = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -21328,7 +21328,7 @@ ase_stockpile_state_toggle_is_prioritized_silk = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -21400,7 +21400,7 @@ ase_stockpile_country_price_target_spending_reset_silk = {
 }
 
 ase_stockpile_state_change_direction_to_both_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -21426,7 +21426,7 @@ ase_stockpile_state_change_direction_to_both_silk = {
 }
 
 ase_stockpile_state_change_direction_to_saving_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -21452,7 +21452,7 @@ ase_stockpile_state_change_direction_to_saving_silk = {
 }
 
 ase_stockpile_state_change_direction_to_spending_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -21478,7 +21478,7 @@ ase_stockpile_state_change_direction_to_spending_silk = {
 }
 
 ase_stockpile_state_change_direction_to_none_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -21504,7 +21504,7 @@ ase_stockpile_state_change_direction_to_none_silk = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_silk = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -21900,7 +21900,7 @@ ase_stockpile_clear_list_of_countries_in_market_small_arms = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -21926,7 +21926,7 @@ ase_stockpile_state_toggle_is_prioritized_small_arms = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -21998,7 +21998,7 @@ ase_stockpile_country_price_target_spending_reset_small_arms = {
 }
 
 ase_stockpile_state_change_direction_to_both_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -22024,7 +22024,7 @@ ase_stockpile_state_change_direction_to_both_small_arms = {
 }
 
 ase_stockpile_state_change_direction_to_saving_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -22050,7 +22050,7 @@ ase_stockpile_state_change_direction_to_saving_small_arms = {
 }
 
 ase_stockpile_state_change_direction_to_spending_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -22076,7 +22076,7 @@ ase_stockpile_state_change_direction_to_spending_small_arms = {
 }
 
 ase_stockpile_state_change_direction_to_none_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -22102,7 +22102,7 @@ ase_stockpile_state_change_direction_to_none_small_arms = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_small_arms = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -22498,7 +22498,7 @@ ase_stockpile_clear_list_of_countries_in_market_steamers = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -22524,7 +22524,7 @@ ase_stockpile_state_toggle_is_prioritized_steamers = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -22596,7 +22596,7 @@ ase_stockpile_country_price_target_spending_reset_steamers = {
 }
 
 ase_stockpile_state_change_direction_to_both_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -22622,7 +22622,7 @@ ase_stockpile_state_change_direction_to_both_steamers = {
 }
 
 ase_stockpile_state_change_direction_to_saving_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -22648,7 +22648,7 @@ ase_stockpile_state_change_direction_to_saving_steamers = {
 }
 
 ase_stockpile_state_change_direction_to_spending_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -22674,7 +22674,7 @@ ase_stockpile_state_change_direction_to_spending_steamers = {
 }
 
 ase_stockpile_state_change_direction_to_none_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -22700,7 +22700,7 @@ ase_stockpile_state_change_direction_to_none_steamers = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_steamers = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -23096,7 +23096,7 @@ ase_stockpile_clear_list_of_countries_in_market_steel = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -23122,7 +23122,7 @@ ase_stockpile_state_toggle_is_prioritized_steel = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -23194,7 +23194,7 @@ ase_stockpile_country_price_target_spending_reset_steel = {
 }
 
 ase_stockpile_state_change_direction_to_both_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -23220,7 +23220,7 @@ ase_stockpile_state_change_direction_to_both_steel = {
 }
 
 ase_stockpile_state_change_direction_to_saving_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -23246,7 +23246,7 @@ ase_stockpile_state_change_direction_to_saving_steel = {
 }
 
 ase_stockpile_state_change_direction_to_spending_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -23272,7 +23272,7 @@ ase_stockpile_state_change_direction_to_spending_steel = {
 }
 
 ase_stockpile_state_change_direction_to_none_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -23298,7 +23298,7 @@ ase_stockpile_state_change_direction_to_none_steel = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_steel = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -23694,7 +23694,7 @@ ase_stockpile_clear_list_of_countries_in_market_sugar = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -23720,7 +23720,7 @@ ase_stockpile_state_toggle_is_prioritized_sugar = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -23792,7 +23792,7 @@ ase_stockpile_country_price_target_spending_reset_sugar = {
 }
 
 ase_stockpile_state_change_direction_to_both_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -23818,7 +23818,7 @@ ase_stockpile_state_change_direction_to_both_sugar = {
 }
 
 ase_stockpile_state_change_direction_to_saving_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -23844,7 +23844,7 @@ ase_stockpile_state_change_direction_to_saving_sugar = {
 }
 
 ase_stockpile_state_change_direction_to_spending_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -23870,7 +23870,7 @@ ase_stockpile_state_change_direction_to_spending_sugar = {
 }
 
 ase_stockpile_state_change_direction_to_none_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -23896,7 +23896,7 @@ ase_stockpile_state_change_direction_to_none_sugar = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_sugar = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -24292,7 +24292,7 @@ ase_stockpile_clear_list_of_countries_in_market_sulfur = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -24318,7 +24318,7 @@ ase_stockpile_state_toggle_is_prioritized_sulfur = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -24390,7 +24390,7 @@ ase_stockpile_country_price_target_spending_reset_sulfur = {
 }
 
 ase_stockpile_state_change_direction_to_both_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -24416,7 +24416,7 @@ ase_stockpile_state_change_direction_to_both_sulfur = {
 }
 
 ase_stockpile_state_change_direction_to_saving_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -24442,7 +24442,7 @@ ase_stockpile_state_change_direction_to_saving_sulfur = {
 }
 
 ase_stockpile_state_change_direction_to_spending_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -24468,7 +24468,7 @@ ase_stockpile_state_change_direction_to_spending_sulfur = {
 }
 
 ase_stockpile_state_change_direction_to_none_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -24494,7 +24494,7 @@ ase_stockpile_state_change_direction_to_none_sulfur = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_sulfur = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -24890,7 +24890,7 @@ ase_stockpile_clear_list_of_countries_in_market_tanks = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -24916,7 +24916,7 @@ ase_stockpile_state_toggle_is_prioritized_tanks = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -24988,7 +24988,7 @@ ase_stockpile_country_price_target_spending_reset_tanks = {
 }
 
 ase_stockpile_state_change_direction_to_both_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -25014,7 +25014,7 @@ ase_stockpile_state_change_direction_to_both_tanks = {
 }
 
 ase_stockpile_state_change_direction_to_saving_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -25040,7 +25040,7 @@ ase_stockpile_state_change_direction_to_saving_tanks = {
 }
 
 ase_stockpile_state_change_direction_to_spending_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -25066,7 +25066,7 @@ ase_stockpile_state_change_direction_to_spending_tanks = {
 }
 
 ase_stockpile_state_change_direction_to_none_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -25092,7 +25092,7 @@ ase_stockpile_state_change_direction_to_none_tanks = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_tanks = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -25488,7 +25488,7 @@ ase_stockpile_clear_list_of_countries_in_market_tea = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -25514,7 +25514,7 @@ ase_stockpile_state_toggle_is_prioritized_tea = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -25586,7 +25586,7 @@ ase_stockpile_country_price_target_spending_reset_tea = {
 }
 
 ase_stockpile_state_change_direction_to_both_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -25612,7 +25612,7 @@ ase_stockpile_state_change_direction_to_both_tea = {
 }
 
 ase_stockpile_state_change_direction_to_saving_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -25638,7 +25638,7 @@ ase_stockpile_state_change_direction_to_saving_tea = {
 }
 
 ase_stockpile_state_change_direction_to_spending_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -25664,7 +25664,7 @@ ase_stockpile_state_change_direction_to_spending_tea = {
 }
 
 ase_stockpile_state_change_direction_to_none_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -25690,7 +25690,7 @@ ase_stockpile_state_change_direction_to_none_tea = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_tea = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -26086,7 +26086,7 @@ ase_stockpile_clear_list_of_countries_in_market_telephones = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -26112,7 +26112,7 @@ ase_stockpile_state_toggle_is_prioritized_telephones = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -26184,7 +26184,7 @@ ase_stockpile_country_price_target_spending_reset_telephones = {
 }
 
 ase_stockpile_state_change_direction_to_both_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -26210,7 +26210,7 @@ ase_stockpile_state_change_direction_to_both_telephones = {
 }
 
 ase_stockpile_state_change_direction_to_saving_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -26236,7 +26236,7 @@ ase_stockpile_state_change_direction_to_saving_telephones = {
 }
 
 ase_stockpile_state_change_direction_to_spending_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -26262,7 +26262,7 @@ ase_stockpile_state_change_direction_to_spending_telephones = {
 }
 
 ase_stockpile_state_change_direction_to_none_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -26288,7 +26288,7 @@ ase_stockpile_state_change_direction_to_none_telephones = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_telephones = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -26684,7 +26684,7 @@ ase_stockpile_clear_list_of_countries_in_market_tobacco = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -26710,7 +26710,7 @@ ase_stockpile_state_toggle_is_prioritized_tobacco = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -26782,7 +26782,7 @@ ase_stockpile_country_price_target_spending_reset_tobacco = {
 }
 
 ase_stockpile_state_change_direction_to_both_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -26808,7 +26808,7 @@ ase_stockpile_state_change_direction_to_both_tobacco = {
 }
 
 ase_stockpile_state_change_direction_to_saving_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -26834,7 +26834,7 @@ ase_stockpile_state_change_direction_to_saving_tobacco = {
 }
 
 ase_stockpile_state_change_direction_to_spending_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -26860,7 +26860,7 @@ ase_stockpile_state_change_direction_to_spending_tobacco = {
 }
 
 ase_stockpile_state_change_direction_to_none_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -26886,7 +26886,7 @@ ase_stockpile_state_change_direction_to_none_tobacco = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_tobacco = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -27282,7 +27282,7 @@ ase_stockpile_clear_list_of_countries_in_market_tools = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -27308,7 +27308,7 @@ ase_stockpile_state_toggle_is_prioritized_tools = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -27380,7 +27380,7 @@ ase_stockpile_country_price_target_spending_reset_tools = {
 }
 
 ase_stockpile_state_change_direction_to_both_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -27406,7 +27406,7 @@ ase_stockpile_state_change_direction_to_both_tools = {
 }
 
 ase_stockpile_state_change_direction_to_saving_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -27432,7 +27432,7 @@ ase_stockpile_state_change_direction_to_saving_tools = {
 }
 
 ase_stockpile_state_change_direction_to_spending_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -27458,7 +27458,7 @@ ase_stockpile_state_change_direction_to_spending_tools = {
 }
 
 ase_stockpile_state_change_direction_to_none_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -27484,7 +27484,7 @@ ase_stockpile_state_change_direction_to_none_tools = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_tools = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -27880,7 +27880,7 @@ ase_stockpile_clear_list_of_countries_in_market_wine = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -27906,7 +27906,7 @@ ase_stockpile_state_toggle_is_prioritized_wine = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -27978,7 +27978,7 @@ ase_stockpile_country_price_target_spending_reset_wine = {
 }
 
 ase_stockpile_state_change_direction_to_both_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -28004,7 +28004,7 @@ ase_stockpile_state_change_direction_to_both_wine = {
 }
 
 ase_stockpile_state_change_direction_to_saving_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -28030,7 +28030,7 @@ ase_stockpile_state_change_direction_to_saving_wine = {
 }
 
 ase_stockpile_state_change_direction_to_spending_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -28056,7 +28056,7 @@ ase_stockpile_state_change_direction_to_spending_wine = {
 }
 
 ase_stockpile_state_change_direction_to_none_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -28082,7 +28082,7 @@ ase_stockpile_state_change_direction_to_none_wine = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_wine = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {
@@ -28478,7 +28478,7 @@ ase_stockpile_clear_list_of_countries_in_market_wood = {
 }
 
 ase_stockpile_state_toggle_is_prioritized_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_toggle_is_prioritized_specific = {
@@ -28504,7 +28504,7 @@ ase_stockpile_state_toggle_is_prioritized_wood = {
 }
 
 ase_stockpile_country_reserve_weeks_target_reset_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_country_reserve_weeks_target_reset_specific = {
@@ -28576,7 +28576,7 @@ ase_stockpile_country_price_target_spending_reset_wood = {
 }
 
 ase_stockpile_state_change_direction_to_both_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_both = {
@@ -28602,7 +28602,7 @@ ase_stockpile_state_change_direction_to_both_wood = {
 }
 
 ase_stockpile_state_change_direction_to_saving_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_saving = {
@@ -28628,7 +28628,7 @@ ase_stockpile_state_change_direction_to_saving_wood = {
 }
 
 ase_stockpile_state_change_direction_to_spending_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_spending = {
@@ -28654,7 +28654,7 @@ ase_stockpile_state_change_direction_to_spending_wood = {
 }
 
 ase_stockpile_state_change_direction_to_none_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_change_direction_specific_to_none = {
@@ -28680,7 +28680,7 @@ ase_stockpile_state_change_direction_to_none_wood = {
 }
 
 ase_stockpile_state_reset_priority_and_direction_wood = {
-    scope = country
+    scope = state
 
     effect = {
         ase_stockpile_state_reset_priority_and_direction_specific = {

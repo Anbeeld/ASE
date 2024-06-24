@@ -187,9 +187,18 @@ ase_stockpile_state_toggle_is_prioritized_specific_is_valid = {
     owner.market.mg:$goods$ = owner.market.mg:$goods$
 }
 
+# TODO investigate: is_capital trigger [ Wrong scope for trigger: country, expected state ] since 1.7
 ase_stockpile_state_toggle_is_prioritized_specific_is_shown = {
-    ase_is_state_prioritized_to_stockpile_specific = {
-        goods = $goods$
+    trigger_if = {
+        limit = {
+            exists = capital
+        }
+        always = no
+    }
+    trigger_else = {
+        ase_is_state_prioritized_to_stockpile_specific = {
+            goods = $goods$
+        }
     }
 }
 
@@ -197,8 +206,17 @@ ase_stockpile_state_toggle_is_prioritized_all_goods_is_valid = {
     always = yes
 }
 
+# TODO same issue as above
 ase_stockpile_state_toggle_is_prioritized_all_goods_is_shown = {
-    ase_is_state_prioritized_to_stockpile_all_goods = yes
+    trigger_if = {
+        limit = {
+            exists = capital
+        }
+        always = no
+    }
+    trigger_else = {
+        ase_is_state_prioritized_to_stockpile_all_goods = yes
+    }
 }
 
 # ----------------------------------------------------------------------------------------------------------------------
