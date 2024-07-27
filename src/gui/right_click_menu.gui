@@ -520,8 +520,8 @@ right_click_menu = {
 	blockoverride "title_text" {
 		text = "BUILDING_RIGHT_CLICK_MENU_TITLE"
 	}
-	blockoverride "items" {
 
+	blockoverride "items" {
 		flowcontainer = {
 			visible = "[Not(Building.GetBuildingType.IsMilitaryBuilding)]"
 			direction = vertical
@@ -548,6 +548,8 @@ right_click_menu = {
 					onclick = "[Execute( Building.QueueConstruction )]"
 				}
 			}
+
+			### TOGGLE AUTO_EXPAND ON
 			right_click_menu_item = {
 				
 				blockoverride "margin" {
@@ -555,31 +557,10 @@ right_click_menu = {
 				}
 
 				blockoverride "properties" {
-					visible = "[And(IsPotential( Building.ToggleAutoExpand ),Not(Building.IsAutoExpanding))]"
-					tooltip = [Building.GetAutoExpandTooltip]
+					visible = "[And(IsPotential( Building.ToggleAutoExpand ), Not(Building.IsAutoExpanding))]"
+					tooltip = "[Building.GetAutoExpandTooltip]"
 					enabled = "[IsValid( Building.ToggleAutoExpandOn )]"
 					onclick = "[Execute( Building.ToggleAutoExpandOn )]"
-				}
-
-				blockoverride "texture" {
-					texture = "gfx/interface/production_methods/auto_expand.dds"
-				}
-				
-				blockoverride = "text" {
-					text = "BUILDING_RIGHT_CLICK_MENU_AUTOEXPAND_ON"
-				}
-			}
-
-			right_click_menu_item = {
-				
-				blockoverride "margin" {
-					margin_left = 45
-				}
-				blockoverride "properties" {
-					visible = "[And(IsPotential( Building.ToggleAutoExpand ),Building.IsAutoExpanding)]"				
-					tooltip = [Building.GetAutoExpandTooltip]
-					enabled = "[IsValid( Building.ToggleAutoExpandOff )]"
-					onclick = "[Execute( Building.ToggleAutoExpandOff )]"
 				}
 
 				blockoverride "texture" {
@@ -587,7 +568,34 @@ right_click_menu = {
 				}
 				
 				blockoverride = "text" {
+					text = "BUILDING_RIGHT_CLICK_MENU_AUTOEXPAND_ON"
+				}
+			}
+
+			### TOGGLE AUTO_EXPAND OFF
+			right_click_menu_item = {
+				
+				blockoverride "margin" {
+					margin_left = 45
+				}
+
+				blockoverride "properties" {
+					visible = "[And(IsPotential( Building.ToggleAutoExpand ), Building.IsAutoExpanding)]"				
+					tooltip = "[Building.GetAutoExpandTooltip]"
+					enabled = "[IsValid( Building.ToggleAutoExpandOff )]"
+					onclick = "[Execute( Building.ToggleAutoExpandOff )]"
+				}
+
+				blockoverride "texture" {
+					texture = "gfx/interface/production_methods/auto_expand.dds"
+				}
+				
+				blockoverride = "text" {
 					text = "BUILDING_RIGHT_CLICK_MENU_AUTOEXPAND_OFF"
+				}
+
+				icon = {
+					using = highlighted_square_selection
 				}
 			}
 
@@ -596,6 +604,7 @@ right_click_menu = {
 				blockoverride "margin" {
 					margin_left = 45
 				}
+
 				blockoverride "properties" {
 					visible = "[And(Building.IsExpandable, IsValid( Building.QueueConstruction ))]"
 					onclick = "[Building.GetBuildingType.ActivateExpansionLens]"
@@ -615,6 +624,7 @@ right_click_menu = {
 				blockoverride "margin" {
 					margin_left = 45
 				}
+
 				blockoverride "properties" {	
 					tooltip = "[Building.GetCancelConstructionTooltip]"
 					visible = "[IsValid( Building.CancelConstruction )]"
@@ -636,6 +646,7 @@ right_click_menu = {
 				blockoverride "margin" {
 					margin_left = 45
 				}
+
 				blockoverride "properties" {
 					visible = "[And( And( Building.IsValid, Building.IsDownsizeable ), Not( ShouldAskConfirmation( Building.Downsize ) ) )]"
 					tooltip = "[Building.GetDownsizeTooltip]"
@@ -657,6 +668,7 @@ right_click_menu = {
 				blockoverride "margin" {
 					margin_left = 45
 				}
+
 				blockoverride "properties" {
 					visible = "[And( And( Building.IsValid, Building.IsDownsizeable ), ShouldAskConfirmation( Building.Downsize ) )]"
 					tooltip = "[Building.GetDownsizeTooltip]"
@@ -674,20 +686,22 @@ right_click_menu = {
 			}
 		}
 
+		### TOGGLE SUBSIDIZE ON
 		right_click_menu_item = {
 			
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
-				visible = "[And(IsValid( Building.ToggleSubsidies ),Not(Building.IsSubsidized))]"			
+				visible = "[And(IsValid( Building.ToggleSubsidies ), Not(Building.IsSubsidized))]"			
 				tooltip = "[Building.GetSubsidizeTooltip]"
 				enabled = "[IsValid( Building.ToggleSubsidiesOn )]"
 				onclick = "[Execute( Building.ToggleSubsidiesOn )]"
 			}
 
 			blockoverride "texture" {
-				texture = "gfx/interface/production_methods/subsidized.dds"
+				texture = "gfx/interface/production_methods/subsidized_not.dds"
 			}
 			
 			blockoverride = "text" {
@@ -695,13 +709,15 @@ right_click_menu = {
 			}
 		}
 
+		### TOGGLE SUBSIDIZE OFF
 		right_click_menu_item = {
 			
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
-				visible = "[And(IsValid( Building.ToggleSubsidies ),Building.IsSubsidized)]"			
+				visible = "[And(IsValid( Building.ToggleSubsidies ), Building.IsSubsidized)]"			
 				tooltip = "[Building.GetSubsidizeTooltip]"
 				enabled = "[IsValid( Building.ToggleSubsidiesOff )]"
 				onclick = "[Execute( Building.ToggleSubsidiesOff )]"
@@ -714,6 +730,10 @@ right_click_menu = {
 			blockoverride = "text" {
 				text = "BUILDING_RIGHT_CLICK_MENU_SUBSIDIZE_OFF"
 			}
+
+			icon = {
+				using = highlighted_square_selection
+			}
 		}
 
 		# RESET PRODUCTION METHODS
@@ -722,6 +742,7 @@ right_click_menu = {
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
 				onclick = "[Execute( Building.ResetProductionMethodsToStandard )]"
 				enabled = "[IsValid( Building.ResetProductionMethodsToStandard )]"
@@ -736,11 +757,13 @@ right_click_menu = {
 				text = "RESET_PM_BUILDING"
 			}
 		}
+
 		right_click_menu_item = {
 			
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
 				onclick = "[Execute( Building.GetBuildingType.ResetProductionMethodsToStandard )]"
 				enabled = "[IsValid( Building.GetBuildingType.ResetProductionMethodsToStandard )]"
@@ -755,11 +778,13 @@ right_click_menu = {
 				text = "RESET_PM_BUILDING_TYPE"
 			}
 		}
+
 		right_click_menu_item = {
 			
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
 					enabled = "[IsValid( Building.NationalizeBuildingLevels( '(int32)1' ) )]"
 					onclick = "[PopupManager.ShowNationalizeBuildingConfirmation(Building.Self)]"
@@ -774,15 +799,18 @@ right_click_menu = {
 				text = "BUILDING_NATIONALIZE"
 			}
 		}
+
+		### TOGGLE PRIVITZATION ON
 		right_click_menu_item = {
 			
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
 				enabled = "[IsValid( Building.TogglePrivatization)]"
 				onclick = "[Execute( Building.TogglePrivatization)]"
-				tooltip = "[Building.GetTogglePrivatizationToolTip]"
+				tooltip = "[Building.GetTogglePrivatizationTooltip]"
 				visible = "[Building.CanBePrivatized]"
 			}
 			
@@ -793,16 +821,255 @@ right_click_menu = {
 			blockoverride = "text" {
 				text = "BUILDING_DISABLE_PRIVATIZATION"
 			}
+
+			icon = {
+				using = highlighted_square_selection
+			}
 		}
+
+		### TOGGLE PRIVITZATION OFF
 		right_click_menu_item = {
 			
 			blockoverride "margin" {
 				margin_left = 45
 			}
+
 			blockoverride "properties" {
 				enabled = "[IsValid( Building.TogglePrivatization)]"
 				onclick = "[Execute( Building.TogglePrivatization)]"
-				tooltip = "[Building.GetTogglePrivatizationToolTip]"
+				tooltip = "[Building.GetTogglePrivatizationTooltip]"
+				visible = "[Not(Building.CanBePrivatized)]"
+			}
+
+			blockoverride "texture" {
+				texture = "gfx/interface/production_methods/privatize_not.dds"
+			}
+
+			blockoverride = "text" {
+				text = "BUILDING_ENABLE_PRIVATIZATION"
+			}
+		}
+	}
+}
+
+right_click_menu = {
+	name = "building_actions_right_click_menu"
+	datacontext = "[GetMetaPlayer.GetPlayedOrObservedCountry]"
+	parentanchor = right
+
+	blockoverride "title_text" {
+		text = "BUILDING_ACTIONS_RIGHT_CLICK_MENU_TITLE"
+	}
+
+	blockoverride "items" {
+		flowcontainer = {
+			visible = "[Not(Building.GetBuildingType.IsMilitaryBuilding)]"
+			direction = vertical
+			parentanchor = hcenter
+
+			### TOGGLE AUTO_EXPAND ON
+			right_click_menu_item = {
+				
+				blockoverride "margin" {
+					margin_left = 45
+				}
+
+				blockoverride "properties" {
+					visible = "[And(IsPotential( Building.ToggleAutoExpand ), Not(Building.IsAutoExpanding))]"
+					tooltip = "[Building.GetAutoExpandTooltip]"
+					enabled = "[IsValid( Building.ToggleAutoExpandOn )]"
+					onclick = "[Execute( Building.ToggleAutoExpandOn )]"
+				}
+
+				blockoverride "texture" {
+					texture = "gfx/interface/production_methods/auto_expand_not.dds"
+				}
+				
+				blockoverride = "text" {
+					text = "BUILDING_RIGHT_CLICK_MENU_AUTOEXPAND_ON"
+				}
+			}
+
+			### TOGGLE AUTO_EXPAND OFF
+			right_click_menu_item = {
+				
+				blockoverride "margin" {
+					margin_left = 45
+				}
+
+				blockoverride "properties" {
+					visible = "[And(IsPotential( Building.ToggleAutoExpand ), Building.IsAutoExpanding)]"				
+					tooltip = "[Building.GetAutoExpandTooltip]"
+					enabled = "[IsValid( Building.ToggleAutoExpandOff )]"
+					onclick = "[Execute( Building.ToggleAutoExpandOff )]"
+				}
+
+				blockoverride "texture" {
+					texture = "gfx/interface/production_methods/auto_expand.dds"
+				}
+				
+				blockoverride = "text" {
+					text = "BUILDING_RIGHT_CLICK_MENU_AUTOEXPAND_OFF"
+				}
+
+				icon = {
+					using = highlighted_square_selection
+				}
+			}
+		}
+
+		### TOGGLE SUBSIDIZE ON
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+				visible = "[And(IsValid( Building.ToggleSubsidies ), Not(Building.IsSubsidized))]"			
+				tooltip = "[Building.GetSubsidizeTooltip]"
+				enabled = "[IsValid( Building.ToggleSubsidiesOn )]"
+				onclick = "[Execute( Building.ToggleSubsidiesOn )]"
+			}
+
+			blockoverride "texture" {
+				texture = "gfx/interface/production_methods/subsidized_not.dds"
+			}
+			
+			blockoverride = "text" {
+				text = "BUILDING_RIGHT_CLICK_MENU_SUBSIDIZE_ON"
+			}
+		}
+
+		### TOGGLE SUBSIDIZE OFF
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+				visible = "[And(IsValid( Building.ToggleSubsidies ), Building.IsSubsidized)]"			
+				tooltip = "[Building.GetSubsidizeTooltip]"
+				enabled = "[IsValid( Building.ToggleSubsidiesOff )]"
+				onclick = "[Execute( Building.ToggleSubsidiesOff )]"
+			}
+
+			blockoverride "texture" {
+				texture = "gfx/interface/production_methods/subsidized.dds"
+			}
+			
+			blockoverride = "text" {
+				text = "BUILDING_RIGHT_CLICK_MENU_SUBSIDIZE_OFF"
+			}
+
+			icon = {
+				using = highlighted_square_selection
+			}
+		}
+
+		# RESET PRODUCTION METHODS
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+				onclick = "[Execute( Building.ResetProductionMethodsToStandard )]"
+				enabled = "[IsValid( Building.ResetProductionMethodsToStandard )]"
+				tooltip = "[Building.GetResetProductionMethodsToStandardTooltip]"
+			}
+
+			blockoverride "texture" {
+				texture = "gfx/interface/icons/lens_toolbar_icons/reset_production_methods_lens_option.dds"
+			}
+			
+			blockoverride = "text" {
+				text = "RESET_PM_BUILDING"
+			}
+		}
+
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+				onclick = "[Execute( Building.GetBuildingType.ResetProductionMethodsToStandard )]"
+				enabled = "[IsValid( Building.GetBuildingType.ResetProductionMethodsToStandard )]"
+				tooltip = "[Building.GetBuildingType.GetResetProductionMethodsToStandardTooltip]"
+			}
+
+			blockoverride "texture" {
+				texture = "gfx/interface/icons/lens_toolbar_icons/reset_production_methods_lens_option.dds"
+			}
+			
+			blockoverride = "text" {
+				text = "RESET_PM_BUILDING_TYPE"
+			}
+		}
+
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+					enabled = "[IsValid( Building.NationalizeBuildingLevels( '(int32)1' ) )]"
+					onclick = "[PopupManager.ShowNationalizeBuildingConfirmation(Building.Self)]"
+					tooltip = "BUILDING_NATIONALIZE_TOOLTIP"
+			}
+			
+			blockoverride "texture" {
+				texture = "gfx/interface/production_methods/nationalize.dds"
+			}
+			
+			blockoverride = "text" {
+				text = "BUILDING_NATIONALIZE"
+			}
+		}
+
+		### TOGGLE PRIVITZATION ON
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+				enabled = "[IsValid( Building.TogglePrivatization)]"
+				onclick = "[Execute( Building.TogglePrivatization)]"
+				tooltip = "[Building.GetTogglePrivatizationTooltip]"
+				visible = "[Building.CanBePrivatized]"
+			}
+			
+			blockoverride "texture" {
+				texture = "gfx/interface/production_methods/privatize.dds"
+			}
+			
+			blockoverride = "text" {
+				text = "BUILDING_DISABLE_PRIVATIZATION"
+			}
+
+			icon = {
+				using = highlighted_square_selection
+			}
+		}
+
+		### TOGGLE PRIVITZATION OFF
+		right_click_menu_item = {
+			
+			blockoverride "margin" {
+				margin_left = 45
+			}
+
+			blockoverride "properties" {
+				enabled = "[IsValid( Building.TogglePrivatization)]"
+				onclick = "[Execute( Building.TogglePrivatization)]"
+				tooltip = "[Building.GetTogglePrivatizationTooltip]"
 				visible = "[Not(Building.CanBePrivatized)]"
 			}
 
@@ -1006,7 +1273,7 @@ right_click_menu = {
 
 	blockoverride "items" {
 		dynamicgridbox = {
-			datamodel = "[MilitaryFormation.GetEligibleTypesByGroup( CombatUnitGroup.AccessSelf )]"
+			datamodel = "[MilitaryFormation.GetEligibleTypesByGroup( CombatUnitGroup.Self )]"
 			
 			item = {
 				flowcontainer = {
@@ -4580,7 +4847,7 @@ right_click_menu = {
 			}
 
 			blockoverride "left_text" {
-				text = "POTENTIAL_BLOC_ACTIONS"
+				text = "POTENTIAL_BLOC_LEADER_ACTIONS"
 			}
 
 			blockoverride "section_header_right_text" {
@@ -4945,7 +5212,7 @@ right_click_menu = {
 			blockoverride "text" {
 				text = "UNTAX_GOODS"
 			}		
-		}
+		}		
 
 		# Both saving and spending
         right_click_menu_item = {
@@ -5375,7 +5642,7 @@ right_click_menu = {
 			blockoverride "text" {
 				text = "TRADE_ROUTE_CANCEL"
 			}		
-		}
+		}		
 
 		# Both saving and spending
         right_click_menu_item = {
