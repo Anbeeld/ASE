@@ -510,7 +510,7 @@ types stockpile
         flowcontainer = {
             direction = vertical
             
-            stockpile_panel_transfers = {}
+            stockpile_panel_transfer = {}
             stockpile_panel_limit = {}
         }
 
@@ -526,7 +526,7 @@ types stockpile
         }
     }
 
-    type stockpile_panel_transfers = widget {
+    type stockpile_panel_transfer = widget {
         size = { 245 48 }
         hbox = {                                            
             textbox = {
@@ -546,16 +546,13 @@ types stockpile
                     tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
 
                     blockoverride "button_texture" {
-                        texture = "gfx/interface/icons/trade_icons/unfocused.dds"
+                        texture = "gfx/interface/icons/trade_icons/trade_potential.dds"
                     }
                     blockoverride "click" {
                         onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
                     }
-                    blockoverride "setvisible" {
+                    blockoverride "is_selected_visibility" {
                         visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-                    }
-                    blockoverride "setvisible_2" {
-                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
                     }
                 }
 
@@ -570,11 +567,8 @@ types stockpile
                     blockoverride "click" {
                         onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
                     }
-                    blockoverride "setvisible" {
+                    blockoverride "is_selected_visibility" {
                         visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-                    }
-                    blockoverride "setvisible_2" {
-                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
                     }
                 }
 
@@ -589,11 +583,8 @@ types stockpile
                     blockoverride "click" {
                         onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
                     }
-                    blockoverride "setvisible" {
+                    blockoverride "is_selected_visibility" {
                         visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-                    }
-                    blockoverride "setvisible_2" {
-                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
                     }
                 }
 
@@ -614,11 +605,8 @@ types stockpile
                     blockoverride "click" {
                         onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
                     }
-                    blockoverride "setvisible" {
+                    blockoverride "is_selected_visibility" {
                         visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-                    }
-                    blockoverride "setvisible_2" {
-                        visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
                     }
                 }
             }
@@ -1389,17 +1377,14 @@ types stockpile
                 tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
 
                 blockoverride "button_texture" {
-                    texture = "gfx/interface/icons/trade_icons/unfocused.dds"
+                    texture = "gfx/interface/icons/trade_icons/trade_potential.dds"
                 }
                 blockoverride "click" {
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
 
@@ -1415,11 +1400,8 @@ types stockpile
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
 
@@ -1435,11 +1417,8 @@ types stockpile
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
 
@@ -1461,11 +1440,8 @@ types stockpile
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
         }
@@ -1481,17 +1457,14 @@ types stockpile
                 tooltip = "ASE_STOCKPILE_TRANSFERS_BOTH_TOOLTIP"
 
                 blockoverride "button_texture" {
-                    texture = "gfx/interface/icons/trade_icons/unfocused.dds"
+                    texture = "gfx/interface/icons/trade_icons/trade_potential.dds"
                 }
                 blockoverride "click" {
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
 
@@ -1507,11 +1480,8 @@ types stockpile
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
 
@@ -1527,11 +1497,8 @@ types stockpile
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
 
@@ -1553,11 +1520,8 @@ types stockpile
                     enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
                 }
-                blockoverride "setvisible" {
+                blockoverride "is_selected_visibility" {
                     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End)]"
-                }
-                blockoverride "setvisible_2" {
-                    visible = "[Not(ScriptedGui.IsShown(GuiScope.SetRoot(GoodsStatePanel.GetGoods.GetState.MakeScope).End))]"
                 }
             }
         }
